@@ -1,0 +1,17 @@
+create or replace package body PACK_TRIGGERS0 as
+
+Procedure INSERT_MASCOTA
+  (nom in varchar2, id_mascota number) as
+   begin
+     insert into bitacora(
+     values(s_usuario.currval, email, 'User');
+
+     insert into direccion(id_direccion, pais, provincia, canton, distrito, direccion_exacta)
+     values(s_usuario.currval, pais1, provincia1, canton1, distrito1, direc_exact);
+
+     insert into usuario(id_usuario, nombre, user_name, contraseña, tipo_user)
+     values(s_usuario.currval, nom, nomusr, contra, 1);
+
+     commit;
+     --falta considerar excepciones
+end SET_USUARIO;
