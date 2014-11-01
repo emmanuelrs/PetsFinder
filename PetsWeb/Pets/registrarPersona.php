@@ -102,10 +102,10 @@
                 	<input id="contact_email" type="text" placeholder="Nombre de usuario" value="" name="nombre_usuario" />
                 </p>
                  <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="contrasena" />
+                	<input id="contact_email" type="password" placeholder="Contraseña" value="" name="contrasena" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Confirmar contraseña" value="" name="confirm_contrasena" />
+                	<input id="contact_email" type="password" placeholder="Confirmar contraseña" value="" name="confirm_contrasena" />
                 </p>
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Telefono" value="" name="telefono" />
