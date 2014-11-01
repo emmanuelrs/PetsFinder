@@ -26,7 +26,6 @@ STORAGE (INITIAL 6144
 COMMENT ON TABLE ORGANIZACION_CASA_CUNA IS 'Tabla para el alacenamiento de organizaciones q trabajan con animales perdidos';
 comment on column ORGANIZACION_CASA_CUNA.ID_ORGANIZACION is 'llave primaria de la tabla de organizacion casa cuna';
 comment on column ORGANIZACION_CASA_CUNA.NOMBRE_ORG is 'Nombre de la organizacion';
-comment on column ORGANIZACION_CASA_CUNA.MASCOTA_ADMITIDA is 'llave para el valores reales de las mascotas admitidas';
 
 comment on column ORGANIZACION_CASA_CUNA.DONACION is 'llave para los valores de las donaciones q a recibido la organizacion';
 

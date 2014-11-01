@@ -198,7 +198,7 @@ STORAGE (INITIAL 6144
 COMMENT ON TABLE CASA_CUNA IS 'Tabla para el alacenamiento de los usuarios q desean ser casa cuna';
 comment on column CASA_CUNA.ID_CASA_CUNA is 'llave primaria de la tabla casa cuna';
 comment on column CASA_CUNA.ID_PERSONA is 'llave q indica q usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA.TIPO_MASCOTA is 'indicador del tipo de mascota al cual se desea ser casa cuna por ejm PERRO, GATO, IGUANA ETC';
+
 comment on column CASA_CUNA.RAZA is 'raza de la mascota de la cua se desea ser casa cuna';
 comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
 
