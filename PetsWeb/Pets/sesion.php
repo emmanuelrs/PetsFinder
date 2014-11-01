@@ -20,7 +20,6 @@
 
 <!-- Mobile Internet Explorer ClearType Technology -->
 <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
-
 <!-- Bootstrap -->
 <link href="_include/css/bootstrap.min.css" rel="stylesheet">
 
@@ -59,6 +58,23 @@
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<script src="http:/code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="main.js"></script>
+<style>
+form{
+	margin: 90px auto;
+	width: 200px;
+}
+h1{
+	text-align: center;
+}
+.fa{
+	display: none;
+}
+</style>
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
 
@@ -93,22 +109,20 @@
             </ul>
         </nav>   
     </div>
-  <!-- Contact Form -->
-    <div class="row">
-    	<div class="span9">
-        
-        	<form id="contact-form" class="contact-form" action="#">
-            	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Nombre Usuario" value="" name="name" />
-                </p>
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="email" />
-                </p>
-                <p class="contact-submit">
-                	<a id="contact-submit" class="submit" href="sesion activa.php">Iniciar Sesión</a>
-                </p>     
-                </div>
-            </form>
+    
+    <h1> <br/>Bienvenido</h1>
+    <form>
+    	<p>
+        	<label for="NombreUsuario">Nombre de Usuario</label>
+            <input class="form-control" id="NombreUsuario" name="NombreUsuario" type="text"/>
+        </p>
+        <p>
+        	<label for="Contraseña">Contraseña</label>
+            <input class="form-control" id="Contraseña" name="Contraseña" type="password"/>
+        </p>
+        <input class="btn btn-primary" type="submit" value="Login">
+        <i class="fa fa-refresh fa-spin"></i>
+    </form>
+    <span></span>
 </body>
 </html>
-
