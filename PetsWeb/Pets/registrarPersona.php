@@ -123,7 +123,7 @@
                   <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name = "direccion" >
                 </p>
                 <p class="contact-submit">
-                	<a href = "registrar_usuario.php"><input type="submit" value="Enviar" class="boton"><a/>
+                	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
                 </p>     
                 </div>
             </form>

@@ -99,11 +99,7 @@ CREATE TABLE TELEFONO(
               CONSTRAINT ID_TEL_NN NOT NULL,
        TIPO_TEL number(8)
               CONSTRAINT TIPO_TEL_NN NOT NULL,
-<<<<<<< HEAD
        TELEFONO varchar2(12)
-=======
-       TELEFONO VARCHAR2(20) 
->>>>>>> origin/master
               CONSTRAINT TELEFENO_USER_NN NOT NULL
               CONSTRAINT TELEFONO_USER_UK UNIQUE,
 
