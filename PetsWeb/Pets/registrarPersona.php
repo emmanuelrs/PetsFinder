@@ -107,6 +107,12 @@
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Confirmar contraseña" value="" name="confirm_contrasena" />
                 </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Telefono" value="" name="telefono" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Email" value="" name="email" />
+                </p>
                 <select name="Provincia">
    				<option selected value="0"> Elige su provincia </option>
        			<optgroup label="Provincias">
@@ -120,7 +126,7 @@
    				</optgroup>
 				</select>
                 <p class="contact-message">
-                  <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name = "direccion" >
+                  <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name="direccion" >
                 </p>
                 <p class="contact-submit">
                 	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
