@@ -5,17 +5,17 @@ Procedure SET_USUARIO
 
    canton1 in varchar2, distrito1 in varchar2, direc_exact in varchar2) as
    begin
-     insert into email(id_email, valor_email, tipo_email)
+     insert into email(ID_EMAIL,TIPO_EMAIL,VALOR_EMAIL)
      values(s_usuario.nextval, email, 'User');
-     
-     insert into telefono(id_tel, telefono, tipo_tel)
-     values(s_usuario.currval, tel, 'User'); 
+
+     insert into telefono(id_tel, tipo_tel, telefono)
+     values(s_usuario.currval, tel, 'User');
 
      insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
      values(s_usuario.currval,'User', pais1, provincia1, canton1, distrito1, direc_exact);
 
-     insert into usuario(id_usuario, nombre, user_name, contraseña, tipo_user)
-     values(s_usuario.currval, nom, nomusr, contra, 1);
+     insert into usuario(id_usuario, tipo, nombre, user_name, contraseña, tipo_user)
+     values(s_usuario.currval,'User' ,nom, nomusr, contra, 1);
 
      commit;
      --falta considerar excepciones
@@ -49,21 +49,22 @@ end SET_MASCOTA;
 
 /* FALTA CON UN TRIGER SACAR EL ID DEL USUARIO Q REGISTRA LA MASCOTA */
 
+
 Procedure SET_ORGANIZACION
   (nombre_org in varchar2, tel in number, email in varchar2, pais1 in varchar2, provincia1 in varchar2,
    canton1 in varchar2, distrito1 in varchar2, direc_exact in varchar2) as
   begin
-    insert into telefono(id_tel, telefono, tipo_tel)
-    values(s_org.nextval, tel, 'Org');
+    insert into telefono(id_tel, tipo_tel, telefono)
+    values(s_org.nextval,'Org',tel);
 
     insert into email(id_email, valor_email, tipo_email)
     values(s_org.currval, email, 'Org');
 
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-    values(s_org.currval,'Org',pais1, provincia1, canton1, distrito1, direc_exact);
+    values(s_org.currval,'Org' ,pais1, provincia1, canton1, distrito1, direc_exact);
 
-    insert into organizacion_casa_cuna(id_organizacion, nombre_org)
-    values(s_org.currval, nombre_org);
+    insert into organizacion_casa_cuna(id_organizacion, tipo, nombre_org)
+    values(s_org.currval,'Org', nombre_org);
     commit;
     --falta considerar excepciones
 end SET_ORGANIZACION;
