@@ -228,7 +228,7 @@ create sequence s_blackList
  alter table USUARIO
   add constraint DIRECCION_FK
   foreign key (ID_USUARIO)
-  references DIRECCION(ID_DIRECCION);
+  references DIRECCION(ID_DIRECCION, TIPO_DIREC);
   
  alter table USUARIO
   add constraint TIPO_USER_FK
@@ -238,12 +238,12 @@ create sequence s_blackList
  alter table USUARIO
   add constraint TEL_USUARIO_FK
   foreign key (ID_USUARIO)
-  references TELEFONO(ID_TEL);
+  references TELEFONO(ID_TEL,TIPO_TEL);
 
  alter table USUARIO
   add constraint EMAIL_USER_FK
   foreign key (ID_USUARIO)
-  references EMAIL(ID_EMAIL);
+  references EMAIL(ID_EMAIL,TIPO_EMAIL);
   
  alter table LISTA_NEGRA
   add constraint BLACK_USER_FK
