@@ -1,4 +1,4 @@
-﻿--PARMISOS PARA ADMINISTRADOR
+--PARMISOS PARA ADMINISTRADOR
 
 grant create any view to AD; 
 grant create public synonym to AD;
@@ -12,7 +12,7 @@ grant create any trigger to AD;
 grant create any job to AD;
 
 grant create any directory to AD;
-create or replace directory DIRECTORIO as 'C:\xampp\htdocs\PetsFinder\Página\img'; -- cambiar directorio para las imagenes ;
+create or replace directory DIRECTORIO as 'C:\xampp\htdocs\PetsFinder\img'; -- cambiar directorio para las imagenes ;
 GRANT READ ON DIRECTORY Directorio to AD;
 
 
