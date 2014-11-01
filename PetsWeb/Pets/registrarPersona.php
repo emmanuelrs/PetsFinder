@@ -94,20 +94,20 @@
     <div class="row">
     	<div class="span9">
         
-        	<form id="contact-form" class="contact-form" action="#">
+        	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
             	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Nombre completo" value="" name="name" />
+            		<input id="contact_name" type="text" placeholder="Nombre completo" value="" name="nombre" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Nombre de usuario" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Nombre de usuario" value="" name="nombre_usuario" />
                 </p>
                  <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="contrasena" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Confirmar contraseña" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Confirmar contraseña" value="" name="confirm_contrasena" />
                 </p>
-                <select name="OS">
+                <select name="Provincia">
    				<option selected value="0"> Elige su provincia </option>
        			<optgroup label="Provincias">
       			<option value="San José">San José</option>
@@ -120,10 +120,10 @@
    				</optgroup>
 				</select>
                 <p class="contact-message">
-                  <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25">
+                  <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name = "direccion" >
                 </p>
                 <p class="contact-submit">
-                	<a id="contact-submit" class="submit" href="#">Registrar</a>
+                	<a id="contact-submit" class="submit" href="registrar_usuario.php">Registrar</a>
                 </p>     
                 </div>
             </form>
