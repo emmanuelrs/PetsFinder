@@ -1,5 +1,8 @@
 <?php
-	$tag = $_POST['tag'];
+	
+	$nombre = $_POST['NombreUsuario'];
+	$pass = $_POST['Contraseña'];
+
 
 	if(isset($tag) && $tag !== ''){
 		if ($tag == 'login'){

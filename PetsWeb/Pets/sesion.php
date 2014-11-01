@@ -111,7 +111,7 @@ h1{
     </div>
     
     <h1> <br/>Bienvenido</h1>
-    <form>
+    <form action = "process.php" method = 'POST' >
     	<p>
         	<label for="NombreUsuario">Nombre de Usuario</label>
             <input class="form-control" id="NombreUsuario" name="NombreUsuario" type="text"/>
