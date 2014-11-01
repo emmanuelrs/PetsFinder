@@ -96,11 +96,29 @@
         
         	<form id="contact-form" class="contact-form" action="#">
             	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Full Name" value="" name="name" />
+            		<input id="contact_name" type="text" placeholder="Nombre completo" value="" name="name" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Email Address" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Nombre de usuario" value="" name="email" />
                 </p>
+                 <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="email" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Confirmar contraseña" value="" name="email" />
+                </p>
+                <select name="OS">
+   				<option selected value="0"> Elige su provincia </option>
+       			<optgroup label="Provincias">
+      			<option value="San José">San José</option>
+     			<option value="Alajuela">Alajuela</option>
+       			<option value="Cartago">Cartago</option>
+                <option value="Heredia">Heredia</option>
+                <option value="Limón">Limón</option>
+                <option value="Guanacaste">Guanacaste</option>
+                <option value="Puntarenas">Puntarenas</option>
+   				</optgroup>
+				</select>
                 <p class="contact-message">
                 	<textarea id="contact_message" placeholder="Your Message" name="message" rows="15" cols="40"></textarea>
                 </p>
@@ -108,9 +126,8 @@
                 	<a id="contact-submit" class="submit" href="#">Send Your Email</a>
                 </p>
                 
-                <div id="response">
-                
                 </div>
+                
             </form>
          
         </div>
