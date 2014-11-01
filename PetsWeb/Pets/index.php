@@ -11,7 +11,7 @@
 
 <title>PetsFinder Costa Rica</title>   
 
-<meta name="description" content="Insert Your Site Description" /> 
+<meta name="description" content="Busca y encuentra tus mascotas" /> 
 
 <!-- Mobile Specifics -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,7 +124,7 @@
                 <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
-				<li><a href="shortcodes.pho" class="external">Shortcodes</a></li>
+				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
             </ul>
         </nav>
         

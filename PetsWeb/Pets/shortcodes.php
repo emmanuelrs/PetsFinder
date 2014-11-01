@@ -9,9 +9,9 @@
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>Shortcodes | Brushed | Responsive One Page Template</title>   
+<title>PetsFinder Costa Rica</title>   
 
-<meta name="description" content="Insert Your Site Description" /> 
+<meta name="description" content="Busca y encuentra tus mascotas" /> 
 
 <!-- Mobile Specifics -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,11 +114,11 @@
         
         <nav id="menu">
         	<ul id="menu-nav">
-            	<li><a href="index.html#home-slider" class="external">Home</a></li>
-                <li><a href="index.html#work" class="external">Our Work</a></li>
-                <li><a href="index.html#about" class="external">About Us</a></li>
-                <li><a href="index.html#contact" class="external">Contact</a></li>
-                <li class="current"><a href="shortcodes.html">Shortcodes</a></li>
+            	<li class="current"><a href="index.php" class="external">Inicio</a></li>
+                <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
+                <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
+                <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
+				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
             </ul>
         </nav>
         
