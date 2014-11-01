@@ -3,6 +3,8 @@
 CREATE TABLE ORGANIZACION_CASA_CUNA(
        ID_ORGANIZACION NUMBER(8)
               CONSTRAINT ID_ORGANIZACION_NN NOT NULL,
+       TIPO VARCHAR2(20)
+              CONSTRAINT ORGANIZACION_TIPO_NN NOT NULL,
        NOMBRE_ORG VARCHAR2(50)
               CONSTRAINT NOMBREORG_NN NOT NULL,
        DONACION NUMBER(8)
@@ -120,18 +122,18 @@ create sequence s_donacion
   add constraint DONACIONES_FK
   foreign key (DONACION)
   references DONACIONES(ID_DONACION);
-  
+
  alter table ORGANIZACION_CASA_CUNA
   add constraint TELEFONO_ORG_FK
-  foreign key (ID_ORGANIZACION)
-  references TELEFONO(ID_TEL);
+  foreign key (ID_ORGANIZACION,TIPO)
+  references TELEFONO(ID_TEL,TIPO_TEL);
    
  alter table ORGANIZACION_CASA_CUNA
   add constraint EMAIL_ORG_FK
-  foreign key (ID_ORGANIZACION)
-  references EMAIL(ID_EMAIL);
+  foreign key (ID_ORGANIZACION,TIPO)
+  references EMAIL(ID_EMAIL,TIPO_EMAIL);
   
  alter table ORGANIZACION_CASA_CUNA
   add constraint DIRECCION_ORG_FK
-  foreign key (ID_ORGANIZACION)
-  references DIRECCION(ID_DIRECCION);
+  foreign key (ID_ORGANIZACION,TIPO)
+  references DIRECCION(ID_DIRECCION,TIPO_DIREC);

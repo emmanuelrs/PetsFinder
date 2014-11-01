@@ -1,0 +1,139 @@
+--Tabla organizacion casa cuna almacenara las posibles organizaciones que se dedican a albergar las mascotas perdidas o callejeras
+
+CREATE TABLE ORGANIZACION_CASA_CUNA(
+       ID_ORGANIZACION NUMBER(8)
+              CONSTRAINT ID_ORGANIZACION_NN NOT NULL,
+       TIPO VARCHAR2(20)
+              CONSTRAINT ORGANIZACION_TIPO_NN NOT NULL,
+       NOMBRE_ORG VARCHAR2(50)
+              CONSTRAINT NOMBREORG_NN NOT NULL,
+       DONACION NUMBER(8)
+              CONSTRAINT DANACION_UK UNIQUE,
+       
+       CONSTRAINT PK_ORGANIZACION
+       primary key (ID_ORGANIZACION)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
+-- comentarios organizacion
+COMMENT ON TABLE ORGANIZACION_CASA_CUNA IS 'Tabla para el alacenamiento de organizaciones q trabajan con animales perdidos';
+comment on column ORGANIZACION_CASA_CUNA.ID_ORGANIZACION is 'llave primaria de la tabla de organizacion casa cuna';
+comment on column ORGANIZACION_CASA_CUNA.NOMBRE_ORG is 'Nombre de la organizacion';
+comment on column ORGANIZACION_CASA_CUNA.MASCOTA_ADMITIDA is 'llave para el valores reales de las mascotas admitidas';
+
+comment on column ORGANIZACION_CASA_CUNA.DONACION is 'llave para los valores de las donaciones q a recibido la organizacion';
+
+
+--Tabla de mascotas admitidas en una org
+CREATE TABLE MASCOTA_ADMITIDA(
+       ID_MASCOTA_AD NUMBER(8),
+       TIPO_MASCOTA VARCHAR2(30)
+              CONSTRAINT TIPO_MASCOTA_AD_NN NOT NULL,
+       RAZA_MASCOTA_AD NUMBER(8)
+              CONSTRAINT RAZA_MASCOTA_AD_UK UNIQUE,
+       
+       CONSTRAINT PK_MASCOTA_ADMITIDA
+       primary key (ID_MASCOTA_AD)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
+
+-- comentarios tabla mascotas admitidas en org
+COMMENT ON TABLE MASCOTA_ADMITIDA IS 'Tabla para el alacenamiento de las mascotas admitidas en las organizaciones';
+comment on column MASCOTA_ADMITIDA.ID_MASCOTA_AD is 'llave primaria de la tabla de mascotas admitidas';
+comment on column MASCOTA_ADMITIDA.TIPO_MASCOTA is 'tipo de mascotas q admitira la organizacion';
+
+
+--Tabla de donaciones a las organizaciones
+CREATE TABLE DONACIONES(
+       ID_DONACION NUMBER(8)
+              CONSTRAINT ID_DANACION_NN NOT NULL,
+       DONADOR NUMBER(8)
+              CONSTRAINT DONADOR_UK UNIQUE,
+       CANTIDAD NUMBER(12)
+              CONSTRAINT CANTIDAD_DONACION_NN NOT NULL,
+       
+       CONSTRAINT PK_DONACIONES
+       primary key (ID_DONACION)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
+-- comentarios organizacion
+COMMENT ON TABLE DONACIONES IS 'Tabla para el alacenamiento de las donaciones q se le hacen a las organizaciones';
+comment on column DONACIONES.ID_DONACION is 'llave primaria de la tabla de donaciones';
+comment on column DONACIONES.DONADOR is 'llave al valor real del usuario que hace la donacion';
+comment on column DONACIONES.CANTIDAD is 'cantidad de la donacion';
+
+--secuencias
+create sequence s_org
+       start with 0
+       increment by 1
+       minvalue 0
+       maxvalue 10000000
+       nocache
+       nocycle;
+       
+create sequence s_mascotaAd
+       start with 0
+       increment by 1
+       minvalue 0
+       maxvalue 10000000
+       nocache
+       nocycle;
+       
+       
+create sequence s_donacion
+       start with 0
+       increment by 1
+       minvalue 0
+       maxvalue 10000000
+       nocache
+       nocycle;
+       
+--FOREIGN KEY
+
+ alter table MASCOTA_ADMITIDA
+  add constraint RAZA_AD_FK
+  foreign key (RAZA_MASCOTA_AD)
+  references RAZA(ID_RAZA);
+
+ alter table ORGANIZACION_CASA_CUNA
+  add constraint DONACIONES_FK
+  foreign key (DONACION)
+  references DONACIONES(ID_DONACION);
+
+ alter table ORGANIZACION_CASA_CUNA
+  add constraint TELEFONO_ORG_FK
+  foreign key (ID_ORGANIZACION,TIPO)
+  references TELEFONO(ID_TEL,TIPO_TEL);
+   
+ alter table ORGANIZACION_CASA_CUNA
+  add constraint EMAIL_ORG_FK
+  foreign key (ID_ORGANIZACION,TIPO)
+  references EMAIL(ID_EMAIL,TIPO_EMAIL);
+  
+ alter table ORGANIZACION_CASA_CUNA
+  add constraint DIRECCION_ORG_FK
+  foreign key (ID_ORGANIZACION,TIPO)
+  references DIRECCION(ID_DIRECCION,TIPO_DIREC);

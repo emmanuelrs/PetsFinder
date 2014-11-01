@@ -2,6 +2,8 @@
 CREATE TABLE MASCOTA(
        ID_MASCOTA NUMBER(8)
               CONSTRAINT ID_MASCOTA_NN NOT NULL,
+       TIPO VARCHAR2(20)
+              CONSTRAINT MASCOTA_TIPO_NN NOT NULL,
        NOMBRE VARCHAR2(35)
               CONSTRAINT NOMBREMASCOTA_NN NOT NULL,
        TIPO_Y_RAZA NUMBER(8)
@@ -117,3 +119,18 @@ alter table MASCOTA
   add constraint RAZA_FK
   foreign key (TIPO_Y_RAZA)
   references RAZA(ID_RAZA);
+  
+alter table MASCOTA
+  add constraint DIRECCION_MASCOTA_FK
+  foreign key (ID_MASCOTA,TIPO)
+  references DIRECCION(ID_DIRECCION, TIPO_DIREC);
+  
+alter table MASCOTA
+  add constraint TEL_MASCOTA_FK
+  foreign key (ID_MASCOTA,TIPO)
+  references TELEFONO(ID_TEL,TIPO_TEL);
+
+alter table MASCOTA
+  add constraint EMAIL_MASCOTA_FK
+  foreign key (ID_MASCOTA, TIPO)
+  references EMAIL(ID_EMAIL,TIPO_EMAIL); 
