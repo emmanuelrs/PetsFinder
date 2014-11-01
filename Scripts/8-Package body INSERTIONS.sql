@@ -23,7 +23,8 @@ end SET_USUARIO;
 
 procedure SET_MASCOTA
   (nombre_m in varchar2, tipo_m in varchar2, raza_m in varchar2, imagen_m in varchar2,  chip_ident in varchar2, color_m in varchar2,
-  estado_m in varchar2, lugar1 in varchar2, recompensa1 in number, descripcion in varchar) as
+   estado_m in varchar2, pais1 in varchar2, provincia1 in varchar2, canton1 in varchar2, distrito1 in varchar2, detalle_direc in varchar2,
+   recompensa1 in number, descripcion in varchar) as
            tipo_y_raza1 number(8);
            v_blob blob;
            v_bfile bfile;
@@ -39,8 +40,11 @@ procedure SET_MASCOTA
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
             DBMS_LOB.CLOSE(v_bfile);
     commit;
-    insert into MASCOTA(ID_MASCOTA, NOMBRE, TIPO_Y_RAZA, CHIP_IDENTIFICACION, COLOR, ESTADO, LUGAR, RECOMPENSA, DESCRIPCION)
-           values(s_mascota.currval, nombre_m, tipo_y_raza1, chip_ident, color_m, estado_m, lugar1, recompensa1, descripcion);
+     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
+    values(s_mascota.currval, 'pet', pais1, provincia1, canton1, distrito1, detalle_direc);
+
+    insert into MASCOTA(ID_MASCOTA, TIPO, NOMBRE, TIPO_Y_RAZA, CHIP_IDENTIFICACION, COLOR, ESTADO, RECOMPENSA, DESCRIPCION)
+           values(s_mascota.currval, 'pet', nombre_m, tipo_y_raza1, chip_ident, color_m, estado_m, recompensa1, descripcion);
     commit;
     exception
     when NO_DATA_FOUND then

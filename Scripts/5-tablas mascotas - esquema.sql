@@ -13,8 +13,6 @@ CREATE TABLE MASCOTA(
        COLOR VARCHAR2(25),
        ESTADO NUMBER(8) --EJM PERDIDO, ENCONTRADO, ADOPTADO, EN CASA CUNA
               CONSTRAINT ESTADO_NN NOT NULL,
-       LUGAR NUMBER(8)
-              CONSTRAINT LUGAR_NN NOT NULL,
        RECOMPENSA NUMBER(12),
        DESCRIPCION VARCHAR2(250),
        USUARIO_REGISTRA NUMBER(8)
@@ -40,7 +38,6 @@ comment on column MASCOTA.TIPO_Y_RAZA is 'raza de la mascota';
 comment on column MASCOTA.CHIP_IDENTIFICACION is 'posible identificacion de la mascota';
 comment on column MASCOTA.COLOR is 'color de la mascota o posible mescla de colores de la misma';
 comment on column MASCOTA.ESTADO is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
-comment on column MASCOTA.LUGAR is 'lugar donde se perdio o se encontro la mascota';
 comment on column MASCOTA.RECOMPENSA is 'indicador de una posible recompenza por encontrar la mascota';
 comment on column MASCOTA.DESCRIPCION is 'comentarios sobre la mascota perdida o encontrada';
 comment on column MASCOTA.USUARIO_REGISTRA is 'llave de la persona q perdio o encontro la mascota';
