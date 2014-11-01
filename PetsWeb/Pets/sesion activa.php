@@ -79,70 +79,19 @@
 <!-- End Analytics -->
 
 </head>
+
+
 <body>
-<nav id="menu">
+
+        <nav id="menu">
         	<ul id="menu-nav">
-            	<li class="current"><a href="index.html" class="external">Inicio</a></li>
+            	<li class="current"><a href="index.php" class="external">Inicio</a></li>
                 <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
 				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
             </ul>
-        </nav>  
+        </nav>   
     </div>
-       <div class="row">
-    	<div class="span9">
-        
-        	<form id="contact-form" class="contact-form" action="#">
-            	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Nombre mascota" value="" name="name" />
-                </p>
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Chip identificacion si no posee coloque 0" value="" name="email" />
-                </p>
-                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Color" value="" name="email" />
-                </p>
 
-                <select name="direccion">
-   				<option selected value="0"> Elige su provincia </option>
-       			<optgroup label="Provincias">
-      			<option value="San José">San José</option>
-     			<option value="Alajuela">Alajuela</option>
-       			<option value="Cartago">Cartago</option>
-                <option value="Heredia">Heredia</option>
-                <option value="Limón">Limón</option>
-                <option value="Guanacaste">Guanacaste</option>
-                <option value="Puntarenas">Puntarenas</option>
-   				</optgroup>
-				</select>
-                
-                <select name="estado">
-   				<option selected value="0"> Indique el estado del la mascota </option>
-       			<optgroup label="Estados">
-      			<option value="Perdido">Perdido</option>
-     			<option value="Encontrado">Encontrado</option>
-   				</optgroup>
-				</select>
-                
-                <select name="raza">
-   				<option selected value="0"> seleccione la raza de su mascota </option>
-       			<optgroup label="Perros">
-      			<option value="Salchicha">Salchicha</option>
-     			<option value="Gran Danes">Gran Danes</option>
-                <option value="Raza Unica">Raza Unica</option>
-                <optgroup label="Gatos">
-      			<option value="Angora">Angora</option>
-     			<option value="Raza Unica">Raza Unica</option>
-   				</optgroup>
-				</select>
-                <p class="contact-message">
-                  <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la mascota" value=		"" size="25">
-                </p>
-                <p class="contact-submit">
-                	<a id="contact-submit" class="submit" href="#">Registrar</a>
-                </p>     
-                </div>
-            </form>
-</body>
 </html>

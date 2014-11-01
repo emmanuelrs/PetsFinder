@@ -91,8 +91,24 @@
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
 				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
             </ul>
-        </nav>
-        
+        </nav>   
     </div>
+  <!-- Contact Form -->
+    <div class="row">
+    	<div class="span9">
+        
+        	<form id="contact-form" class="contact-form" action="#">
+            	<p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Nombre Usuario" value="" name="name" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Contraseña" value="" name="email" />
+                </p>
+                <p class="contact-submit">
+                	<a id="contact-submit" class="submit" href="sesion activa.php">Iniciar Sesión</a>
+                </p>     
+                </div>
+            </form>
 </body>
 </html>
+
