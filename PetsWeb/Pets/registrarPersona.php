@@ -76,6 +76,12 @@
   })();
 
 </script>
+<script type="text/javascript">
+function ver(num) {
+  document.getElementById('uno').style.display = (num==0) ? 'block' : 'none'; 
+  document.getElementById('dos').style.display = (num==1) ? 'block' : 'none'; 
+}
+</script>
 <!-- End Analytics -->
 
 </head>
@@ -125,6 +131,17 @@
                 <option value="Puntarenas">Puntarenas</option>
    				</optgroup>
 				</select>
+                
+                <select name="Canton">
+   				<option selected value="0"> Elige su canton </option>
+      			<option value="San José">San José</option>
+				</select>
+                
+                <select name="Distrito">
+   				<option selected value="0"> Elige su distrito </option>
+      			<option value="San José">San José</option>
+				</select>
+                
                 <p class="contact-message">
                   <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name="direccion" >
                 </p>
@@ -132,6 +149,5 @@
                 	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
                 </p>     
                 </div>
-            </form>
 </body>
 </html>
