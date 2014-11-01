@@ -54,7 +54,7 @@ CREATE TABLE DIRECCION(
        DIRECCION_EXACTA VARCHAR2(150),
        
        CONSTRAINT PK_DIRECCION
-       PRIMARY KEY(ID_DIRECCION)
+       PRIMARY KEY(ID_DIRECCION, TIPO_DIREC)
        USING INDEX
        tablespace ad_ind pctfree 20
        storage(initial 10k next 10k pctincrease 0)
@@ -94,14 +94,15 @@ comment on column TIPO_USUARIO.TIPO_USUARIO is 'descripcion del tipo de usuario'
 CREATE TABLE TELEFONO(
        ID_TEL NUMBER(8)
               CONSTRAINT ID_TEL_NN NOT NULL,
+       TIPO_TEL VARCHAR2(25)
+              CONSTRAINT TIPO_TEL_NN NOT NULL,
        TELEFONO NUMBER(12) 
               CONSTRAINT TELEFENO_USER_NN NOT NULL
               CONSTRAINT TELEFONO_USER_UK UNIQUE,
-       TIPO_TEL VARCHAR2(25)
-              CONSTRAINT TIPO_TEL_NN NOT NULL,
+
        
        CONSTRAINT PK_ID_TEL
-       primary key (ID_TEL)
+       primary key (ID_TEL, TIPO_TEL)
        using index
        tablespace ad_ind pctfree 20
        storage (initial 10k next 10k pctincrease 0)
@@ -121,14 +122,15 @@ comment on column TELEFONO.TELEFONO is 'numero de telefono ya sea celular, resid
 CREATE TABLE EMAIL(
        ID_EMAIL NUMBER(8)
               CONSTRAINT ID_EMAIL_NN NOT NULL,
+       TIPO_EMAIL VARCHAR2(25)
+              CONSTRAINT TIPO_EMAIL_NN NOT NULL,
        VALOR_EMAIL VARCHAR2(35) 
               CONSTRAINT VALOR_EMAIL_NN NOT NULL
               CONSTRAINT VALOR_EMAIL_UK UNIQUE,
-       TIPO_EMAIL VARCHAR2(25)
-              CONSTRAINT TIPO_EMAIL_NN NOT NULL,
+       
        
        CONSTRAINT PK_ID_EMAIL
-       primary key (ID_EMAIL)
+       primary key (ID_EMAIL, TIPO_EMAIL)
        using index
        tablespace ad_ind pctfree 20
        storage (initial 10k next 10k pctincrease 0)
