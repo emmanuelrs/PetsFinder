@@ -32,12 +32,21 @@ if($var1 && $var2 && $var3 && $var4 && $var5){
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-} else{
+	?>
+	<script>
+    
+    alert("Se registro el usuario correctamente :)");
+    </script>
+    <?php
 
-	echo "Contrasenas no son iguales";
-}
+    } else{
 
-
-	
-}	
+	?>
+	<script>
+    
+    alert("Las contrase~nas no coinciden");
+   
+    </script>
+<?php
+}}	
 ?>
