@@ -40,10 +40,10 @@ procedure SET_MASCOTA
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
             DBMS_LOB.CLOSE(v_bfile);
     commit;
-    insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-    values(s_mascota.currval, 'pet', pais1, provincia1, canton1, distrito1, detalle_direc); 
-    
-    insert into MASCOTA(ID_MASCOTA, TIPO, NOMBRE, TIPO_Y_RAZA, CHIP_IDENTIFICACION, COLOR, ESTADO, RECOMPENSA, DESCRIPCION, USUARIO_REGISTRA)
+     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
+    values(s_mascota.currval, 'pet', pais1, provincia1, canton1, distrito1, detalle_direc);
+
+    insert into MASCOTA(ID_MASCOTA, TIPO, NOMBRE, TIPO_Y_RAZA, CHIP_IDENTIFICACION, COLOR, ESTADO, RECOMPENSA, DESCRIPCION)
            values(s_mascota.currval, 'pet', nombre_m, tipo_y_raza1, chip_ident, color_m, estado_m, recompensa1, descripcion);
     commit;
     exception

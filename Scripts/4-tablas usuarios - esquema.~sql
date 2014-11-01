@@ -2,7 +2,7 @@
 CREATE TABLE USUARIO(
        ID_USUARIO NUMBER(8)
               CONSTRAINT ID_USUARIO_NN NOT NULL,
-       TIPO VARCHAR2(20)
+       TIPO number(8)  -- el # 1 en este campo significa 'user'
               CONSTRAINT TIPO_NN NOT NULL,
        NOMBRE VARCHAR2(35) -- nombre real del usuario 
               CONSTRAINT NOMBRE_NN NOT NULL,
@@ -44,7 +44,7 @@ comment on column USUARIO.CALIFICACION is 'calificacion  del usuario "reputacion
 CREATE TABLE DIRECCION(
        ID_DIRECCION NUMBER(8)
              CONSTRAINT ID_DIRECCION_NN NOT NULL,
-       TIPO_DIREC varchar2(20)
+       TIPO_DIREC number(8)
              CONSTRAINT TIPO_DIREC_NN NOT NULL,
        PAIS VARCHAR2(25)
               CONSTRAINT PAIS_NN NOT NULL,
@@ -97,9 +97,9 @@ comment on column TIPO_USUARIO.TIPO_USUARIO is 'descripcion del tipo de usuario'
 CREATE TABLE TELEFONO(
        ID_TEL NUMBER(8)
               CONSTRAINT ID_TEL_NN NOT NULL,
-       TIPO_TEL VARCHAR2(25)
+       TIPO_TEL number(8)
               CONSTRAINT TIPO_TEL_NN NOT NULL,
-       TELEFONO NUMBER(12) 
+       TELEFONO varchar2(12)
               CONSTRAINT TELEFENO_USER_NN NOT NULL
               CONSTRAINT TELEFONO_USER_UK UNIQUE,
 
@@ -125,7 +125,7 @@ comment on column TELEFONO.TELEFONO is 'numero de telefono ya sea celular, resid
 CREATE TABLE EMAIL(
        ID_EMAIL NUMBER(8)
               CONSTRAINT ID_EMAIL_NN NOT NULL,
-       TIPO_EMAIL VARCHAR2(25)
+       TIPO_EMAIL number(8)
               CONSTRAINT TIPO_EMAIL_NN NOT NULL,
        VALOR_EMAIL VARCHAR2(35) 
               CONSTRAINT VALOR_EMAIL_NN NOT NULL

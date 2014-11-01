@@ -1,21 +1,23 @@
 create or replace package body INSERTIONS as
 
 Procedure SET_USUARIO
-  (nom in varchar2, nomusr in varchar2, contra in varchar2, tel in number, email in varchar2, pais1 in varchar2, provincia1 in varchar2,
+  (nom in varchar2, nomusr in varchar2, contra in varchar2, tel in varchar2, email in varchar2, pais1 in varchar2, provincia1 in varchar2,
 
    canton1 in varchar2, distrito1 in varchar2, direc_exact in varchar2) as
    begin
-     insert into email(ID_EMAIL,TIPO_EMAIL,VALOR_EMAIL)
-     values(s_usuario.nextval, email, 'User');
+
+     
+     insert into email(ID_EMAIL, TIPO_EMAIL, VALOR_EMAIL)
+     values(s_usuario.nextval, 1, email);
 
      insert into telefono(id_tel, tipo_tel, telefono)
-     values(s_usuario.currval, tel, 'User');
+     values(s_usuario.currval, 1, tel);
 
      insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-     values(s_usuario.currval,'User', pais1, provincia1, canton1, distrito1, direc_exact);
+     values(s_usuario.currval, 1, pais1, provincia1, canton1, distrito1, direc_exact);
 
      insert into usuario(id_usuario, tipo, nombre, user_name, contraseña, tipo_user)
-     values(s_usuario.currval,'User' ,nom, nomusr, contra, 1);
+     values(s_usuario.currval, 1,nom, nomusr, contra, 1);
 
      commit;
      --falta considerar excepciones
@@ -40,7 +42,7 @@ procedure SET_MASCOTA
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
             DBMS_LOB.CLOSE(v_bfile);
     commit;
-     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
+    insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
     values(s_mascota.currval, 'pet', pais1, provincia1, canton1, distrito1, detalle_direc);
 
     insert into MASCOTA(ID_MASCOTA, TIPO, NOMBRE, TIPO_Y_RAZA, CHIP_IDENTIFICACION, COLOR, ESTADO, RECOMPENSA, DESCRIPCION)
