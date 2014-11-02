@@ -121,8 +121,8 @@ function ver(num) {
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
                 </p>
-                <p class="contact-message">
-                  <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name="direccion" >
+                 <p class="contact-email">
+                    <input id="contact_email" type="text" placeholder="Direccion Exacta" value="" name="direc" />
                 </p>
                 <p class="contact-submit">
                 	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
@@ -130,13 +130,13 @@ function ver(num) {
                 </div>
 <div class="row"> 
         <select id="lstStuff" multiple="multiple" onChange="lstStuff_OnChange()" size="3" style="width: 200px; margin: 90 px auto;">
-			<option>San José</option>
-			<option>Cartago</option>
-			<option>Alajuela</option>
-			<option>Heredia</option>
-			<option>Guanacaste</option>
-			<option>Puntarenas</option>		
-			<option>Limón</option>		
+			<option value="1">San José</option>
+			<option value="2">Cartago</option>
+			<option value="3">Alajuela</option>
+			<option value="4">Heredia</option>
+			<option value="5">Guanacaste</option>
+			<option value="6">Puntarenas</option>		
+			<option value="7">Limón</option>		
 		</select>	
 		
 		<p/>

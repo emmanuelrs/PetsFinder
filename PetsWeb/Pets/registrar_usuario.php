@@ -11,11 +11,25 @@ if (!$conn) {
 	$var5 = $_POST['telefono'];
 	$var6 = $_POST['email'];
 	$var7 = 'Costa Rica';  
-	$var8 = $_POST['Provincia'];
+	$var8 = 'Cartago';
 	$var9 = 'Atenas';
-	$var10= 'Jesus';
-	$var11= 'Sabana Larga';
+	$var10= $_POST['distrito'];
+	$var11= $_POST['direc'];
 
+
+	echo($var1);
+	echo($var2);
+	echo($var3);
+	echo($var4);
+	echo($var5);
+	echo($var6);
+	echo($var7);
+	echo($var8);
+	echo($var9);
+	echo($var10);
+	echo($var11);
+	
+	/*
 if($var1 && $var2 && $var3 && $var4 && $var5){
 	if($var3 == $var4){
 	$stid = oci_parse($conn, 'begin insertions.set_usuario(:p1, :p2, :p3, :p5, :p6, :p7, :p8, :p9, :p10,:p11); end;');
@@ -48,5 +62,6 @@ if($var1 && $var2 && $var3 && $var4 && $var5){
    
     </script>
 <?php
-}}	
+}}	*/
+
 ?>

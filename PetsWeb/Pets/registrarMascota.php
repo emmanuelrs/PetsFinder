@@ -124,7 +124,7 @@ $(document).ready(function() {
        <div class="row">
     	<div class="span9">
         
-        	<form id="contact-form" class="contact-form" action="#">
+        	<form id="contact-form" class="contact-form" action="registrar_mascota.php" method="POST">
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Nombre mascota" value="" name="name" />
                 </p>
@@ -167,14 +167,14 @@ $(document).ready(function() {
 				</select>
                 
                 <p class="contact-message">
-                  <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la mascota" value=		"" size="25">
+                  <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la mascota" value=	"" size="25">
                 </p>
                 <p class="contact-submit">
-                	<a id="contact-submit" class="submit" href="#">Registrar</a>
+                	<a href = "registrar_mascota.php"><input type="submit" value="Enviar" class="boton"><a/>
                 </p>     
                 </div>
           <div class="row"> 
-        <select id="lstStuff" multiple="multiple" onChange="lstStuff_OnChange()" size="3" style="width: 200px; margin: 90 px auto;">
+        <select name="provincia" id="lstStuff" multiple="multiple" onChange="lstStuff_OnChange()" size="3" style="width: 200px; margin: 90 px auto;">
 			<option>San José</option>
 			<option>Cartago</option>
 			<option>Alajuela</option>
