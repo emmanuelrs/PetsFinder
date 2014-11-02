@@ -70,6 +70,9 @@ strong {
 
 p {
 	margin: 0 0 30px;
+	color: #FFF;
+	background-origin: border-box;
+	background-color: #2F3238;
 }
 
 hr {
@@ -121,6 +124,9 @@ input:focus,
 textarea:focus,
 input[type="text"]:focus {
 	outline: 0;
+	color: #2F3238;
+	text-transform: capitalize;
+	background-color: #FFFFFF;
 }
 
 input:-moz-placeholder,
@@ -925,27 +931,24 @@ nav#menu #menu-nav li a:hover {
 
 #contact-form input,
 #contact-form textarea {
-    border: none;
+	border: none;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
-    border-radius: 0;
-	
-    -webkit-box-shadow: none;
+	border-radius: 0;
+	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	
 	background: #26292E;
-    color: #FFFFFF;
-    font-size: 16px;
-    height: auto;
-    padding: 15px;
-	margin: 0;
-	
-    resize: none;
+	color: #FFFFFF;
+	font-size: 16px;
+	height: auto;
+	padding: 15px;
+	margin: 90;
+	resize: none;
 }
 
 #contact-form input {
-    width: 100%;
+	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;

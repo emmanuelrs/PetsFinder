@@ -98,8 +98,7 @@ function ver(num) {
     </div>
     <!-- Contact Form -->
     <div class="row">
-    	<div class="span9">
-        
+    	<div class="span9">       
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Nombre completo" value="" name="nombre" />
@@ -119,29 +118,9 @@ function ver(num) {
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Email" value="" name="email" />
                 </p>
-                <select name="Provincia">
-   				<option selected value="0"> Elige su provincia </option>
-       			<optgroup label="Provincias">
-      			<option value="San José">San José</option>
-     			<option value="Alajuela">Alajuela</option>
-       			<option value="Cartago">Cartago</option>
-                <option value="Heredia">Heredia</option>
-                <option value="Limón">Limón</option>
-                <option value="Guanacaste">Guanacaste</option>
-                <option value="Puntarenas">Puntarenas</option>
-   				</optgroup>
-				</select>
-                
-                <select name="Canton">
-   				<option selected value="0"> Elige su canton </option>
-      			<option value="San José">San José</option>
-				</select>
-                
-                <select name="Distrito">
-   				<option selected value="0"> Elige su distrito </option>
-      			<option value="San José">San José</option>
-				</select>
-                
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
+                </p>
                 <p class="contact-message">
                   <input name="message" type="text" id="contact_message" placeholder="Dirección exacta" value="" size="25", name="direccion" >
                 </p>
@@ -149,5 +128,61 @@ function ver(num) {
                 	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
                 </p>     
                 </div>
+<div class="row"> 
+        <select id="lstStuff" multiple="multiple" onChange="lstStuff_OnChange()" size="3" style="width: 200px; margin: 90 px auto;">
+			<option>San José</option>
+			<option>Cartago</option>
+			<option>Alajuela</option>
+			<option>Heredia</option>
+			<option>Guanacaste</option>
+			<option>Puntarenas</option>		
+			<option>Limón</option>		
+		</select>	
+		
+		<p/>
+		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
+		</select>
+	</form>
+	<script type="text/javascript" charset="utf-8">
+		var otherStuff = {
+			"San José" : ["San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú", "Aserrí", "Mora, Colón", "Goicoechea", "Santa Ana", "Alajuelita", "Vázque de Coronado", "Acosta", "Tibás", "Moravia", "Montes de Oca", "Turrubares", "Dota", "Curridabat", "Pérez Zeledón", "León Cortés"],
+			"Cartago" : ["Cartago", "Paraiso", "La Unión", "Jiménez", "Turrialba", "Alvarado", "Oreamuno", "El Guarco"],
+			"Alajuela" : ["Alajuela", "San Ramón", "Grecia", "San Mateo", "Atenas", "Naranjo", "Palmares", "Poás", "Orotina", "San Carlos", "Zarcero", "Valverde Vega","Upala", "Los Chiles", "Guatuso"],
+			"Heredia" : ["Heredia", "Barva", "Santo Domingo", "Santa Bárbara", "San Rafael", "San Isidro", "Belén", "Flores", "San Pablo", "Sarapiquí"],
+			"Guanacaste" : ["Liberia", "Nicoya", "Santa Cruz", "Bagaces", "Carrillo", "Cañas", "Abangares", "Tilarán", "Nandayure", "La Cruz", "Hojancha",],
+			"Puntarenas" : ["Puntarenas", "Esparza", "Buenos Aires", "Montes de Oro", "Osa", "Aguirre", "Golfito", "Coto Brus", "Parrita", "Corredores", "Garabito"],
+			"Limón" : ["Limón", "Pococí", "Siquirres", "Talamanca", "Matina", "Guácimo"]
+		};
+
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		function selectAll(listName, selected) {
+			var listBox = document.getElementById(listName);
+			for(i=0; i<listBox.length; i++) {
+				listBox.options[i].selected=selected;
+			}
+			if( listBox.onchange ) {
+				listBox.onchange();
+			}
+		}
+		function lstStuff_OnChange() {
+			var listBox = document.getElementById("lstStuff");
+			var subListBox = document.getElementById("lstOtherStuff");
+			subListBox.options.length=0;
+			for(i=0; i<listBox.length; i++) {
+				if( listBox.options[i].selected ) {
+					var key = listBox.options[i].text;
+					if(otherStuff[key]) {
+						for(j=0; j<otherStuff[key].length; j++) {
+							subListBox.options.add(new Option(otherStuff[key][j],otherStuff[key][j]));
+						}
+					}
+				}
+			}
+		}
+		</script>
+        </div>
+     
+                
 </body>
 </html>

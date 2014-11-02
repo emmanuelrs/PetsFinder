@@ -3,8 +3,7 @@
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
-<head>
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]--><head>
 
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -62,6 +61,7 @@
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
 
+
 <!-- Analytics -->
 <script type="text/javascript">
 
@@ -78,11 +78,42 @@
 </script>
 <!-- End Analytics -->
 
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+prevText: '&#x3c;Ant',
+nextText: 'Sig&#x3e;',
+currentText: 'Hoy',
+monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+'Jul','Ago','Sep','Oct','Nov','Dic'],
+dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+ 
+$(document).ready(function() {
+   $("#datepicker").datepicker();
+});
+</script>
+
 </head>
 <body>
 <nav id="menu">
         	<ul id="menu-nav">
-            	<li class="current"><a href="index.html" class="external">Inicio</a></li>
+            	<li class="current"><a href="index.php" class="external">Inicio</a></li>
                 <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
@@ -98,33 +129,23 @@
             		<input id="contact_name" type="text" placeholder="Nombre mascota" value="" name="name" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Chip identificacion si no posee coloque 0" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Chip identificacion" value="" name="chip" />
                 </p>
                  <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Color" value="" name="email" />
+                	<input id="contact_email" type="text" placeholder="Color" value="" name="color" />
                 </p>
-
-                <select name="direccion">
-   				<option selected value="0"> Elige su provincia </option>
-       			<optgroup label="Provincias">
-      			<option value="San José">San José</option>
-     			<option value="Alajuela">Alajuela</option>
-       			<option value="Cartago">Cartago</option>
-                <option value="Heredia">Heredia</option>
-                <option value="Limón">Limón</option>
-                <option value="Guanacaste">Guanacaste</option>
-                <option value="Puntarenas">Puntarenas</option>
-   				</optgroup>
-				</select>
-                
-                <select name="estado">
-   				<option selected value="0"> Indique el estado del la mascota </option>
-       			<optgroup label="Estados">
-      			<option value="Perdido">Perdido</option>
-     			<option value="Encontrado">Encontrado</option>
-   				</optgroup>
-				</select>
-                
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Detalles de la Dirrecion" value="" name="detalle_direccion" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Recompenza" value="" name="recompenza" />
+                </p>
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Descripcion de la mascota" value="" name="descripcion" />
+                </p>
                 <select name="raza">
    				<option selected value="0"> seleccione la raza de su mascota </option>
        			<optgroup label="Perros">
@@ -136,6 +157,15 @@
      			<option value="Raza Unica">Raza Unica</option>
    				</optgroup>
 				</select>
+
+                <select name="direccion">
+   				<option selected value="0"> Estado de su mascota</option>
+      			<option value="Perdido">Perdido</option>
+     			<option value="Encontrado">Encontrado</option>
+                <option value="Encontrado">Adoptado</option>
+                <option value="Otra">Otra</option>
+				</select>
+                
                 <p class="contact-message">
                   <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la mascota" value=		"" size="25">
                 </p>
@@ -143,6 +173,65 @@
                 	<a id="contact-submit" class="submit" href="#">Registrar</a>
                 </p>     
                 </div>
-            </form>
+          <div class="row"> 
+        <select id="lstStuff" multiple="multiple" onChange="lstStuff_OnChange()" size="3" style="width: 200px; margin: 90 px auto;">
+			<option>San José</option>
+			<option>Cartago</option>
+			<option>Alajuela</option>
+			<option>Heredia</option>
+			<option>Guanacaste</option>
+			<option>Puntarenas</option>		
+			<option>Limón</option>		
+		</select>	
+		
+		<p/>
+		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
+		</select>
+	</form>
+	<script type="text/javascript" charset="utf-8">
+		var otherStuff = {
+			"San José" : ["San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú", "Aserrí", "Mora, Colón", "Goicoechea", "Santa Ana", "Alajuelita", "Vázque de Coronado", "Acosta", "Tibás", "Moravia", "Montes de Oca", "Turrubares", "Dota", "Curridabat", "Pérez Zeledón", "León Cortés"],
+			"Cartago" : ["Cartago", "Paraiso", "La Unión", "Jiménez", "Turrialba", "Alvarado", "Oreamuno", "El Guarco"],
+			"Alajuela" : ["Alajuela", "San Ramón", "Grecia", "San Mateo", "Atenas", "Naranjo", "Palmares", "Poás", "Orotina", "San Carlos", "Zarcero", "Valverde Vega","Upala", "Los Chiles", "Guatuso"],
+			"Heredia" : ["Heredia", "Barva", "Santo Domingo", "Santa Bárbara", "San Rafael", "San Isidro", "Belén", "Flores", "San Pablo", "Sarapiquí"],
+			"Guanacaste" : ["Liberia", "Nicoya", "Santa Cruz", "Bagaces", "Carrillo", "Cañas", "Abangares", "Tilarán", "Nandayure", "La Cruz", "Hojancha",],
+			"Puntarenas" : ["Puntarenas", "Esparza", "Buenos Aires", "Montes de Oro", "Osa", "Aguirre", "Golfito", "Coto Brus", "Parrita", "Corredores", "Garabito"],
+			"Limón" : ["Limón", "Pococí", "Siquirres", "Talamanca", "Matina", "Guácimo"]
+		};
+
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		function selectAll(listName, selected) {
+			var listBox = document.getElementById(listName);
+			for(i=0; i<listBox.length; i++) {
+				listBox.options[i].selected=selected;
+			}
+			if( listBox.onchange ) {
+				listBox.onchange();
+			}
+		}
+		function lstStuff_OnChange() {
+			var listBox = document.getElementById("lstStuff");
+			var subListBox = document.getElementById("lstOtherStuff");
+			subListBox.options.length=0;
+			for(i=0; i<listBox.length; i++) {
+				if( listBox.options[i].selected ) {
+					var key = listBox.options[i].text;
+					if(otherStuff[key]) {
+						for(j=0; j<otherStuff[key].length; j++) {
+							subListBox.options.add(new Option(otherStuff[key][j],otherStuff[key][j]));
+						}
+					}
+				}
+			}
+		}
+		</script>
+        <label> Seleccionar Fecha:</label>
+  		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+        </div> 
+         
+                
+        </form>
 </body>
 </html>
+
