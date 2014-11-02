@@ -84,7 +84,7 @@ procedure SET_MASCOTA_PERDIDA
     insert into MASCOTA_PERDIDA(ID_MASCOTA_PER, TIPO_PER, NOMBRE_PER, TIPO_Y_RAZA_PER, TAMANO_PER, CHIP_IDENTIFICACION_PER, 
     COLOR_PER, ESTADO_PER, RECOMPENSA_PER, DESCRIPCION_PER, FECHA_INGRESO_PER, USUARIO_REGISTRA_PER)
 
-    values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
+    values(s_mascota_per.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
     commit;
 
     exception
