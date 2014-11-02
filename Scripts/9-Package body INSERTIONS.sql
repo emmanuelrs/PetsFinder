@@ -17,7 +17,7 @@ Procedure SET_USUARIO
      values(s_usuario.currval, 1, pais1, provincia1, canton1, distrito1, direc_exact);
 
      insert into usuario(id_usuario, tipo, nombre, apellido1, apellido2, user_name, contraseña, tipo_user)
-     values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1); 
+     values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1);
 
      commit;
      --falta considerar excepciones
@@ -28,7 +28,7 @@ procedure SET_MASCOTA
   (nombre_m in varchar2, raza_m in varchar2, tamano1 in varchar2 ,imagen_m in varchar2,  chip_ident in varchar2, color_m in varchar2,
    estado_m in varchar2, pais1 in varchar2, provincia1 in varchar2, canton1 in varchar2, distrito1 in varchar2, detalle_direc in varchar2,
    recompensa1 in varchar2, descripcion in varchar) as
-   
+
            tipo_y_raza1 number(8);
            v_blob blob;
            v_bfile bfile;
@@ -43,16 +43,16 @@ procedure SET_MASCOTA
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
             DBMS_LOB.CLOSE(v_bfile);
     commit;
-    
+
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
     values(s_mascota.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
 
     insert into MASCOTA(ID_MASCOTA, TIPO, NOMBRE, TIPO_Y_RAZA, TAMANO, CHIP_IDENTIFICACION,
-     COLOR, ESTADO, RECOMPENSA, DESCRIPCION, FECHA_INGRESO, USUARIO_REGISTRA)
-     
+     COLOR, ESTADO, RECOMPENSA, DESCRIPCION)
+
      values(s_mascota.currval, 2, nombre_m, tipo_y_raza1,tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion);
     commit;
-    
+
     exception
     when NO_DATA_FOUND then
       dbms_output.put_line('el tipo y raza d mascota no esta registrada');
@@ -65,7 +65,7 @@ Procedure SET_ORGANIZACION
   (nombre_org in varchar2, tel in number, email in varchar2, pais1 in varchar2, provincia1 in varchar2,
    canton1 in varchar2, distrito1 in varchar2, direc_exact in varchar2) as
   begin
-    
+
     insert into telefono(id_tel, tipo_tel, telefono)
     values(s_org.nextval,'Org',tel);
 
