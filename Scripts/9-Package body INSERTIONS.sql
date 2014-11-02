@@ -71,7 +71,7 @@ procedure SET_MASCOTA_PERDIDA
     where rz.descripcion_raza = raza_m;
 
     insert into imagen(id_imagen, nombre_img)
-           values(s_mascota_per.nextval, imagen_m) returning IMAGEN_MASCOTA  into v_blob;
+           values(s_mascota_enc.nextval, imagen_m) returning IMAGEN_MASCOTA  into v_blob;
            v_bfile := BFILENAME('DIRECTORIO', imagen_m);
             DBMS_LOB.OPEN(v_bfile, DBMS_LOB.lob_readonly);
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
@@ -79,12 +79,12 @@ procedure SET_MASCOTA_PERDIDA
     commit;
 
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-    values(s_mascota_per.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
+    values(s_mascota_enc.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
 
     insert into MASCOTA_PERDIDA(ID_MASCOTA_PER, TIPO_PER, NOMBRE_PER, TIPO_Y_RAZA_PER, TAMANO_PER, CHIP_IDENTIFICACION_PER, 
     COLOR_PER, ESTADO_PER, RECOMPENSA_PER, DESCRIPCION_PER, FECHA_INGRESO_PER, USUARIO_REGISTRA_PER)
 
-    values(s_mascota_per.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
+    values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
     commit;
 
     exception
