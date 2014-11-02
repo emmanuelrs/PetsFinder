@@ -1,27 +1,26 @@
 --Tabla mascota almacenara las mascotas perdidas y encontradas por los usuarios
-CREATE TABLE MASCOTA(
-       ID_MASCOTA NUMBER(8)
-              CONSTRAINT ID_MASCOTA_NN NOT NULL,
-       TIPO number(8)
-              CONSTRAINT MASCOTA_TIPO_NN NOT NULL,
-       NOMBRE VARCHAR2(35)
-              CONSTRAINT NOMBREMASCOTA_NN NOT NULL,
-       TIPO_Y_RAZA NUMBER(8)
-              CONSTRAINT RAZA_NN NOT NULL
-              CONSTRAINT RAZA_UK UNIQUE,
-       TAMANO VARCHAR2(30)
-       		  CONSTRAINT TAMANO_NN NOT NULL,
-       CHIP_IDENTIFICACION VARCHAR2(35),
-       COLOR VARCHAR2(25),
-       ESTADO VARCHAR2(30) --EJM PERDIDO, ENCONTRADO, ADOPTADO, EN CASA CUNA
-              CONSTRAINT ESTADO_NN NOT NULL,
-       RECOMPENSA varchar2(25),
-       DESCRIPCION VARCHAR2(250),
-       FECHA_INGRESO DATE DEFAULT SYSDATE,
-       USUARIO_REGISTRA NUMBER(8),
+CREATE TABLE MASCOTA_ENCONTRADA(
+       ID_MASCOTA_enc NUMBER(8)
+              CONSTRAINT ID_MASCOTA_enc_NN NOT NULL,
+       TIPO_enc number(8)
+              CONSTRAINT MASCOTA_TIPO_enc_NN NOT NULL,
+       NOMBRE_enc VARCHAR2(35)
+              CONSTRAINT NOMBREMASCOTA_enc_NN NOT NULL,
+       TIPO_Y_RAZA_enc NUMBER(8)
+              CONSTRAINT RAZA_enc_NN NOT NULL,
+       TAMANO_enc VARCHAR2(30)
+             CONSTRAINT TAMANO_enc_NN NOT NULL,
+       CHIP_IDENTIFICACION_enc VARCHAR2(35),
+       COLOR_enc VARCHAR2(25),
+       ESTADO_enc VARCHAR2(30) --EJM PERDIDO, ENCONTRADO, ADOPTADO, EN CASA CUNA
+              CONSTRAINT ESTADO_enc_NN NOT NULL,
+       RECOMPENSA_enc varchar2(25),
+       DESCRIPCION_enc VARCHAR2(250),
+       FECHA_INGRESO_enc DATE DEFAULT SYSDATE,
+       USUARIO_REGISTRA_enc NUMBER(8),
        
-       CONSTRAINT PK_MASCOTA
-       primary key (ID_MASCOTA)
+       CONSTRAINT PK_MASCOTA_enc
+       primary key (ID_MASCOTA_enc)
        using index
        tablespace ad_ind pctfree 20
        storage (initial 10k next 10k pctincrease 0)
@@ -33,16 +32,61 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios mascota
-COMMENT ON TABLE MASCOTA IS 'Tabla para el alacenamiento de mascotas tanto perdidas como encontradas';
-comment on column MASCOTA.ID_MASCOTA is 'llave primaria de la tabla mascota';
-comment on column MASCOTA.NOMBRE is 'Nombre de la mascota';
-comment on column MASCOTA.TIPO_Y_RAZA is 'raza de la mascota';
-comment on column MASCOTA.CHIP_IDENTIFICACION is 'posible identificacion de la mascota';
-comment on column MASCOTA.COLOR is 'color de la mascota o posible mescla de colores de la misma';
-comment on column MASCOTA.ESTADO is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
-comment on column MASCOTA.RECOMPENSA is 'indicador de una posible recompenza por encontrar la mascota';
-comment on column MASCOTA.DESCRIPCION is 'comentarios sobre la mascota perdida o encontrada';
-comment on column MASCOTA.USUARIO_REGISTRA is 'llave de la persona q perdio o encontro la mascota';
+COMMENT ON TABLE MASCOTA_ENCONTRADA IS 'Tabla para el alacenamiento de mascotas tanto perdidas como encontradas';
+comment on column MASCOTA_ENCONTRADA.ID_MASCOTA_enc is 'llave primaria de la tabla mascota';
+comment on column MASCOTA_ENCONTRADA.NOMBRE_enc is 'Nombre de la mascota';
+comment on column MASCOTA_ENCONTRADA.TIPO_Y_RAZA_enc is 'raza de la mascota';
+comment on column MASCOTA_ENCONTRADA.CHIP_IDENTIFICACION_enc is 'posible identificacion de la mascota';
+comment on column MASCOTA_ENCONTRADA.COLOR_enc is 'color de la mascota o posible mescla de colores de la misma';
+comment on column MASCOTA_ENCONTRADA.ESTADO_enc is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
+comment on column MASCOTA_ENCONTRADA.RECOMPENSA_enc is 'indicador de una posible recompenza por encontrar la mascota';
+comment on column MASCOTA_ENCONTRADA.DESCRIPCION_enc is 'comentarios sobre la mascota perdida o encontrada';
+comment on column MASCOTA_ENCONTRADA.USUARIO_REGISTRA_enc is 'llave de la persona q perdio o encontro la mascota';
+--Tabla mascota almacenara las mascotas perdidas y encontradas por los usuarios
+CREATE TABLE MASCOTA_PERDIDA(
+       ID_MASCOTA_per NUMBER(8)
+              CONSTRAINT ID_MASCOTA_per_NN NOT NULL,
+       TIPO_per number(8)
+              CONSTRAINT MASCOTA_TIPO_per_NN NOT NULL,
+       NOMBRE_per VARCHAR2(35)
+              CONSTRAINT NOMBREMASCOTA_per_NN NOT NULL,
+       TIPO_Y_RAZA_per NUMBER(8)
+              CONSTRAINT RAZA_per_NN NOT NULL
+              CONSTRAINT RAZA_per_UK UNIQUE,
+       TAMANO_per VARCHAR2(30)
+       		  CONSTRAINT TAMANO_NN NOT NULL,
+       CHIP_IDENTIFICACION_per VARCHAR2(35),
+       COLOR_per VARCHAR2(25),
+       ESTADO_per VARCHAR2(30) --EJM PERDIDO, ENCONTRADO, ADOPTADO, EN CASA CUNA
+              CONSTRAINT ESTADO_per_NN NOT NULL,
+       RECOMPENSA_per varchar2(25),
+       DESCRIPCION_per VARCHAR2(250),
+       FECHA_INGRESO_per DATE DEFAULT SYSDATE,
+       USUARIO_REGISTRA_per NUMBER(8),
+       
+       CONSTRAINT PK_MASCOTA_per
+       primary key (ID_MASCOTA_per)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
+-- comentarios mascota
+COMMENT ON TABLE MASCOTA_PERDIDA IS 'Tabla para el alacenamiento de mascotas tanto perdidas como encontradas';
+comment on column MASCOTA_PERDIDA.ID_MASCOTA_per is 'llave primaria de la tabla mascota';
+comment on column MASCOTA_PERDIDA.NOMBRE_per is 'Nombre de la mascota';
+comment on column MASCOTA_PERDIDA.TIPO_Y_RAZA_per is 'raza de la mascota';
+comment on column MASCOTA_PERDIDA.CHIP_IDENTIFICACION_per is 'posible identificacion de la mascota';
+comment on column MASCOTA_PERDIDA.COLOR_per is 'color de la mascota o posible mescla de colores de la misma';
+comment on column MASCOTA_PERDIDA.ESTADO_per is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
+comment on column MASCOTA_PERDIDA.RECOMPENSA_per is 'indicador de una posible recompenza por encontrar la mascota';
+comment on column MASCOTA_PERDIDA.DESCRIPCION_per is 'comentarios sobre la mascota perdida o encontrada';
+comment on column MASCOTA_PERDIDA.USUARIO_REGISTRA_per is 'llave de la persona q perdio o encontro la mascota';
 
 --tabla para las imagenes de mascotas
 create table IMAGEN(
@@ -93,7 +137,14 @@ comment on column RAZA.DESCRIPCION_RAZA is 'valor final del tipo de raza';
 comment on column RAZA.TIPO_MASCOTA is 'tipo de mascota al q pertenece la raza'; 
 
 --SECUENCIAS
-create sequence s_mascota
+create sequence s_mascota_per
+       start with 0
+       increment by 1
+       minvalue 0
+       maxvalue 10000000
+       nocache
+       nocycle;
+create sequence s_mascota_enc
        start with 0
        increment by 1
        minvalue 0
@@ -111,27 +162,33 @@ create sequence s_raza
        nocycle;
 
 --FOREIGN KEY
-alter table MASCOTA
-  add constraint IMAGEN_FK
-  foreign key (ID_MASCOTA)
+alter table MASCOTA_ENCONTRADA
+  add constraint IMAGEN_enc_FK
+  foreign key (ID_MASCOTA_enc)
   references IMAGEN(ID_IMAGEN);
   
-alter table MASCOTA
-  add constraint RAZA_FK
-  foreign key (TIPO_Y_RAZA)
+alter table MASCOTA_ENCONTRADA
+  add constraint RAZA_enc_FK
+  foreign key (TIPO_Y_RAZA_enc)
   references RAZA(ID_RAZA);
   
-alter table MASCOTA
-  add constraint DIRECCION_MASCOTA_FK
-  foreign key (ID_MASCOTA,TIPO)
+alter table MASCOTA_ENCONTRADA
+  add constraint DIRECCION_MASCOTA_enc_FK
+  foreign key (ID_MASCOTA_enc,TIPO_enc)
   references DIRECCION(ID_DIRECCION, TIPO_DIREC);
   
-alter table MASCOTA
-  add constraint TEL_MASCOTA_FK
-  foreign key (ID_MASCOTA,TIPO)
-  references TELEFONO(ID_TEL,TIPO_TEL);
+alter table MASCOTA_PERDIDA
+  add constraint IMAGEN_per_FK
+  foreign key (ID_MASCOTA_per)
+  references IMAGEN(ID_IMAGEN);
+  
+alter table MASCOTA_PERDIDA
+  add constraint RAZA_FK
+  foreign key (TIPO_Y_RAZA_per)
+  references RAZA(ID_RAZA);
+  
+alter table MASCOTA_PERDIDA
+  add constraint DIRECCION_MASCOTA_FK
+  foreign key (ID_MASCOTA_per,TIPO_per)
+  references DIRECCION(ID_DIRECCION, TIPO_DIREC);
 
-alter table MASCOTA
-  add constraint EMAIL_MASCOTA_FK
-  foreign key (ID_MASCOTA, TIPO)
-  references EMAIL(ID_EMAIL,TIPO_EMAIL); 
