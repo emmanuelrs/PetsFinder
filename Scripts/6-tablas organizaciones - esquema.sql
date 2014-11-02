@@ -7,8 +7,7 @@ CREATE TABLE ORGANIZACION_CASA_CUNA(
               CONSTRAINT ORGANIZACION_TIPO_NN NOT NULL,
        NOMBRE_ORG VARCHAR2(50)
               CONSTRAINT NOMBREORG_NN NOT NULL,
-       DONACION NUMBER(8)
-              CONSTRAINT DANACION_UK UNIQUE,
+       DONACION VARCHAR2(20),
        
        CONSTRAINT PK_ORGANIZACION
        primary key (ID_ORGANIZACION)
@@ -26,7 +25,6 @@ STORAGE (INITIAL 6144
 COMMENT ON TABLE ORGANIZACION_CASA_CUNA IS 'Tabla para el alacenamiento de organizaciones q trabajan con animales perdidos';
 comment on column ORGANIZACION_CASA_CUNA.ID_ORGANIZACION is 'llave primaria de la tabla de organizacion casa cuna';
 comment on column ORGANIZACION_CASA_CUNA.NOMBRE_ORG is 'Nombre de la organizacion';
-
 comment on column ORGANIZACION_CASA_CUNA.DONACION is 'llave para los valores de las donaciones q a recibido la organizacion';
 
 
@@ -61,8 +59,8 @@ comment on column MASCOTA_ADMITIDA.TIPO_MASCOTA is 'tipo de mascotas q admitira 
 CREATE TABLE DONACIONES(
        ID_DONACION NUMBER(8)
               CONSTRAINT ID_DANACION_NN NOT NULL,
-       DONADOR NUMBER(8)
-              CONSTRAINT DONADOR_UK UNIQUE,
+       DONADOR NUMBER(8),
+          
        CANTIDAD NUMBER(12)
               CONSTRAINT CANTIDAD_DONACION_NN NOT NULL,
        
