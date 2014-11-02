@@ -125,13 +125,4 @@ alter table MASCOTA
   add constraint DIRECCION_MASCOTA_FK
   foreign key (ID_MASCOTA,TIPO)
   references DIRECCION(ID_DIRECCION, TIPO_DIREC);
-  
-alter table MASCOTA
-  add constraint TEL_MASCOTA_FK
-  foreign key (ID_MASCOTA,TIPO)
-  references TELEFONO(ID_TEL,TIPO_TEL);
 
-alter table MASCOTA
-  add constraint EMAIL_MASCOTA_FK
-  foreign key (ID_MASCOTA, TIPO)
-  references EMAIL(ID_EMAIL,TIPO_EMAIL); 
