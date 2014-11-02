@@ -116,11 +116,6 @@ create sequence s_donacion
   references RAZA(ID_RAZA);
 
  alter table ORGANIZACION_CASA_CUNA
-  add constraint DONACIONES_FK
-  foreign key (DONACION)
-  references DONACIONES(ID_DONACION);
-
- alter table ORGANIZACION_CASA_CUNA
   add constraint TELEFONO_ORG_FK
   foreign key (ID_ORGANIZACION,TIPO)
   references TELEFONO(ID_TEL,TIPO_TEL);

@@ -85,10 +85,4 @@ FUNCTION busquedaRaza(pRaza IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO DESC;
     RETURN busqRaza;
  END busquedaRaza;
- 
-    
- 
-
-
-
 END BUSQUEDAS;
