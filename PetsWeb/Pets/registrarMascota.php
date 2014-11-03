@@ -297,7 +297,7 @@ $(document).ready(function() {
 
                 <p class="contact-submit">
                 <label> Seleccionar Fecha:</label>
-                <input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+                <input type="text" name="datepicker" id="datepicker" readonly="readonly" size="20" placeholder="Click aquí para seleccionar fecha..."/> 
                 <input type="submit" value="Enviar" class="boton">
                 </p>   
         	   
