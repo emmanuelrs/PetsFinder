@@ -32,4 +32,20 @@ FUNCTION CONSULTA_DONACION(id_user in number)
          return donaciones;
     END CONSULTA_DONACION;
 
+FUNCTION MONTO_TOTAL(id_org in number)
+        return TYPES.ref_c 
+        AS montos types.ref_c;
+        BEGIN
+         
+         OPEN montos FOR
+         SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
+         FROM organizacion_casa_cuna o, donaciones d
+         WHERE d.id_donacion = id_org;      
+         return donaciones;
+    END CONSULTA_DONACION;
+
+select * from montos;
+
+insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
+values(1, 2, 20000, 'Voluntaria');
 END DONACION;

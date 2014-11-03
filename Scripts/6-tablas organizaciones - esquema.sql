@@ -64,13 +64,8 @@ CREATE TABLE DONACIONES(
        CANTIDAD NUMBER(12)
               CONSTRAINT CANTIDAD_DONACION_NN NOT NULL,
        TIPO_DONACION VARCHAR2(30)
-              CONSTRAINT TIPO_DONACION_NN NOT NULL,     
-       
-       CONSTRAINT PK_DONACIONES
-       primary key (ID_DONACION)
-       using index
-       tablespace ad_ind pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
+              CONSTRAINT TIPO_DONACION_NN NOT NULL     
+
 )
 TABLESPACE ad_data
 STORAGE (INITIAL 6144
@@ -84,6 +79,17 @@ comment on column DONACIONES.ID_DONACION is 'llave primaria de la tabla de donac
 comment on column DONACIONES.DONADOR is 'llave al valor real del usuario que hace la donacion';
 comment on column DONACIONES.CANTIDAD is 'cantidad de la donacion';
 comment on column DONACIONES.TIPO_DONACION is 'indica si la donacion fue voluntaria o si fue que el usuario quiso donar un recompensa';
+
+CREATE TABLE MONTOS(
+       ID_ORGA NUMBER(8),
+       TOTAL_D NUMBER(20)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
 
 --secuencias
 create sequence s_org
