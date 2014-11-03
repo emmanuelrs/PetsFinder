@@ -56,4 +56,12 @@ PROCEDURE UPDATE_DIRECCION(id_direc in number, tipo in number, prov in varchar2,
     where d.id_direccion = id_direc and d.tipo_direc = tipo;
 end UPDATE_DIRECCION;
 
+PROCEDURE CALIFICACION(id_user in number, calif in number) as
+  begin 
+    update usuario u
+    set u.calificacion = calif
+    where u.id_usuario = id_user;
+end CALIFICACION;
+  
+
 END ACTUALIZACIONES;
