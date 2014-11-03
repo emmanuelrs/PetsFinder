@@ -5,18 +5,20 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 	$var1 = $_POST['name'];  
-	$var2 = $_POST['chip'];
-	$var3 = $_POST['color'];
-	$var4 = $_POST['distrito'];  
-	$var5 = $_POST['detalle_direccion'];
-	$var6 = $_POST['descripcion'];
+	$var2 = $_POST['raza'];
+	$var3 = $_POST['tamaño'];
+//Imagen 
+	$var5 = $_POST['chip'];
+	$var6 = $_POST['color'];
+	$var7 = $_POST['estado'];
+	$var8 = 'Costa Rica';
+	$var9 = $_POST['Provincia'];
+	$var10 = $_POST['Canton'];
+	$var11 = $_POST['distrito'];
+	$var12 = $_POST['message'];
+	$var13 = $_POST['recompenza'];
+	$var14 = $_POST['descripcion'];
+    $var15 = 'fecha';
+    $var16 = 1;
 
-
-	echo($var1);
-	echo($var2);
-	echo($var3);
-	echo($var4);
-	echo($var5);
-	echo($var6);
-
-?>
+?> 
