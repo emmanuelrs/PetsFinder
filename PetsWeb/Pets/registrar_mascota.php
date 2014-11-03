@@ -7,7 +7,6 @@ if (!$conn) {
 	$var1 = $_POST['name'];  
 	$var2 = $_POST['raza'];
 	$var3 = $_POST['tamaño'];
-//Imagen 
 	$var5 = $_POST['chip'];
 	$var6 = $_POST['color'];
 	$var7 = $_POST['estado'];
@@ -20,5 +19,10 @@ if (!$conn) {
 	$var14 = $_POST['descripcion'];
     $var15 = 'fecha';
     $var16 = 1;
+
+$target_path = basename($_FILES['uploadedfile']['name']); 
+$imagen = (string)$target_path;
+
+
 
 ?> 

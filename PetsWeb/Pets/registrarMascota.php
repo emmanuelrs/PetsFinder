@@ -285,6 +285,11 @@ $(document).ready(function() {
                 </optgroup>
                 </select>
                 <br></br>
+                 <p class="labelText">
+                 <form enctype="multipart/form-data" action="registro_mascota.php" method="POST">
+                 <input name="uploadedfile" type="file" />
+                 </p>
+                
                 <p class="contact-email">
                   <input id="contact_email" type="text" placeholder="Distrito..." value="" name="distrito" />
                 </p>
@@ -292,9 +297,14 @@ $(document).ready(function() {
                 <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la dirección" value=	"" size="25">
                 </p>
                 <p class="contact-submit">
-                <a href = "registrar_mascota.php"><input type="submit" value="Enviar" class="boton"><a/>
+                <input type="submit" value="Enviar" class="boton">
                 </p>     
                 </div>
+
+                
+
+                
+                <br></br>
 		<p/>
 		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
 		</select>
