@@ -1,6 +1,14 @@
 <?php
+// Start the session
+session_start();
+?>
+
+<?php
+    
 	$nombre = $_POST['NombreUsuario'];
 	$pass = $_POST['Contraseña'];
+	$_SESSION["NU"] = $nombre;
+    
 
 $conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
 if (!$conn) {
@@ -21,10 +29,11 @@ foreach ($array as $fila) {
 	$idpersona = $fila['ID_USUARIO'];
 }
 if($idpersona){
-	echo "sirve";
+	$_SESSION['IDU'] = $idpersona;
+	header('refresh: 0; url=index.php');
 }
 else{
-	header('refresh: 0; url=index.php');
+	echo 'No esta registrado';
 }
 
 

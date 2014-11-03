@@ -20,11 +20,10 @@ if (!$conn) {
 	$var14 = $_POST['descripcion'];
     $var15 = $_POST['datepicker'];
     $fecha = (string)$var15
-    $var16 = 1;
     $target_path = basename($_FILES['uploadedfile']['name']); 
 	$imagen = (string)$target_path;
 
-	if($var7 == "Encontrada"){
+	/*if($var7 == "Encontrada"){
         
         $stid = ociparse($conn, "BEGIN  insertions.set_mascota_encontrada(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17); END;");
         
@@ -56,7 +55,7 @@ if (!$conn) {
 	oci_free_statement($stid);
     oci_close($conn);
 
-
+*/
 
 
 ?> 
