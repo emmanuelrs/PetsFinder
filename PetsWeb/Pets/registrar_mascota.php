@@ -49,12 +49,12 @@ if (!$conn) {
    
 	if($var7 == "Encontrada"){
         
-        $stid = ociparse($conn, "BEGIN  insertions.set_mascota_encontrada(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17); END;");
+        $stid = ociparse($conn, "BEGIN  insertions.set_mascota_encontrada(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16); END;");
         
     }
     else if($var7 == "Perdida"){
         
-        $stid = ociparse($conn, "BEGIN insertions.set_mascota_perdida(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17); END;");
+        $stid = ociparse($conn, "BEGIN insertions.set_mascota_perdida(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16); END;");
       
     }
 
