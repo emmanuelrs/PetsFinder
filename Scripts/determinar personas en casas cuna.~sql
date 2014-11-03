@@ -1,0 +1,8 @@
+SELECT U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.CALIFICACION,
+D.PROVINCIA,D.CANTON,D.DIRECCION_EXACTA,CC.TAMANO,CC.REQUIERE_ALIMENTO
+
+FROM casa_cuna cc, usuario u, direccion d
+
+WHERE u.id_usuario = cc.id_persona 
+and d.id_direccion = u.id_usuario
+and d.tipo_direc = u.tipo
