@@ -126,7 +126,7 @@ $(document).ready(function() {
         
         	<form id="contact-form" class="contact-form" action="registrar_mascota.php" method="POST">
             	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Nombre de la mascota" value="" name="name" />
+            		<input id="contact_name" type="text" placeholder="Nombre de la mascota" value="" name="nombre" />
                 </p>
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Chip identificación" value="" name="chip" />
@@ -285,10 +285,8 @@ $(document).ready(function() {
                 </optgroup>
                 </select>
                 <br></br>
-                 <p class="labelText">
-                 <form enctype="multipart/form-data" action="registro_mascota.php" method="POST">
-                 <input name="uploadedfile" type="file" />
-                 </p>
+
+                 
                 
                 <p class="contact-email">
                   <input id="contact_email" type="text" placeholder="Distrito..." value="" name="distrito" />
@@ -296,23 +294,24 @@ $(document).ready(function() {
                 <p class="contact-message">
                 <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la dirección" value=	"" size="25">
                 </p>
+                <p class="labelText">
+                 <form enctype="multipart/form-data" action="registro_mascota.php" method="POST">
+                 <input name="subir" type="file" />
+                 </p>
+
                 <p class="contact-submit">
                 <input type="submit" value="Enviar" class="boton">
                 </p>     
-                </div>
-
-                
-
-                
+                </div>        
                 <br></br>
-		<p/>
-		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
-		</select>
-	    </form>
-        <label> Seleccionar Fecha:</label>
-  		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
-        </div> 
-        </form>
+        		<p/>
+        		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
+        		</select>
+        	    </form>
+                <label> Seleccionar Fecha:</label>
+          		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+                </div> 
+                </form>
 </body>
 </html>
 

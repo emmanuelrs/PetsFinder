@@ -4,7 +4,10 @@ if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-	$var1 = $_POST['name'];  
+
+    $target_path = basename($_FILES['subir']['name']); 
+    $imagen = (string)$target_path;
+	$var1 = $_POST['nombre'];  
 	$var2 = $_POST['raza'];
 	$var3 = $_POST['tamaño'];
 	$var5 = $_POST['chip'];
@@ -20,8 +23,6 @@ if (!$conn) {
     $var15 = 'fecha';
     $var16 = 1;
 
-$target_path = basename($_FILES['uploadedfile']['name']); 
-$imagen = (string)$target_path;
 
 
 
