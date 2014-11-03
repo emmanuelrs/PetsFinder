@@ -1,7 +1,0 @@
-CREATE OR REPLACE TRIGGER update_salary
- BEFORE UPDATE OF mascota
- ON ad.bitacota FOR EACH ROW
- BEGIN
-   bitacora.set_datos(salary_ant => :old.salary, salary_new => :new.salary)
- END;
-   
