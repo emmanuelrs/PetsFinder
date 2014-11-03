@@ -63,6 +63,8 @@ CREATE TABLE DONACIONES(
           
        CANTIDAD NUMBER(12)
               CONSTRAINT CANTIDAD_DONACION_NN NOT NULL,
+       TIPO_DONACION VARCHAR2(30)
+              CONSTRAINT TIPO_DONACION_NN NOT NULL,     
        
        CONSTRAINT PK_DONACIONES
        primary key (ID_DONACION)
@@ -81,6 +83,7 @@ COMMENT ON TABLE DONACIONES IS 'Tabla para el alacenamiento de las donaciones q 
 comment on column DONACIONES.ID_DONACION is 'llave primaria de la tabla de donaciones';
 comment on column DONACIONES.DONADOR is 'llave al valor real del usuario que hace la donacion';
 comment on column DONACIONES.CANTIDAD is 'cantidad de la donacion';
+comment on column DONACIONES.TIPO_DONACION is 'indica si la donacion fue voluntaria o si fue que el usuario quiso donar un recompensa';
 
 --secuencias
 create sequence s_org
