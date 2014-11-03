@@ -118,13 +118,15 @@ $(document).ready(function() {
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
 				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
-            </ul>
-        </nav>  
-    </div>
-       <div class="row">
+                </ul>
+              </nav >  
+    
+        <div class="row">
     	<div class="span9">
-        
+        <form enctype="multipart/form-data" action="registrar_mascota.php" method="POST" class="contact-form" id="contact-form">
+        Fotografía de la mascota: <input name="uploadedfile" type="file"/><br></br>
         	<form id="contact-form" class="contact-form" action="registrar_mascota.php" method="POST">
+
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Nombre de la mascota" value="" name="nombre" />
                 </p>
@@ -148,24 +150,24 @@ $(document).ready(function() {
                 </p>
 
                 <select name="raza">
-   				      <option selected value="0"> Seleccione la raza</option>
-       			    <optgroup label="Perros">
-      			    <option value="Salchicha">Salchicha</option>
-     			      <option value="Gran Danes">Gran Danés</option>
+      	        <option selected value="0"> Seleccione la raza</option>
+       		    <optgroup label="Perros">
+      		    <option value="Salchicha">Salchicha</option>
+     	        <option value="Gran Danes">Gran Danés</option>
                 <option value="Raza Unica">Raza Única</option>
                 <optgroup label="Gatos">
-      			    <option value="Angora">Angora</option>
-     			      <option value="Raza Unica">Raza Única</option>
-   				      </optgroup>
-				        </select>
+      		    <option value="Angora">Angora</option>
+     		    <option value="Raza Unica">Raza Única</option>
+   				</optgroup>
+				</select>
 
                 <select name="estado">
-   				      <option selected value="0"> Estado de su mascota</option>
-      			    <option value="Perdida">Perdida</option>
-     			      <option value="Encontrada">Encontrada</option>
+   				<option selected value="0"> Estado de su mascota</option>
+      			<option value="Perdida">Perdida</option>
+     			<option value="Encontrada">Encontrada</option>
                 <option value="Adoptada">Adoptada</option>
 
-				        </select>
+				</select>
                 <select name="tamaño">
                 <option selected value="0"> Tamaño</option>
                 <option value="grande">Grande</option>
@@ -284,34 +286,25 @@ $(document).ready(function() {
 
                 </optgroup>
                 </select>
-                <br></br>
-
-                 
                 
                 <p class="contact-email">
-                  <input id="contact_email" type="text" placeholder="Distrito..." value="" name="distrito" />
+                <input id="contact_email" type="text" placeholder="Distrito..." value="" name="distrito" />
                 </p>
                 <p class="contact-message">
                 <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la dirección" value=	"" size="25">
                 </p>
-                <p class="labelText">
-                 <form enctype="multipart/form-data" action="registro_mascota.php" method="POST">
-                 <input name="subir" type="file" />
-                 </p>
+            
 
                 <p class="contact-submit">
-                <input type="submit" value="Enviar" class="boton">
-                </p>     
-                </div>        
-                <br></br>
-        		<p/>
-        		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
-        		</select>
-        	    </form>
                 <label> Seleccionar Fecha:</label>
-          		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
-                </div> 
+                <input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+                <input type="submit" value="Enviar" class="boton">
+                </p>   
+        	   
+
                 </form>
+            
+            
 </body>
 </html>
 

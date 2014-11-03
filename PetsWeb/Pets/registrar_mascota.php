@@ -5,8 +5,6 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
-    $target_path = basename($_FILES['subir']['name']); 
-    $imagen = (string)$target_path;
 	$var1 = $_POST['nombre'];  
 	$var2 = $_POST['raza'];
 	$var3 = $_POST['tamaño'];
@@ -20,10 +18,25 @@ if (!$conn) {
 	$var12 = $_POST['message'];
 	$var13 = $_POST['recompenza'];
 	$var14 = $_POST['descripcion'];
-    $var15 = 'fecha';
+    $var15 = $_POST['datepicker'];
     $var16 = 1;
+    $target_path = basename($_FILES['uploadedfile']['name']); 
+	$imagen = (string)$target_path;
 
-
-
+echo $var1;
+echo $var2;
+echo $var3;
+echo $var5;
+echo $var6;
+echo $var7;
+echo $var8;
+echo $var9;
+echo $var10;
+echo $var11;
+echo $var12;
+echo $var13;
+echo $var14;
+echo $var15;
+echo $imagen;
 
 ?> 
