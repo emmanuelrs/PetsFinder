@@ -5,6 +5,9 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
+    $target_path = basename($_FILES['uploadedfile']['name']); 
+    $imagen = (string)$target_path;
+    echo $imagen;
 	$var1 = $_POST['nombre'];  
 	$var2 = $_POST['raza'];
 	$var3 = $_POST['tamaño'];
@@ -20,8 +23,7 @@ if (!$conn) {
 	$var14 = $_POST['descripcion'];
     $var15 = $_POST['datepicker'];
     $fecha = (string)$var15
-    $target_path = basename($_FILES['uploadedfile']['name']); 
-	$imagen = (string)$target_path;
+
 
 	/*if($var7 == "Encontrada"){
         
