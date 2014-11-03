@@ -295,16 +295,14 @@ $(document).ready(function() {
                 <a href = "registrar_mascota.php"><input type="submit" value="Enviar" class="boton"><a/>
                 </p>     
                 </div>
-               
-		
 		<p/>
 		<select id="lstOtherStuff" multiple="multiple" size="3" style="width:200px;">
 		</select>
-	  </form>
-      <label> Seleccionar Fecha:</label>
+	    </form>
+        <label> Seleccionar Fecha:</label>
   		<input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
-      </div> 
-      </form>
+        </div> 
+        </form>
 </body>
 </html>
 
