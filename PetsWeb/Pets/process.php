@@ -30,7 +30,7 @@ foreach ($array as $fila) {
 }
 if($idpersona){
 	$_SESSION['IDU'] = $idpersona;
-	header('refresh: 0; url=index.php');
+	header('Location: index.php');
 }
 else{
 	echo 'No esta registrado';

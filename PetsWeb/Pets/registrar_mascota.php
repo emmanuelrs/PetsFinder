@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 $conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
 if (!$conn) {
     $e = oci_error();
@@ -7,7 +11,6 @@ if (!$conn) {
 
     $target_path = basename($_FILES['uploadedfile']['name']); 
     $imagen = (string)$target_path;
-    echo $imagen;
 	$var1 = $_POST['nombre'];  
 	$var2 = $_POST['raza'];
 	$var3 = $_POST['tamaño'];
@@ -22,18 +25,20 @@ if (!$conn) {
 	$var13 = $_POST['recompenza'];
 	$var14 = $_POST['descripcion'];
     $var15 = $_POST['datepicker'];
-    $fecha = (string)$var15
-
-
-	/*if($var7 == "Encontrada"){
+    $fecha = (string)$var15;
+    $var16 = $_SESSION["NU"];
+   
+	if($var7 == "Encontrada"){
         
         $stid = ociparse($conn, "BEGIN  insertions.set_mascota_encontrada(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17); END;");
         
-    }else if($var7 == "Perdida"){
+    }
+    else if($var7 == "Perdida"){
         
         $stid = ociparse($conn, "BEGIN insertions.set_mascota_perdida(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16,:p17); END;");
       
     }
+
 
 
     oci_bind_by_name($stid, ':p1', $var1);
@@ -57,7 +62,6 @@ if (!$conn) {
 	oci_free_statement($stid);
     oci_close($conn);
 
-*/
 
 
 ?> 
