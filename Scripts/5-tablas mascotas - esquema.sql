@@ -32,16 +32,17 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios mascota
-COMMENT ON TABLE MASCOTA_ENCONTRADA IS 'Tabla para el alacenamiento de mascotas tanto perdidas como encontradas';
+COMMENT ON TABLE MASCOTA_ENCONTRADA IS 'Tabla para el almacenamiento de mascotas tanto perdidas como encontradas';
 comment on column MASCOTA_ENCONTRADA.ID_MASCOTA_enc is 'llave primaria de la tabla mascota';
 comment on column MASCOTA_ENCONTRADA.NOMBRE_enc is 'Nombre de la mascota';
 comment on column MASCOTA_ENCONTRADA.TIPO_Y_RAZA_enc is 'raza de la mascota';
-comment on column MASCOTA_ENCONTRADA.CHIP_IDENTIFICACION_enc is 'posible identificacion de la mascota';
+comment on column MASCOTA_ENCONTRADA.CHIP_IDENTIFICACION_enc is 'posible identificación de la mascota';
 comment on column MASCOTA_ENCONTRADA.COLOR_enc is 'color de la mascota o posible mescla de colores de la misma';
-comment on column MASCOTA_ENCONTRADA.ESTADO_enc is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
-comment on column MASCOTA_ENCONTRADA.RECOMPENSA_enc is 'indicador de una posible recompenza por encontrar la mascota';
+comment on column MASCOTA_ENCONTRADA.ESTADO_enc is 'campo que contendrá la llave al valor del estado de la mascota por ejemplo perdida';
+comment on column MASCOTA_ENCONTRADA.RECOMPENSA_enc is 'indicador de una posible recompensa por encontrar la mascota';
 comment on column MASCOTA_ENCONTRADA.DESCRIPCION_enc is 'comentarios sobre la mascota perdida o encontrada';
-comment on column MASCOTA_ENCONTRADA.USUARIO_REGISTRA_enc is 'llave de la persona q perdio o encontro la mascota';
+comment on column MASCOTA_ENCONTRADA.USUARIO_REGISTRA_enc is 'llave de la persona que perdió o encontró la mascota';
+
 --Tabla mascota almacenara las mascotas perdidas y encontradas por los usuarios
 CREATE TABLE MASCOTA_PERDIDA(
        ID_MASCOTA_per NUMBER(8)
@@ -76,16 +77,16 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios mascota
-COMMENT ON TABLE MASCOTA_PERDIDA IS 'Tabla para el alacenamiento de mascotas tanto perdidas como encontradas';
+COMMENT ON TABLE MASCOTA_PERDIDA IS 'Tabla para el almacenamiento de mascotas tanto perdidas como encontradas';
 comment on column MASCOTA_PERDIDA.ID_MASCOTA_per is 'llave primaria de la tabla mascota';
 comment on column MASCOTA_PERDIDA.NOMBRE_per is 'Nombre de la mascota';
 comment on column MASCOTA_PERDIDA.TIPO_Y_RAZA_per is 'raza de la mascota';
-comment on column MASCOTA_PERDIDA.CHIP_IDENTIFICACION_per is 'posible identificacion de la mascota';
+comment on column MASCOTA_PERDIDA.CHIP_IDENTIFICACION_per is 'posible identificación de la mascota';
 comment on column MASCOTA_PERDIDA.COLOR_per is 'color de la mascota o posible mescla de colores de la misma';
-comment on column MASCOTA_PERDIDA.ESTADO_per is 'campo q contrendra la llave al valor del estado de la mascota por ejm perdida';
-comment on column MASCOTA_PERDIDA.RECOMPENSA_per is 'indicador de una posible recompenza por encontrar la mascota';
+comment on column MASCOTA_PERDIDA.ESTADO_per is 'campo que contendrá la llave al valor del estado de la mascota por ejm perdida';
+comment on column MASCOTA_PERDIDA.RECOMPENSA_per is 'indicador de una posible recompensa por encontrar la mascota';
 comment on column MASCOTA_PERDIDA.DESCRIPCION_per is 'comentarios sobre la mascota perdida o encontrada';
-comment on column MASCOTA_PERDIDA.USUARIO_REGISTRA_per is 'llave de la persona q perdio o encontro la mascota';
+comment on column MASCOTA_PERDIDA.USUARIO_REGISTRA_per is 'llave de la persona que perdió o encontró la mascota';
 
 --tabla para las imagenes de mascotas
 create table IMAGEN(
@@ -101,9 +102,10 @@ alter table IMAGEN add
         tablespace ad_ind pctfree 20
         storage (initial 10K next 10K pctincrease 0);
         
-COMMENT ON TABLE IMAGEN IS 'Tabla para el alacenamiento de las imagenes de las mascotas';
+COMMENT ON TABLE IMAGEN IS 'Tabla para el almacenamiento de las imágenes de las mascotas';
 comment on column IMAGEN.ID_IMAGEN is 'llave primaria de la tabla imagen';
 comment on column IMAGEN.IMAGEN_MASCOTA is 'archivo tipo imagen';   
+
 
 --RAZA DE LA MASCOTA
 CREATE TABLE RAZA(
@@ -130,10 +132,11 @@ STORAGE (INITIAL 6144
 );
 
 --comentarios
-COMMENT ON TABLE RAZA IS 'Tabla para el alacenamiento de las diferentes razas de la mascotas';
+COMMENT ON TABLE RAZA IS 'Tabla para el almacenamiento de las diferentes razas de la mascotas';
 comment on column RAZA.ID_RAZA is 'llave primaria de la tabla raza';
 comment on column RAZA.DESCRIPCION_RAZA is 'valor final del tipo de raza'; 
-comment on column RAZA.TIPO_MASCOTA is 'tipo de mascota al q pertenece la raza'; 
+comment on column RAZA.TIPO_MASCOTA is 'tipo de mascota al que pertenece la raza';
+
 
 --SECUENCIAS
 create sequence s_mascota_per

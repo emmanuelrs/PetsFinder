@@ -22,11 +22,10 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios organizacion
-COMMENT ON TABLE ORGANIZACION_CASA_CUNA IS 'Tabla para el alacenamiento de organizaciones q trabajan con animales perdidos';
-comment on column ORGANIZACION_CASA_CUNA.ID_ORGANIZACION is 'llave primaria de la tabla de organizacion casa cuna';
-comment on column ORGANIZACION_CASA_CUNA.NOMBRE_ORG is 'Nombre de la organizacion';
-comment on column ORGANIZACION_CASA_CUNA.DONACION is 'llave para los valores de las donaciones q a recibido la organizacion';
-
+COMMENT ON TABLE ORGANIZACION_CASA_CUNA IS 'Tabla para el almacenamiento de organizaciones que trabajan con animales perdidos';
+comment on column ORGANIZACION_CASA_CUNA.ID_ORGANIZACION is 'llave primaria de la tabla de organización casa cuna';
+comment on column ORGANIZACION_CASA_CUNA.NOMBRE_ORG is 'Nombre de la organización';
+comment on column ORGANIZACION_CASA_CUNA.DONACION is 'llave para los valores de las donaciones que a recibido la organización';
 
 --Tabla de mascotas admitidas en una org
 CREATE TABLE MASCOTA_ADMITIDA(
@@ -50,10 +49,10 @@ STORAGE (INITIAL 6144
 ); 
 
 -- comentarios tabla mascotas admitidas en org
-COMMENT ON TABLE MASCOTA_ADMITIDA IS 'Tabla para el alacenamiento de las mascotas admitidas en las organizaciones';
-comment on column MASCOTA_ADMITIDA.ID_MASCOTA_AD is 'llave primaria de la tabla de mascotas admitidas';
-comment on column MASCOTA_ADMITIDA.TIPO_MASCOTA is 'tipo de mascotas q admitira la organizacion';
 
+COMMENT ON TABLE MASCOTA_ADMITIDA IS 'Tabla para el almacenamiento de las mascotas admitidas en las organizaciones';
+comment on column MASCOTA_ADMITIDA.ID_MASCOTA_AD is 'llave primaria de la tabla de mascotas admitidas';
+comment on column MASCOTA_ADMITIDA.TIPO_MASCOTA is 'tipo de mascotas q admitirá la organización';
 
 --Tabla de donaciones a las organizaciones
 CREATE TABLE DONACIONES(
@@ -74,11 +73,11 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios organizacion
-COMMENT ON TABLE DONACIONES IS 'Tabla para el alacenamiento de las donaciones q se le hacen a las organizaciones';
+COMMENT ON TABLE DONACIONES IS 'Tabla para el almacenamiento de las donaciones q se le hacen a las organizaciones';
 comment on column DONACIONES.ID_DONACION is 'llave primaria de la tabla de donaciones';
-comment on column DONACIONES.DONADOR is 'llave al valor real del usuario que hace la donacion';
-comment on column DONACIONES.CANTIDAD is 'cantidad de la donacion';
-comment on column DONACIONES.TIPO_DONACION is 'indica si la donacion fue voluntaria o si fue que el usuario quiso donar un recompensa';
+comment on column DONACIONES.DONADOR is 'llave al valor real del usuario que hace la donación';
+comment on column DONACIONES.CANTIDAD is 'cantidad de la donación';
+comment on column DONACIONES.TIPO_DONACION is 'indica si la donación fue voluntaria o si fue que el usuario quiso donar un recompensa';
 
 CREATE TABLE MONTOS(
        ID_ORGA NUMBER(8),
