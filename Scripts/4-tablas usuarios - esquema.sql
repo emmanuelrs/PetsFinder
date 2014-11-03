@@ -35,15 +35,15 @@ STORAGE (INITIAL 6144
 ); 
 
 -- comentarios usuarios
-COMMENT ON TABLE USUARIO IS 'Tabla para el alacenamiento de usuarios tanto usuarios normales como usuarios administradores';
+COMMENT ON TABLE USUARIO IS 'Tabla para el almacenamiento de usuarios tanto usuarios normales como usuarios administradores';
 comment on column USUARIO.ID_USUARIO is 'llave primaria de la tabla usuarios';
-comment on column USUARIO.TIPO is 'parte de la llave primaria para telefono, email, direccion';
+comment on column USUARIO.TIPO is 'parte de la llave primaria para teléfono, email, dirección';
 comment on column USUARIO.NOMBRE is 'Nombre real del usuario';
 comment on column USUARIO.APELLIDO1 is 'primer apellido del usuario';
 comment on column USUARIO.APELLIDO2 is 'segundo apellido del usuario';
-comment on column USUARIO.USER_NAME is 'Nombre de usuario para utilizar en la pagina';
+comment on column USUARIO.USER_NAME is 'Nombre de usuario para utilizar en la página';
 comment on column USUARIO.CONTRASEÑA is 'Contraseña para el ingreso del usuario al sistema';
-comment on column USUARIO.CALIFICACION is 'calificacion  del usuario "reputacion"';
+comment on column USUARIO.CALIFICACION is 'calificación  del usuario "reputación"';
 comment on column USUARIO.TIPO_USER is 'indicador para saber si el usuario es administrador o solo un usuario regular';
 
 -- Tabla direcciones.
@@ -76,14 +76,15 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 -- comentarios direcciones
-COMMENT ON TABLE DIRECCION IS 'Tabla para el alacenamiento de las direcciones de recidencia de los uauarios';
-comment on column DIRECCION.ID_DIRECCION is 'parte de la llave primaria de la tabla direccion nos indica su id el cual es unico';
-comment on column DIRECCION.TIPO_DIREC is 'parte de la llave primaria de la tabla direccion nos indica que tipo de direccion es por ejemplo si es la direccion de un usuario, organizacion o la direccion del registro de una mascota';
-comment on column DIRECCION.PAIS is 'pais de procedencia';
-comment on column DIRECCION.PROVINCIA is 'provencia de procedencia';
-comment on column DIRECCION.CANTON is 'canton de procedencia';
+COMMENT ON TABLE DIRECCION IS 'Tabla para el almacenamiento de las direcciones de residencia de los usuarios';
+comment on column DIRECCION.ID_DIRECCION is 'parte de la llave primaria de la tabla dirección nos indica su id el cual es único';
+comment on column DIRECCION.TIPO_DIREC is 'parte de la llave primaria de la tabla dirección nos indica que tipo de dirección es por ejemplo si es la dirección de un usuario, organización o la dirección del registro de una mascota';
+comment on column DIRECCION.PAIS is 'país de procedencia';
+comment on column DIRECCION.PROVINCIA is 'provincia de procedencia';
+comment on column DIRECCION.CANTON is 'cantón de procedencia';
 comment on column DIRECCION.PAIS is 'distrito de procedencia';
-comment on column DIRECCION.PAIS is 'direccion exacta con mas detalles del registro de direccion';
+comment on column DIRECCION.PAIS is 'dirección exacta con mas detalles del registro de dirección';
+
 
 --tabla de tipos de usuario
 CREATE TABLE TIPO_USUARIO(
@@ -105,9 +106,10 @@ STORAGE (INITIAL 6144
         MINEXTENTS 1
         MAXEXTENTS 5
 ); 
-COMMENT ON TABLE TIPO_USUARIO IS 'Tabla para el alacenamiento del tipo de usuarios por ejm normal, administrador';
+COMMENT ON TABLE TIPO_USUARIO IS 'Tabla para el almacenamiento del tipo de usuarios por ejemplo normal, administrador';
 comment on column TIPO_USUARIO.ID_TIPO is 'llave primaria de la tabla tipo usuario';
-comment on column TIPO_USUARIO.TIPO_USUARIO is 'descripcion del tipo de usuario sea administrador o usuario regular';
+comment on column TIPO_USUARIO.TIPO_USUARIO is 'descripción del tipo de usuario sea administrador o usuario regular';
+
 
 --tabla de los telefonos de los usuarios
 CREATE TABLE TELEFONO(
@@ -132,10 +134,9 @@ STORAGE (INITIAL 6144
         MINEXTENTS 1
         MAXEXTENTS 5
 ); 
-COMMENT ON TABLE TELEFONO IS 'Tabla para el alacenamiento de los numeros de telefono del usuario';
-comment on column TELEFONO.ID_TEL is 'llave primaria de la tabla tel usuario';
-comment on column TELEFONO.TELEFONO is 'numero de telefono ya sea celular, residencial o otro del usuario';
-
+COMMENT ON TABLE TELEFONO IS 'Tabla para el almacenamiento de los números de teléfono del usuario';
+comment on column TELEFONO.ID_TEL is 'llave primaria de la tabla teléfono';
+comment on column TELEFONO.TELEFONO is 'numero de teléfono ya sea celular, residencial o otro del usuario';
 
 --tabla de correos de usuarios
 CREATE TABLE EMAIL(
@@ -160,9 +161,10 @@ STORAGE (INITIAL 6144
         MINEXTENTS 1
         MAXEXTENTS 5
 ); 
-COMMENT ON TABLE EMAIL IS 'Tabla para el alacenamiento de los email´s del usuario';
-comment on column EMAIL.ID_EMAIL is 'llave primaria de la tabla email usuario';
+COMMENT ON TABLE EMAIL IS 'Tabla para el almacenamiento de los emails del usuario';
+comment on column EMAIL.ID_EMAIL is 'llave primaria de la tabla email';
 comment on column EMAIL.VALOR_EMAIL is 'email del usuario';
+
 
 --tabla de usuarios considerados cm no aptos
 create view LISTA_NEGRA as
@@ -190,9 +192,9 @@ STORAGE (INITIAL 6144
         MINEXTENTS 1
         MAXEXTENTS 5
 ); 
-COMMENT ON TABLE CASA_CUNA IS 'Tabla para el alacenamiento de los usuarios q desean ser casa cuna';
-comment on column CASA_CUNA.ID_PERSONA is 'llave q indica q usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
+COMMENT ON TABLE CASA_CUNA IS 'Tabla para el almacenamiento de los usuarios que desean ser casa cuna';
+comment on column CASA_CUNA.ID_PERSONA is 'llave que indica cual usuario desea ser casa cuna';
+comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
 --tabla de casas cuna PENDIENTES
 CREATE TABLE CASA_CUNA_PENDIENTE(
@@ -235,9 +237,9 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 );
 
-COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el alacenamiento temporal de los usuarios q desean ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave q indica q usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
+COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el almacenamiento temporal de los usuarios que desean ser casa cuna';
+comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave que indica cual usuario es quien desea ser casa cuna';
+comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
 --secuencias
 create sequence s_casa_cuna
@@ -300,11 +302,6 @@ create sequence s_blackList
   add constraint EMAIL_USER_FK
   foreign key (ID_USUARIO, TIPO)
   references EMAIL(ID_EMAIL,TIPO_EMAIL);
-  
- alter table LISTA_NEGRA
-  add constraint BLACK_USER_FK
-  foreign key (ID_PERSONA)
-  references USUARIO(ID_USUARIO);
 
  alter table CASA_CUNA
   add constraint USER_CASACUNA_FK

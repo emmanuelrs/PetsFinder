@@ -68,5 +68,4 @@ create sequence S_ADOPCION
        maxvalue 10000000
        nocache
        nocycle;
-       
-COMMIT;
+
