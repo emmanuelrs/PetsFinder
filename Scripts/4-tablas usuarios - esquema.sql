@@ -165,43 +165,21 @@ comment on column EMAIL.ID_EMAIL is 'llave primaria de la tabla email usuario';
 comment on column EMAIL.VALOR_EMAIL is 'email del usuario';
 
 --tabla de usuarios considerados cm no aptos
-CREATE TABLE LISTA_NEGRA(
-       ID_BLACK NUMBER(8)
-              CONSTRAINT ID_BLACK_NN NOT NULL,
-       ID_PERSONA NUMBER(8)
-              CONSTRAINT ID_BLACKPERSONA_UK UNIQUE,
-       
-       CONSTRAINT PK_ID_BLACK
-       primary key (ID_BLACK)
-       using index
-       tablespace ad_ind pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
-)
-TABLESPACE ad_data
-STORAGE (INITIAL 6144
-        NEXT 6144
-        MINEXTENTS 1
-        MAXEXTENTS 5
-); 
-COMMENT ON TABLE LISTA_NEGRA IS 'Tabla para el alacenamiento del id de los usuarios calalogados con mala reputacion';
-comment on column LISTA_NEGRA.ID_BLACK is 'llave primaria de la tabla lista negra';
-comment on column LISTA_NEGRA.ID_PERSONA is 'llave primaria de la tabla usuarios con la cual se podra acceder a los datos del usuario';
+create view LISTA_NEGRA as
+  select U.ID_USUARIO, U.NOMBRE, U.USER_NAME from USUARIO U
+  where U.CALIFICACION < 2.1;
 
 --tabla de casas cuna
 CREATE TABLE CASA_CUNA(
-       ID_CASA_CUNA NUMBER(8)
-              CONSTRAINT ID_CASACUNA_NN NOT NULL,
        ID_PERSONA NUMBER(8)
               CONSTRAINT ID_PERSONA_CASACUNA_NN NOT NULL,
        TAMANO VARCHAR2(30)
        		  CONSTRAINT TAMAÑO_NN NOT NULL,
-       TIPO_RAZA NUMBER(8)
-              CONSTRAINT CASACUNA_RAZA_NN NOT NULL,
        REQUIERE_ALIMENTO VARCHAR2(2) DEFAULT 'NO'
               CONSTRAINT CK_REQUIERE_ALIMENTO CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO')),
                
        CONSTRAINT PK_CASACUNA
-       primary key (ID_CASA_CUNA)
+       primary key (ID_PERSONA)
        using index
        tablespace ad_ind pctfree 20
        storage (initial 10k next 10k pctincrease 0)
@@ -213,26 +191,20 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 ); 
 COMMENT ON TABLE CASA_CUNA IS 'Tabla para el alacenamiento de los usuarios q desean ser casa cuna';
-comment on column CASA_CUNA.ID_CASA_CUNA is 'llave primaria de la tabla casa cuna';
 comment on column CASA_CUNA.ID_PERSONA is 'llave q indica q usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA.TIPO_RAZA is 'raza de la mascota de la cual se desea ser casa cuna';
 comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
 
 --tabla de casas cuna PENDIENTES
 CREATE TABLE CASA_CUNA_PENDIENTE(
-       ID_CASA_CUNA NUMBER(8)
-              CONSTRAINT ID_CASACUNA_PENDIENTE_NN NOT NULL,
        ID_PERSONA NUMBER(8)
               CONSTRAINT ID_PERSONA_CASACUNA_PEN_NN NOT NULL,
        TAMANO VARCHAR2(30)
        		  CONSTRAINT TAMAÑO_PENDIENTE_NN NOT NULL,
-       TIPO_RAZA NUMBER(8)
-              CONSTRAINT CASACUNA_RAZA_PEN_NN NOT NULL,
        REQUIERE_ALIMENTO VARCHAR2(2) DEFAULT 'NO'
               CONSTRAINT CK_REQUIERE_ALIMENTO_PEN CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO')),
                
        CONSTRAINT PK_CASACUNA_PEN
-       primary key (ID_CASA_CUNA)
+       primary key (ID_PERSONA)
        using index
        tablespace ad_ind pctfree 20
        storage (initial 10k next 10k pctincrease 0)
@@ -244,11 +216,28 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 );
 
-COMMENT ON TABLE CASA_CUNA IS 'Tabla para el alacenamiento temporal de los usuarios q desean ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.ID_CASA_CUNA is 'llave primaria de la tabla de usuarios que desean ser casa cuna';
+CREATE TABLE RAZA_ADMITIDA(
+       RAZA_TIPO NUMBER(8)
+              CONSTRAINT RAZA_TIPO_NN NOT NULL,
+       RAZA NUMBER(8)
+       		  CONSTRAINT RAZA_AD_NN NOT NULL,
+                           
+       CONSTRAINT PK_RAZA_ADMITIDA
+       primary key (RAZA_TIPO)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+);
+
+COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el alacenamiento temporal de los usuarios q desean ser casa cuna';
 comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave q indica q usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.TIPO_RAZA is 'raza de la mascota de la cual se desea ser casa cuna';
-comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
+comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si , no" para saber si el usuario q desea ser casa cuna requiere de alimento para la mascota o si el lo dona por default la casa cuna donara el alimento';
 
 --secuencias
 create sequence s_casa_cuna
