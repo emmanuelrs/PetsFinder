@@ -1,7 +1,12 @@
 CREATE OR REPLACE PACKAGE BODY DONACION AS
-PROCEDURE DONAR_RECOMPENSA(id_user in number, nom_org in varchar2, cant in number) as 
+PROCEDURE DONAR_RECOMPENSA(username in varchar, nom_org in varchar2, cant in number) as 
   id_org number;
+  id_user number;
   begin
+    select u.id_usuario into id_user
+    from usuario u
+    where u.user_name = username;
+    
     select o.id_organizacion into id_org  from organizacion_casa_cuna o
     where o.id_organizacion = nom_org;
     
@@ -10,9 +15,14 @@ PROCEDURE DONAR_RECOMPENSA(id_user in number, nom_org in varchar2, cant in numbe
     commit;
 end DONAR_RECOMPENSA;
 
-PROCEDURE DONAR_VOLUNTARIA(id_user in number, nom_org in varchar2, cant in number) as 
+PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in number) as 
   id_org number;
+  id_user number;
   begin
+    select u.id_usuario into id_user
+    from usuario u
+    where u.user_name = username;
+    
     select o.id_organizacion into id_org  from organizacion_casa_cuna o
     where o.id_organizacion = nom_org;
     
@@ -21,10 +31,15 @@ PROCEDURE DONAR_VOLUNTARIA(id_user in number, nom_org in varchar2, cant in numbe
     commit;
 end DONAR_VOLUNTARIA;
 
-FUNCTION CONSULTA_DONACION(id_user in number)
+FUNCTION CONSULTA_DONACION(username in varchar2)
         return TYPES.ref_c
         AS donaciones types.ref_c;
-        BEGIN
+        id_user number;
+        begin
+         select u.id_usuario into id_user
+          from usuario u
+          where u.user_name = username;
+          
          OPEN donaciones FOR
          SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
          FROM organizacion_casa_cuna o, usuario u, donaciones d
@@ -32,20 +47,4 @@ FUNCTION CONSULTA_DONACION(id_user in number)
          return donaciones;
     END CONSULTA_DONACION;
 
-FUNCTION MONTO_TOTAL(id_org in number)
-        return TYPES.ref_c 
-        AS montos types.ref_c;
-        BEGIN
-         
-         OPEN montos FOR
-         SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
-         FROM organizacion_casa_cuna o, donaciones d
-         WHERE d.id_donacion = id_org;      
-         return donaciones;
-    END CONSULTA_DONACION;
-
-select * from montos;
-
-insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
-values(1, 2, 20000, 'Voluntaria');
 END DONACION;

@@ -27,9 +27,14 @@ PROCEDURE UPDATE_MASCOTA_PER(id_masc in number, nombre_masc in varchar2, raza_ma
 
 end UPDATE_MASCOTA_PER;
 
-PROCEDURE UPDATE_USUARIO(id_user in number, nom in varchar2, ape1 in varchar2, ape2 in varchar2, username in varchar2,
+PROCEDURE UPDATE_USUARIO(nom in varchar2, ape1 in varchar2, ape2 in varchar2, username in varchar2,
    contra in varchar2)AS
+   id_user number;
   BEGIN
+    select u.id_usuario into id_user
+    from usuario u
+    where u.user_name = username;
+    
     update usuario u
     set u.nombre = nom, u.apellido1 = ape1, u.apellido2 = ape2, u.user_name = username, u.contraseña = contra
     where u.id_usuario = id_user;

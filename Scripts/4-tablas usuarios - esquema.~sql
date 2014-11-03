@@ -237,7 +237,7 @@ STORAGE (INITIAL 6144
         MAXEXTENTS 5
 );
 
-COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el alacenamiento temporal de los usuarios que desean ser casa cuna';
+COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el almacenamiento temporal de los usuarios que desean ser casa cuna';
 comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave que indica cual usuario es quien desea ser casa cuna';
 comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
