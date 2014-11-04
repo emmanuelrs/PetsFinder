@@ -96,6 +96,7 @@
     <div class="overlay"></div>
 
     <div class="slider-text">
+    	<div id="slidecaption"></div>
     </div>   
 	
 	<div class="control-nav">

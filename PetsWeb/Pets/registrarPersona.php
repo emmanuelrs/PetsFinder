@@ -86,18 +86,16 @@ function ver(num) {
 
 </head>
 <body>
-        <nav id="menu">
+
+    <!-- Contact Form -->
+    <div class="row">
+            <nav id="menu">
         	<ul id="menu-nav">
             	<li class="current"><a href="index.php" class="external">Inicio</a></li>
-                <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
-                <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
-				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
             </ul>
         </nav>  
     </div>
-    <!-- Contact Form -->
-    <div class="row">
     	<div class="span9">       
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
             	<p class="contact-name">

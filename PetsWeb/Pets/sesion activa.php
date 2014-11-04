@@ -86,10 +86,8 @@
         <nav id="menu">
         	<ul id="menu-nav">
             	<li class="current"><a href="index.php" class="external">Inicio</a></li>
-                <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
-                <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
                 <li><a href="registrarMascota.php" class="external">Registrar Mascota</a></li>
-				<li><a href="shortcodes.php" class="external">Shortcodes</a></li>
+				<li><a href="shortcodes.php" class="external">Cerrar sesion</a></li>
             </ul>
         </nav>   
     </div>
