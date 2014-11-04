@@ -4,19 +4,21 @@ if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-	$var1 = $_POST['nombre'];  
-	$var2 = $_POST['nombre_usuario'];
-	$var3 = $_POST['contrasena'];
-	$var4 = $_POST['confirm_contrasena'];  
-	$var5 = $_POST['telefono'];
-	$var6 = $_POST['email'];
-	$var7 = 'Costa Rica';  
-	$var8 = 'Cartago';
-	$var9 = 'Atenas';
-	$var10= $_POST['distrito'];
-	$var11= $_POST['direc'];
+	$var1 = $_POST['nombre']; 
+	$var2 = $_POST['apellido1'];
+	$var3 = $_POST['apellido2'];  
+	$var4 = $_POST['nombre_usuario'];
+	$var5 = $_POST['contrasena'];
+	$var6 = $_POST['confirm_contrasena'];  
+	$var7 = $_POST['telefono'];
+	$var8 = $_POST['email'];
+	$var9 = 'Costa Rica';  
+	$var10 = $_POST['Provincia'];
+	$var11 = $_POST['Canton'];
+	$var12 = $_POST['distrito'];
+	$var13 = $_POST['direc'];
 
-
+/*
 	echo($var1);
 	echo($var2);
 	echo($var3);
@@ -27,12 +29,11 @@ if (!$conn) {
 	echo($var8);
 	echo($var9);
 	echo($var10);
-	echo($var11);
+	echo($var11);*/
 	
-	/*
 if($var1 && $var2 && $var3 && $var4 && $var5){
-	if($var3 == $var4){
-	$stid = oci_parse($conn, 'begin insertions.set_usuario(:p1, :p2, :p3, :p5, :p6, :p7, :p8, :p9, :p10,:p11); end;');
+	if($var5 == $var6){
+	$stid = oci_parse($conn, 'begin insertions.set_usuario(:p1, :p2, :p3, :p5, :p6, :p7, :p8, :p9, :p10,:p11,:p12,:p13); end;');
 	oci_bind_by_name($stid, ':p1',  $var1);
 	oci_bind_by_name($stid, ':p2',  $var2, 40);
 	oci_bind_by_name($stid, ':p3',  $var3);
@@ -43,6 +44,8 @@ if($var1 && $var2 && $var3 && $var4 && $var5){
 	oci_bind_by_name($stid, ':p9',  $var9);
 	oci_bind_by_name($stid, ':p10', $var10);
 	oci_bind_by_name($stid, ':p11', $var11);
+	oci_bind_by_name($stid, ':p12', $var12);
+	oci_bind_by_name($stid, ':p13', $var13);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
@@ -62,6 +65,6 @@ if($var1 && $var2 && $var3 && $var4 && $var5){
    
     </script>
 <?php
-}}	*/
+}}	
 
 ?>

@@ -121,6 +121,7 @@ function ver(num) {
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Telefono" value="" name="telefono" />
                 </p>
+                
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Email" value="" name="email" />
                 </p>
@@ -135,7 +136,7 @@ function ver(num) {
                 <option value="Guanacaste">Guanacaste</option>
                 <option value="Limón">Limón</option>
                 </select>
-<select name="Canton">
+                <select name="Canton">
                 <option selected value="0">Cantón</option>
                 <optgroup label="San José">
                 <option value="SanJose">San José</option>
@@ -235,6 +236,11 @@ function ver(num) {
 
                 </optgroup>
                 </p>
+
+                <p class="contact-email">
+                    <input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
+                </p>
+                
                  <p class="contact-email">
                     <input id="contact_email" type="text" placeholder="Direccion Exacta" value="" name="direc" />
                 </p>
