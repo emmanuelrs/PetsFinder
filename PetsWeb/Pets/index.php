@@ -110,12 +110,15 @@
 
 <!-- Header -->
 <header>
-    <div class="sticky-nav">
-    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-    	<nav id="menu">
-        	<ul id="menu-nav">
-            	<li class="current"><a href="#home-slider">Inicio</a></li>
-                <li><a href="registrarPersona.php" class = "external">Registrarse</a></li>
+ <div class="sticky-nav">
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+</div>
+        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        <nav id="menu">
+            <ul id="menu-nav">
+                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
+                <li><a href="registrarPersona.php" class = "external">Registrar persona</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
           </ul>
       </nav>
@@ -125,10 +128,9 @@
 <!-- End Header -->
 
 <!-- Our Work Section -->
-<div id="work" class="page">
+<div id="work" class="page">   
 	<div class="container">
     	<!-- Title Page -->
-        <div class="row">
             <div class="span12">
                 <div class="title-page">
                     <h2 class="title">PetsFinder</h2>

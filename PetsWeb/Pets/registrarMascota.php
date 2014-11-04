@@ -111,12 +111,21 @@ $(document).ready(function() {
 </div>
 </head>
 <body>
-<nav id="menu">
-        	<ul id="menu-nav">
-            	<li class="current"><a href="index activo.php" class="external">Inicio</a></li>
-                </ul>
-              </nav >  
-    
+<header>
+ <div class="sticky-nav">
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+</div>
+        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        <nav id="menu">
+            <ul id="menu-nav">
+                <li class="current"><a href="index activo.php" class = "external">Inicio</a></li
+          </ul>
+      </nav>
+        
+    </div>
+</header>
+
         <div class="row">
     	<div class="span9">
         <form enctype="multipart/form-data" action="registrar_mascota.php" method="POST" class="contact-form" id="contact-form">

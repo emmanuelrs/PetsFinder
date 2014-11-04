@@ -112,10 +112,13 @@
 <!-- Header -->
 <header>
     <div class="sticky-nav">
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+</div>
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     	<nav id="menu">
         	<ul id="menu-nav">
-            	<li class="current"><a href="#home-slider">Inicio</a></li>
+            	<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
                 <li><a href="registrarMascota.php" class = "external">Registrar mascota</a></li>
                 <li><a href="shortcodes.php" class="external">Cerrar Sesión</a></li>
           </ul>
@@ -469,7 +472,7 @@
 
 <!-- Footer -->
 <footer>
-    <p class="credits">&copy;2013 Brushed. <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Brushed Template</a> by <a href="http://www.alessioatzeni.com/" title="Alessio Atzeni | Web Designer &amp; Front-end Developer">Alessio Atzeni</a></p>
+    <p class="credits">&copy;2014  <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Pets Finder Costa Rica</a> by Emmanuel Rosales y Luis Serrano</a></p>
 </footer>
 <!-- End Footer -->
 

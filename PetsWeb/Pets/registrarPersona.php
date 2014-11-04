@@ -85,19 +85,26 @@ function ver(num) {
 <!-- End Analytics -->
 
 </head>
-<body>
-
-    <!-- Contact Form -->
-    <div class="row">
-            <nav id="menu">
-        	<ul id="menu-nav">
-            	<li class="current"><a href="index.php" class="external">Inicio</a></li>
+<header>
+ <div class="sticky-nav">
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+</div>
+        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+        <nav id="menu">
+            <ul id="menu-nav">
+                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
+                <li><a href="registrarPersona.php" class = "external">Registrar persona</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
-            </ul>
-        </nav>  
+          </ul>
+      </nav>     
     </div>
-    	<div class="span9">       
+</header>
+
+<br></br>
+    	<div class="span">       
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
+
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Nombre" value="" name="nombre" />
                 </p>

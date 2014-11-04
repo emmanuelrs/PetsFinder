@@ -98,15 +98,23 @@ h1{
 
 
 <body>
-
+<header>
+ <div class="sticky-nav">
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+</div>
+        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
         <nav id="menu">
-        	<ul id="menu-nav">
-            	<li class="current"><a href="index.php" class="external">Inicio</a></li>
-                <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
-            </ul>
-        </nav>   
+            <ul id="menu-nav">
+                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
+                <li><a href="registrarPersona.php" class = "external">Registrar persona</a></li>
+          </ul>
+      </nav>
+        
     </div>
-    
+</header>
+        
+    </div>
     <h1> <br/>Bienvenido</h1>
     <form action = "process.php" method = 'POST' >
     	<p>
