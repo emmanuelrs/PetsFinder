@@ -241,6 +241,32 @@ COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el almacenamiento temporal d
 comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave que indica cual usuario es quien desea ser casa cuna';
 comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
+--tabla bitacora
+CREATE TABLE ad_bitacora
+( 
+  bitacora_id NUMBER(8),
+  nom_esquema VARCHAR2(10),
+  nom_tabla VARCHAR2(30),
+  nom_campo VARCHAR2(30),
+  fec_cambio DATE,
+  valor_anterior VARCHAR2(100),
+  valor_actual VARCHAR2(100),
+  creado_por VARCHAR2(20),
+  fecha_creacion DATE,
+  CONSTRAINT pk_bitacora
+  primary key (bitacora_id)
+  using index
+  tablespace ad_ind pctfree 20
+  storage (initial 10k next 10k pctincrease 0)
+)
+Tablespace ad_data
+STORAGE (INITIAL 6144
+NEXT 6144
+MINEXTENTS 1
+MAXEXTENTS 5
+);
+
+
 --secuencias
 create sequence s_casa_cuna
        start with 0
@@ -281,7 +307,15 @@ create sequence s_blackList
        maxvalue 10000000
        nocache
        nocycle;
-       
+ 
+create sequence s_bitacora
+      start with 0
+      increment by 1
+      minvalue 0
+      maxvalue 10000000
+      nocache
+      nocycle;
+     
 --FOREIGN KEY
  alter table USUARIO
   add constraint DIRECCION_FK
