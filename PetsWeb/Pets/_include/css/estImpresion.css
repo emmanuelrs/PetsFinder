@@ -1,0 +1,43 @@
+*{
+	margin: 0px;
+	padding: 0px;}
+
+div#general{
+	margin: auto;
+	margin-top:0px;
+	margin-bottom: 50px;
+	width: 600px;
+	height:400px;	
+
+}
+
+div#foticas{
+	float:right;
+	width: 300px;
+	height: 350px; 
+}
+
+div#botonex{
+	margin-top: 40px;
+	float: right;
+	width: 250px;
+	height: 200px;
+
+}
+div#prest{
+
+	margin: auto;
+	margin-top:-50px;
+	margin-bottom: 50px;
+	width: 1000px;
+	height:800px;
+
+}
+div#general2{
+	margin: auto;
+	margin-top:0px;
+	margin-bottom: 50px;
+	width: 600px;
+	height:200px;
+	
+}

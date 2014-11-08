@@ -25,6 +25,7 @@
 
 <!-- Main Style -->
 <link href="_include/css/main.css" rel="stylesheet">
+<link href="_include/css/estImpresion.css" rel="stylesheet">
 
 <!-- Supersized -->
 <link href="_include/css/supersized.css" rel="stylesheet">
