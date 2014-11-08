@@ -12,6 +12,8 @@ CREATE TRIGGER before_insert_mascota_en
  BEGIN
    :new.CREADO_POR := USER;
    :new.FECHA_CREACION := SYSDATE;
+   :new.fecha_ultima_mod := SYSDATE;
+   :new.usuario_ultima_mod := USER;
  END;
 
 CREATE TRIGGER before_update_mascota_per
@@ -28,4 +30,6 @@ CREATE TRIGGER before_insert_mascota_per
  BEGIN
    :new.CREADO_POR := USER;
    :new.FECHA_CREACION := SYSDATE;
+   :new.fecha_ultima_mod := SYSDATE;
+   :new.usuario_ultima_mod := USER;
  END;
