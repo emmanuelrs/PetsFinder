@@ -5,10 +5,8 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 	
-$usr= $_POST['usr'];
- 
-echo $usr;
-
+$pro = $_POST['busqueda'];
+echo $pro;
 
 
 ?>

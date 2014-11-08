@@ -60,41 +60,50 @@
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
-<head>
-<meta charset="utf-8" />
-        <title></title>
-        <script type="text/javascript" src="Ajax.js"></script>
-        <script type="text/javascript">
-        function enviar() {
-            var usr = document.getElementByName("Provincia").value;
-            var cadena = "usr=" + usr;
-            var peticion = null;
-            peticion = ConstructorXMLHttpRequest();
-            if (peticion) {
-              peticion.open('POST', "bus-provincia.php", false);
-              peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              peticion.setRequestHeader("Content-length", cadena.length);
-              peticion.setRequestHeader("Connection", "close");
-              peticion.send(cadena);
-              document.getElementById('resp').innerHTML = peticion.responseText;
-              }}
-        </script>
-    </head>
+
+<script>
+            function ajax_post(){
+                // Create our XMLHttpRequest object
+                var hr = new XMLHttpRequest();
+                // Create some variables we need to send to our PHP file
+                var url = "bus-provincia.php";
+
+                var busqueda = document.getElementById("pro").value;
+                //var tipoBusqueda = document.getElementById("tipoBusqueda").value;
+
+                var vars = '&busqueda=' + busqueda;
+
+                hr.open("POST", url, true);
+                // Set content type header information for sending url encoded variables in the request
+                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                // Access the onreadystatechange event for the XMLHttpRequest object
+                hr.onreadystatechange = function() {
+                    if(hr.readyState == 4 && hr.status == 200) {
+                        var return_data = hr.responseText;
+                        document.getElementById("resp").innerHTML = return_data;
+                    }
+                }
+                // Send the data to PHP now... and wait for response to update the status div
+                hr.send(vars); // Actually execute the request
+                document.getElementById("resp").innerHTML = "Procesando...";
+            }
+</script>
+
+
+</head>
 
 
 <body>
 <header>
- <div class="sticky-nav">
+<div class="sticky-nav">
     <div class="span">
     <img src="_include/img/work/logo.png" width="180" height="90">
-</div>
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-        <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="index activo.php" class = "external">Inicio</a></li
-          ></ul>
-      </nav>
-        
+    </div>
+    <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+    <nav id="menu">
+    <ul id="menu-nav">
+    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    </nav>     
     </div>
 </header>
 
@@ -112,8 +121,9 @@
                 <option value="Guanacaste">Guanacaste</option>
                 <option value="Limón">Limón</option>
                 </select>
-                <input type="button" onclick="enviar()" value="Entrar">  
+                <!--<input type="button" onclick="enviar()" class = "external"value="Entrar">  -->
                 </form> 
+        <button onclick="ajax_post()"  type="submit">Buscar</button>
       
   </div> 
 <div id="resp"></div>        

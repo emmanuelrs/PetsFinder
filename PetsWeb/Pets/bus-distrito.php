@@ -4,11 +4,12 @@ if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-	$distritoAbuscar = $_POST['distrito']; 
+
+$varia = $_POST['busqueda'];
+echo $varia;
 
 /*
 	echo($var1);
 */
-$query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaDistrito(:distritoAbuscar); END;");  	
-
+//$query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaDistrito(:distritoAbuscar); END;");  	
 ?>

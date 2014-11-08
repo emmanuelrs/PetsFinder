@@ -60,81 +60,56 @@
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
-
-
-<!-- Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'Insert Your Code']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- End Analytics -->
-<div></div><div></div>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-<script type="text/javascript">
-jQuery(function($){
-$.datepicker.regional['es'] = {
-closeText: 'Cerrar',
-prevText: '&#x3c;Ant',
-nextText: 'Sig&#x3e;',
-currentText: 'Hoy',
-monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-'Jul','Ago','Sep','Oct','Nov','Dic'],
-dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
-dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
-dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''};
-$.datepicker.setDefaults($.datepicker.regional['es']);
-});    
- 
-$(document).ready(function() {
-   $("#datepicker").datepicker();
-});
-</script>
 </div>
+
+ <script>
+            function ajax_post(){
+                // Create our XMLHttpRequest object
+                var hr = new XMLHttpRequest();
+                // Create some variables we need to send to our PHP file
+                var url = "bus-distrito.php";
+
+                var busqueda = document.getElementById("distri").value;
+                //var tipoBusqueda = document.getElementById("tipoBusqueda").value;
+
+                var vars = '&busqueda=' + busqueda;
+
+                hr.open("POST", url, true);
+                // Set content type header information for sending url encoded variables in the request
+                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                // Access the onreadystatechange event for the XMLHttpRequest object
+                hr.onreadystatechange = function() {
+                    if(hr.readyState == 4 && hr.status == 200) {
+                        var return_data = hr.responseText;
+                        document.getElementById("resp").innerHTML = return_data;
+                    }
+                }
+                // Send the data to PHP now... and wait for response to update the status div
+                hr.send(vars); // Actually execute the request
+                document.getElementById("resp").innerHTML = "Procesando...";
+            }
+</script>
 </head>
 <body>
 <header>
  <div class="sticky-nav">
     <div class="span">
-    <img src="_include/img/work/logo.png" width="180" height="90">
+    <img src="_include/img/work/logo.png" width="180" height="90"></div>
+    <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+    <nav id="menu">
+    <ul id="menu-nav">
+    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+</nav>        
 </div>
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-        <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="index activo.php" class = "external">Inicio</a></li
-          ></ul>
-      </nav>
-        
-    </div>
 </header>
  <div class="span1">
           <form id="contact-form" class="contact-form" action="bus-distrito.php" method="POST">
-
           <br></br>
-               <p class="contact-email">
-                  <input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
-                </p>
-                <input type="submit" value="Enviar" class="boton">  
-             
-                </form>  
-  </div>            
+          <p class="contact-email">
+          <input id="distri" type="text" placeholder="Distrito            " value="" name="distrito" /></p>
+          </form>  
+          <button onclick="ajax_post()"  type="submit">Buscar</button>
+<div id="resp"></div>
+
 </body>
 </html>
