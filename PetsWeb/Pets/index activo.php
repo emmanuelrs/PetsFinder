@@ -128,24 +128,24 @@
 	width: 200px;
 	height: 115px;
 	z-index: 1002;
-	left: -231px;
-	top: 169px;
+	left: -59px;
+	top: 164px;
 }
 #apDiv10 {
 	position: absolute;
 	width: 200px;
 	height: 115px;
 	z-index: 1;
-	left: 267px;
-	top: 0px;
+	left: 245px;
+	top: -1px;
 }
 #apDiv11 {
 	position: absolute;
 	width: 200px;
 	height: 115px;
 	z-index: 1003;
-	left: 288px;
-	top: 170px;
+	left: 439px;
+	top: 165px;
 }
 #apDiv12 {
 	position: absolute;
@@ -154,6 +154,14 @@
 	z-index: 1002;
 	left: 349px;
 	top: 308px;
+}
+#apDiv13 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 104px;
+	top: 55px;
 }
 </style>
 
