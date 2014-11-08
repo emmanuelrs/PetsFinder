@@ -91,6 +91,70 @@
 	left: 319px;
 	top: -3px;
 }
+#apDiv5 {
+	position: absolute;
+	width: 742px;
+	height: 97px;
+	z-index: 1002;
+	left: 84px;
+	top: 2824px;
+}
+#apDiv6 {
+	position: absolute;
+	width: 545px;
+	height: 115px;
+	z-index: 1003;
+	left: 105px;
+	top: 52px;
+}
+#apDiv7 {
+	position: absolute;
+	width: 577px;
+	height: 152px;
+	z-index: 1002;
+	left: 395px;
+	top: -140px;
+}
+#apDiv8 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 228px;
+	top: 2709px;
+}
+#apDiv9 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: -231px;
+	top: 169px;
+}
+#apDiv10 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 267px;
+	top: 0px;
+}
+#apDiv11 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 288px;
+	top: 170px;
+}
+#apDiv12 {
+	position: absolute;
+	width: 554px;
+	height: 67px;
+	z-index: 1002;
+	left: 349px;
+	top: 308px;
+}
 </style>
 
 <!-- Modernizr -->
@@ -309,78 +373,42 @@
 </div>
 <!-- End Our Work Section -->
 
-<!-- About Section -->
-<div id="about" class="page-alternate"></div>
-<!-- End About Section -->
+<!-- About Section --><!-- End About Section -->
 
 
 <!-- Contact Section -->
 <div id="contact" class="page">
-<div class="container">
-    <!-- Title Page -->
-    <div class="row">
-        <div class="span12">
-            <div class="title-page">
+  <div id="apDiv7">
+  <div class="title-page">
                 <h2 class="title">Consultas</h2>
                 <h3 class="title-description">Busque aqui sus mascotas perdidas</h3>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Title Page -->
-    
-    <!-- Contact Form -->
-    <div class="row">
-  </div>
-                    
-    <div id="apDiv1">
-    <a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
+    </div> <!-- titulo -->
+    <div id="apDiv9">
+<a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
     <br></br>
-     <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
-     <br></br>
-     
-    <div id="apDiv2">
-    <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
-    <br></br>
-    <a class="button button-small" href="estado.php">Busqueda por Estado</a>
-    <div id="apDiv3">
     <a class="button button-small" href="distrito.php">Busqueda por Distrito</a>
     <br></br>
-    <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
-    <div id="apDiv4">
     <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>
+  <div id="apDiv10">
+  <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
+  <br></br>
+  <a class="button button-small" href="estado.php">Busqueda por Estado</a> </div>
+</div>
+<div id="apDiv11">
+<a class="button button-small" href="canton.php">Busqueda por Cantón</a>
     <br></br>
+     <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
     </div>
-    </div>
-    </div>
-    </div>
-</div>
-</div>
-    </div>
-</div>
-<!-- End Twitter Feed -->
-
-
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Socialize -->
-
-<!-- Footer -->
-<footer>
+  </div><!-- divPA -->
+  <div id="apDiv12">
+   <footer>
     <p class="credits">&copy;2014  <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Pets Finder Costa Rica</a> by Emmanuel Rosales y Luis Serrano</a></p>
 </footer>
-<!-- End Footer -->
+</div>
+</div>
 
-<!-- Back To Top -->
-<a id="back-to-top" href="#">
-    <i class="font-icon-arrow-simple-up"></i>
-</a>
-<!-- End Back to Top -->
-
-
+<!-- div contenedor -->
+    
 <!-- Js -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
 <script src="_include/js/bootstrap.min.js"></script> <!-- Bootstrap -->

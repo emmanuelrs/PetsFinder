@@ -432,12 +432,12 @@ h3.spec {
 }
 
 #home-slider ul#slide-list li a:hover {
-	background-color: #FFFFFF;	
+	background-color: DE5E60;
 }
 
 #home-slider ul#slide-list li.current-slide a,
 #home-slider ul#slide-list li.current-slide a:hover {
-	background-color: #CC3333;
+	background-color: de5e60;
 }
 
 #home-slider #nextsection {
@@ -637,7 +637,7 @@ nav#menu #menu-nav li a:hover {
 
 .page {
 	background: #2F3238;
-	padding: 100px 0;
+	padding: 200px 0;
 	position: relative;
 	z-index: 99;
 }
