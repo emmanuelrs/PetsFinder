@@ -129,7 +129,7 @@ $(document).ready(function() {
           <form id="contact-form" class="contact-form" action="bus-raza.php" method="POST">
 
           <br></br>
-               <select name="raza">
+               <select name="Raza">
                 <option selected value="0"> Seleccione la raza</option>
               <optgroup label="Perros">
               <option value="Salchicha">Salchicha</option>
