@@ -149,11 +149,11 @@
 }
 #apDiv12 {
 	position: absolute;
-	width: 554px;
+	width: 1623px;
 	height: 67px;
 	z-index: 1002;
-	left: 349px;
-	top: 308px;
+	left: 59px;
+	top: 377px;
 }
 #apDiv13 {
 	position: absolute;
