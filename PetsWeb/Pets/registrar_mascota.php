@@ -21,9 +21,9 @@ if (!$conn) {
 	$var9 = $_POST['Provincia'];
 	$var10 = $_POST['Canton'];
 	$var11 = $_POST['distrito'];
-	$var12 = $_POST['message'];
+	$var12 = $_POST['descripcion'];
 	$var13 = $_POST['recompenza'];
-	$var14 = $_POST['descripcion'];
+	$var14 = $_POST['detalle_direccion'];
     $var15 = $_POST['datepicker'];
     $fecha = (string)$var15;
     $user = $_SESSION["NU"];
