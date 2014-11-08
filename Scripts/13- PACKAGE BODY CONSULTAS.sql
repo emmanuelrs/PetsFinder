@@ -1,6 +1,6 @@
 CREATE OR REPLACE PACKAGE BODY BUSQUEDAS AS
 
-FUNCTION busquedaProvincia(pProvincia IN varchar2)
+FUNCTION busquedaProvincia_Enc(pProvincia IN varchar2)
         return TYPES.ref_c
         AS busqProvincia types.ref_c;
         BEGIN
@@ -10,9 +10,21 @@ FUNCTION busquedaProvincia(pProvincia IN varchar2)
          WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.PROVINCIA like CONCAT(pProvincia, '%')
          ORDER BY C.FECHA_INGRESO_enc DESC;
          return busqProvincia;
-    END busquedaProvincia;
+    END busquedaProvincia_Enc;
 
-FUNCTION busquedaCanton(pCanton IN varchar2)
+FUNCTION busquedaProvincia_Per(pProvincia IN varchar2)
+        return TYPES.ref_c
+        AS busqProvincia types.ref_c;
+        BEGIN
+         OPEN busqProvincia FOR
+         SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per
+         FROM Mascota_Perdida C, DIRECCION D
+         WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.PROVINCIA like CONCAT(pProvincia, '%')
+         ORDER BY C.FECHA_INGRESO_per DESC;
+         return busqProvincia;
+    END busquedaProvincia_Per;
+
+FUNCTION busquedaCanton_Enc(pCanton IN varchar2)
         return TYPES.ref_c
         AS busqCanton types.ref_c;
         BEGIN
@@ -22,10 +34,21 @@ FUNCTION busquedaCanton(pCanton IN varchar2)
          WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.CANTON like CONCAT(pCanton, '%')
          ORDER BY C.FECHA_INGRESO_enc DESC;
          return busqCanton;
-    END busquedaCanton;
+    END busquedaCanton_Enc;
 
+FUNCTION busquedaCanton_Per(pCanton IN varchar2)
+        return TYPES.ref_c
+        AS busqCanton types.ref_c;
+        BEGIN
+         OPEN busqCanton FOR
+         SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per
+         FROM Mascota_Perdida C, DIRECCION D
+         WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.CANTON like CONCAT(pCanton, '%')
+         ORDER BY C.FECHA_INGRESO_per DESC;
+         return busqCanton;
+    END busquedaCanton_Per;
 
-FUNCTION BusquedaDistrito(pDistrito IN VARCHAR2)
+FUNCTION BusquedaDistrito_Enc(pDistrito IN VARCHAR2)
   Return TYPES.ref_c
   AS busqDistrito TYPES.ref_c;
   BEGIN
@@ -35,7 +58,19 @@ FUNCTION BusquedaDistrito(pDistrito IN VARCHAR2)
     WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.Distrito like CONCAT(pDistrito, '%')
     ORDER BY C.FECHA_INGRESO_enc DESC;
     RETURN busqDistrito;
- END BusquedaDistrito;
+ END BusquedaDistrito_Enc;
+
+ FUNCTION BusquedaDistrito_Per(pDistrito IN VARCHAR2)
+  Return TYPES.ref_c
+  AS busqDistrito TYPES.ref_c;
+  BEGIN
+    OPEN busqDistrito FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per
+    FROM Mascota_Perdida C, DIRECCION D
+    WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.Distrito like CONCAT(pDistrito, '%')
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqDistrito;
+ END BusquedaDistrito_Per;
 
 FUNCTION busquedaChip_Enc(pChip IN VARCHAR2)
   RETURN TYPES.ref_c
@@ -60,7 +95,7 @@ FUNCTION busquedaChip_Per(pChip IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO_per DESC;
     RETURN busqChip;
  END busquedaChip_Per;
- 
+
 FUNCTION busquedaEstado_Enc(pEstado IN VARCHAR2)
   RETURN TYPES.ref_c
   AS busqEstado TYPES.ref_c;
@@ -72,7 +107,7 @@ FUNCTION busquedaEstado_Enc(pEstado IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO_enc DESC;
     RETURN busqEstado;
  END busquedaEstado_Enc;
- 
+
  FUNCTION busquedaEstado_Per(pEstado IN VARCHAR2)
   RETURN TYPES.ref_c
   AS busqEstado TYPES.ref_c;
@@ -97,7 +132,7 @@ FUNCTION busquedaTipo_Enc(pTipo IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO_enc DESC;
     RETURN busqTipo;
  END busquedaTipo_Enc;
- 
+
 FUNCTION busquedaTipo_Per(pTipo IN VARCHAR2)
   RETURN TYPES.ref_c
   AS busqTipo TYPES.ref_c;
@@ -121,7 +156,7 @@ FUNCTION busquedaRaza_Enc(pRaza IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO_enc DESC;
     RETURN busqRaza;
  END busquedaRaza_Enc;
- 
+
 FUNCTION busquedaRaza_Per(pRaza IN VARCHAR2)
   RETURN TYPES.ref_c
   AS busqRaza TYPES.ref_c;
