@@ -102,7 +102,7 @@
 </nav>        
 </div>
 </header>
- <div class="span1">
+ <div class="span3">
           <form id="contact-form" class="contact-form" action="bus-distrito.php" method="POST">
           <br></br>
           <p class="contact-email">

@@ -57,6 +57,32 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 319px;
+	top: 901px;
+}
+#apDiv2 {
+	position: absolute;
+	width: 507px;
+	height: 354px;
+	z-index: 1002;
+	left: 134px;
+	top: 842px;
+}
+#apDiv3 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 134px;
+	top: 859px;
+}
+</style>
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
@@ -124,8 +150,15 @@
                 <!--<input type="button" onclick="enviar()" class = "external"value="Entrar">  -->
                 </form> 
         <button onclick="ajax_post()"  type="submit">Buscar</button>
-      
-  </div> 
-<div id="resp"></div>        
+
+ <div class="span2">
+ <div id="resp"></div>
+
+  </div>
+
+ </div>
+
+
+       
 </body>
 </html>

@@ -29,7 +29,23 @@ if (!$conn) {
     $user = $_SESSION["NU"];
     $var16 = $user;
 
-   
+    echo($var1);
+    echo($var2);
+    echo($var3);
+    echo($imagen);
+    echo($var5);
+    echo($var6);
+    echo($var7);
+    echo($var8);
+    echo($var9);
+    echo($var10);
+    echo($var11);
+    echo($var12);
+    echo($var13);
+    echo($var14);
+    echo($var15);
+    echo($var16);
+
 	if($var7 == "Encontrada"){
         
         $stid = ociparse($conn, "BEGIN  insertions.set_mascota_encontrada(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16); END;");
@@ -41,8 +57,8 @@ if (!$conn) {
       
     }
 
-    if($var1 && $var2 && $var3 && $var4 && $var5 && $var6 && $var7 && $var8 && $var9
-        && $var9 && $var10 && $var11 && $var12 && $var13 && $var14 && $var15){
+    if($var1 && $var2 && $var3 && $var5 && $var6 && $var7 && $var8 && $var9
+        && $var9 && $var10 && $var11 && $var12 && $var13 && $var14 && $var15 && $var16){
 
         oci_bind_by_name($stid, ':p1', $var1);
         oci_bind_by_name($stid, ':p2', $var2);
