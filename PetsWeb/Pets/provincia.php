@@ -178,8 +178,7 @@
    
 <div class="span1">
   <div id="resp">
-  <div id="foto">
-  </div>
+
   </div>
 
 </div>
