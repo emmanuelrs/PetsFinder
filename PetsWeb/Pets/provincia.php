@@ -58,84 +58,7 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
-<style type="text/css">
-#apDiv1 {
-	position: absolute;
-	width: 200px;
-	height: 115px;
-	z-index: 1002;
-	left: 319px;
-	top: 901px;
-}
-#apDiv2 {
-	position: absolute;
-	width: 507px;
-	height: 354px;
-	z-index: 1002;
-	left: 134px;
-	top: 842px;
-}
-#apDiv3 {
-	position: absolute;
-	width: 200px;
-	height: 115px;
-	z-index: 1002;
-	left: 134px;
-	top: 859px;
-}
-#apDiv4 {
-	position: absolute;
-	width: 405px;
-	height: 574px;
-	z-index: 1002;
-	left: 511px;
-	top: 743px;
-}
-#apDiv5 {
-	position: absolute;
-	width: 200px;
-	height: 115px;
-	z-index: 1002;
-	left: 1150px;
-	top: 743px;
-}
-</style>
-
-<!-- Modernizr -->
-<script src="_include/js/modernizr.js"></script>
-
-<script>
-            function ajax_post(){
-                // Create our XMLHttpRequest object
-                var hr = new XMLHttpRequest();
-                // Create some variables we need to send to our PHP file
-                var url = "bus-provincia.php";
-
-                var busqueda = document.getElementById("pro").value;
-                var tipoBusqueda = document.getElementById("tipo").value;
-
-                var vars = '&busqueda=' + busqueda + '&tipoBusqueda=' + tipoBusqueda;
-
-                hr.open("POST", url, true);
-                // Set content type header information for sending url encoded variables in the request
-                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                // Access the onreadystatechange event for the XMLHttpRequest object
-                hr.onreadystatechange = function() {
-                    if(hr.readyState == 4 && hr.status == 200) {
-                        var return_data = hr.responseText;
-                        document.getElementById("resp").innerHTML = return_data;
-                    }
-                }
-                // Send the data to PHP now... and wait for response to update the status div
-                hr.send(vars); // Actually execute the request
-                document.getElementById("resp").innerHTML = "Procesando...";
-            }
-</script>
-
-
 </head>
-
-
 <body>
 <header>
 <div class="sticky-nav">
@@ -154,7 +77,7 @@
    <form id="contact-form" class="contact-form" action="bus-provincia.php" method="POST">
 
           <br></br>
-                <select id= "pro" name="Provincia" onchange = "enviar();">
+                <select id= "pro" name="Provincia">
                 <option selected value="0"> Provincia </option>
                 <option value="San José">San José</option>
                 <option value="Alajuela">Alajuela</option>
@@ -165,26 +88,13 @@
                 <option value="Limón">Limón</option>
                 </select>
 
-                <select id = "tipo" name = "tipoBusqueda"onchange = "enviar();">
+                <select id = "tipo" name = "tipoBusqueda">
                 <option selected value = "0">Estado</option>
                 <option value = "Encontrada">Encontrada</option>
                 <option value = "Perdida">Perdida</option>
                 </select>
+                <br><input type="submit" value="Buscar" class="boton"></div> </br> 
                 </form> 
-        <button onclick="ajax_post()"  type="submit">Buscar</button>
- 
-<div class="span1">
-<br></br>
-</div>
-   
-<div class="span1">
-  <div id="resp">
-
-  </div>
-
-</div>
-
-</div>
 
 
        
