@@ -297,28 +297,21 @@
     <!-- Contact Form -->
     <div class="row">
         <div class="span9">
-        
-            <form id="contact-form" class="contact-form" action="#">
-                <p class="contact-name">
-                <select name="estado">
-   				<option selected value="0"> Valores a ser consultados</option>
-      			<option value="Provincia">Busqueda por Provincia</option>
-     			<option value="Canton">Busqueda por Cantón</option>
-                <option value="Distrito">Busqueda por Distrito</option>
-                <option value="Chip">Busqueda por Chip de identificacion</option>
-                <option value="Estado">Busqueda por Estado</option>
-                <option value="Tipo">Busqueda por Tipo de mascota</option>
-                <option value="Raza">Busqueda por Raza de mascota</option>
-				</select>
-                
-                    <input id="contact_name" type="text" placeholder="Valor a consultar" value="" name="valor" />
-                </p>
-                <p class="contact-submit">
-                    <a id="contact-submit" class="submit" href="busquedas.php">Buscar</a>
-                </p>
-                
-            </form>
-         
+       
+              	<div span>
+                <a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
+                <br></br>
+                <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
+                <br></br>
+                <a class="button button-small" href="distrito.php">Busqueda por Distrito</a>
+                <br></br>
+                <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
+                <br></br>
+                <a class="button button-small" href="estado.php">Busqueda por Estado</a>
+                <br></br>
+                <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
+                <br></br>
+                <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>         
         </div>
         
         

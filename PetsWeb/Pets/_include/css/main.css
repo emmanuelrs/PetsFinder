@@ -479,7 +479,8 @@ h3.spec {
 
 header {
 	width: 100%;
-	z-index: 99;
+	z-index: 50;
+	position: inherit;
 }
 
 header .sticky-nav {
