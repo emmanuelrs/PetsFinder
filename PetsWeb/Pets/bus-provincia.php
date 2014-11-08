@@ -34,14 +34,15 @@ echo $division;
 	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 	foreach ($array as $fila) {
 
-		 $division = $division .' <div id="general"> <div id="foticas"> <img src = "\img'.$fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
+		 $division = $division .' <div id="general"> <div id="foticas"> <img src = "C:\xampp\htdocs\PetsFinder\PetsWeb\Pets\img'.$fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
 	     <br></br>Nombre de la mascota: '.$fila['NOMBRE_PER']."<br></br> País: ".$fila['PAIS']."<br></br> Canton: ".$fila['CANTON']
 		."<br></br> Distrito: ".$fila['DISTRITO']. "<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_PER'];}
-		
+
 
 		//$division =  $division."<br></br>Nombre de la mascota: ".$fila['NOMBRE_PER']."<br></br> País: ".$fila['PAIS']."<br></br> Canton: ".$fila['CANTON']
 		//."<br></br> Distrito: ".$fila['DISTRITO']. "<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_PER'];}
 echo $division;
+echo '<img src = "C:\xampp\htdocs\PetsFinder\PetsWeb\Pets\img\sharik.jpg">';
              
 }
 
