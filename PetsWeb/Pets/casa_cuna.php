@@ -53,57 +53,19 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 218px;
+	height: 147px;
+	z-index: 1002;
+	left: 841px;
+	top: 96px;
+}
+</style>
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
-
-
-<!-- Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'Insert Your Code']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- End Analytics -->
-<div></div><div></div>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-<script type="text/javascript">
-jQuery(function($){
-$.datepicker.regional['es'] = {
-closeText: 'Cerrar',
-prevText: '&#x3c;Ant',
-nextText: 'Sig&#x3e;',
-currentText: 'Hoy',
-monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-'Jul','Ago','Sep','Oct','Nov','Dic'],
-dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
-dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
-dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''};
-$.datepicker.setDefaults($.datepicker.regional['es']);
-});    
- 
-$(document).ready(function() {
-   $("#datepicker").datepicker();
-});
-</script>
 </div>
 </head>
 <body>
@@ -120,8 +82,42 @@ $(document).ready(function() {
       </nav>
         
     </div>
+     <div id="apDiv1"><img src="_include/img/work/casa.png" width="500" height="500"></div>
 </header>
 
-        
+ <div class="span1">
+          <form id="contact-form" class="contact-form" action="casa_cuna_pendiente.php" method="POST">
+          <br></br>
+               </select>
+                <select name="tamaño">
+                <option selected value="0"> Tamaño</option>
+                <option value="grande">Grande</option>
+                <option value="mediano">Mediana</option>
+                <option value="pequeña">Pequeña</option>
+                </select>
+
+                </select>
+                <select name="alimento">
+                <option selected value="0"> Requiere Alimento</option>
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+                </select>
+
+                <select name="raza">
+                <option selected value="0"> Seleccione la raza</option>
+                  <optgroup label="Perros">
+                    <option value="Chiguagua">Chiguagua</option>
+                    <option value="Salchicha">Salchicha</option>
+                    <option value="Gran Danes">Gran Danés</option>
+                    <option value="Raza Unica">Raza Única</option>
+                  <optgroup label="Gatos">
+                    <option value="Angora">Angora</option>
+                    <option value="Raza Unica">Raza Única</option>
+                  </optgroup>
+                </select>
+               
+<input type="submit" value="Enviar" class="boton">               
+</form>  
+</div>         
 </body>
 </html>

@@ -204,12 +204,6 @@ CREATE TABLE CASA_CUNA_PENDIENTE(
        		  CONSTRAINT TAMAÑO_PENDIENTE_NN NOT NULL,
        REQUIERE_ALIMENTO VARCHAR2(2) DEFAULT 'NO'
               CONSTRAINT CK_REQUIERE_ALIMENTO_PEN CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO')),
-               
-       CONSTRAINT PK_CASACUNA_PEN
-       primary key (ID_PERSONA)
-       using index
-       tablespace ad_ind pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
 )
 TABLESPACE ad_data
 STORAGE (INITIAL 6144
@@ -223,12 +217,6 @@ CREATE TABLE RAZA_ADMITIDA(
               CONSTRAINT RAZA_TIPO_NN NOT NULL,
        RAZA NUMBER(8)
        		  CONSTRAINT RAZA_AD_NN NOT NULL,
-                           
-       CONSTRAINT PK_RAZA_ADMITIDA
-       primary key (RAZA_TIPO)
-       using index
-       tablespace ad_ind pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
 )
 TABLESPACE ad_data
 STORAGE (INITIAL 6144

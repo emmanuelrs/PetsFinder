@@ -233,6 +233,7 @@
     	<nav id="menu">
         	<ul id="menu-nav">
             	<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
+                <li><a href="casa_cuna.php" class = "external">Solicitar Casa Cuna</a></li>
                 <li><a href="registrarMascota.php" class = "external">Registrar mascota</a></li>
                 <li><a href="shortcodes.php" class="external">Cerrar Sesión</a></li>
           </ul>

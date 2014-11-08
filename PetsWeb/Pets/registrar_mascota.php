@@ -28,7 +28,7 @@ if (!$conn) {
     $fecha = (string)$var15;
     $user = $_SESSION["NU"];
     $var16 = $user;
-
+/*
     echo($var1);
     echo($var2);
     echo($var3);
@@ -44,7 +44,7 @@ if (!$conn) {
     echo($var13);
     echo($var14);
     echo($var15);
-    echo($var16);
+    echo($var16);*/
 
 	if($var7 == "Encontrada"){
         
