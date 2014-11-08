@@ -58,6 +58,40 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 122px;
+	top: 254px;
+}
+#apDiv2 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 283px;
+	top: -2px;
+}
+#apDiv3 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 306px;
+	top: -3px;
+}
+#apDiv4 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 319px;
+	top: -3px;
+}
+</style>
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
@@ -289,6 +323,7 @@
             <div class="title-page">
                 <h2 class="title">Consultas</h2>
                 <h3 class="title-description">Busque aqui sus mascotas perdidas</h3>
+
             </div>
         </div>
     </div>
@@ -296,37 +331,31 @@
     
     <!-- Contact Form -->
     <div class="row">
-        <div class="span9">
-       
-              	<div span>
-                <a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
-                <br></br>
-                <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
-                <br></br>
-                <a class="button button-small" href="distrito.php">Busqueda por Distrito</a>
-                <br></br>
-                <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
-                <br></br>
-                <a class="button button-small" href="estado.php">Busqueda por Estado</a>
-                <br></br>
-                <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
-                <br></br>
-                <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>         
-        </div>
-        
-        
-    <!-- End Contact Form -->
-</div>
-</div>
-<!-- End Contact Section -->
-
-<!-- Twitter Feed -->
-
-                </div>
+  </div>
                     
-
-            </div>
-        </div>
+    <div id="apDiv1">
+    <a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
+    <br></br>
+     <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
+     <br></br>
+     
+    <div id="apDiv2">
+    <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
+    <br></br>
+    <a class="button button-small" href="estado.php">Busqueda por Estado</a>
+    <div id="apDiv3">
+    <a class="button button-small" href="distrito.php">Busqueda por Distrito</a>
+    <br></br>
+    <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
+    <div id="apDiv4">
+    <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>
+    <br></br>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
     </div>
 </div>
 <!-- End Twitter Feed -->
