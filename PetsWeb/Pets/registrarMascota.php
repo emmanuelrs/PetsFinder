@@ -120,7 +120,7 @@ $(document).ready(function() {
         <nav id="menu">
             <ul id="menu-nav">
                 <li class="current"><a href="index activo.php" class = "external">Inicio</a></li
-          </ul>
+          ></ul>
       </nav>
         
     </div>
@@ -141,12 +141,7 @@ $(document).ready(function() {
                  <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Color" value="" name="color" />
                 </p>
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
-                </p>
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Detalles de la Dirrecion" value="" name="detalle_direccion" />
-                </p>
+              
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Recompenza" value="" name="recompenza" />
                 </p>
@@ -291,14 +286,12 @@ $(document).ready(function() {
 
                 </optgroup>
                 </select>
-                
+                  <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
+                </p>
                 <p class="contact-email">
-                <input id="contact_email" type="text" placeholder="Distrito..." value="" name="distrito" />
+                	<input id="contact_email" type="text" placeholder="Detalles de la Dirrecion" value="" name="detalle_direccion" />
                 </p>
-                <p class="contact-message">
-                <input name="message" type="text" id="contact_message" placeholder="Descripcion detallada de la dirección" value=	"" size="25">
-                </p>
-            
 
                 <p class="contact-submit">
                 <label> Seleccionar Fecha:</label>

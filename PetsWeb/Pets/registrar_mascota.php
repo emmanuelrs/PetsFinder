@@ -29,23 +29,6 @@ if (!$conn) {
     $user = $_SESSION["NU"];
     $var16 = $user;
 
-   /* echo $var1;
-    echo $var2;
-    echo $var3;
-    echo $imagen;
-    echo $var5;
-    echo $var6;
-    echo $var7;
-    echo $var8;
-    echo $var9;
-    echo $var10;
-    echo $var11;
-    echo $var12;
-    echo $var13;
-    echo $var14;
-    echo $var15;
-    echo $var16;*/
-
    
 	if($var7 == "Encontrada"){
         
