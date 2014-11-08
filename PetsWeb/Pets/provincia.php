@@ -167,16 +167,19 @@
                 </form> 
         <button onclick="ajax_post()"  type="submit">Buscar</button>
  
-
+<div class="span1">
+<br></br>
+</div>
    
-<div class="span2">
+<div class="span1">
   <div id="resp">
-  
+  <div id="foto">
+  </div>
   </div>
 
 </div>
 
- </div>
+</div>
 
 
        
