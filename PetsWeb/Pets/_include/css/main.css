@@ -437,7 +437,7 @@ h3.spec {
 
 #home-slider ul#slide-list li.current-slide a,
 #home-slider ul#slide-list li.current-slide a:hover {
-	background-color: #000099;
+	background-color: #CC3333;
 }
 
 #home-slider #nextsection {
@@ -560,7 +560,7 @@ nav#menu #menu-nav li a {
 
 nav#menu #menu-nav li.current a,
 nav#menu #menu-nav li a:hover {
-	color: #003399;
+	color: #CC3333;
 }
 
 
