@@ -301,44 +301,27 @@
             <form id="contact-form" class="contact-form" action="#">
                 <p class="contact-name">
                 <select name="estado">
-   				<option selected value="0"> Estado de su mascota</option>
-      			<option value="Perdida">Perdida</option>
-     			<option value="Encontrada">Encontrada</option>
-                <option value="Adoptada">Adoptada</option>
-
+   				<option selected value="0"> Valores a ser consultados</option>
+      			<option value="Provincia">Busqueda por Provincia</option>
+     			<option value="Canton">Busqueda por Cantón</option>
+                <option value="Distrito">Busqueda por Distrito</option>
+                <option value="Chip">Busqueda por Chip de identificacion</option>
+                <option value="Estado">Busqueda por Estado</option>
+                <option value="Tipo">Busqueda por Tipo de mascota</option>
+                <option value="Raza">Busqueda por Raza de mascota</option>
 				</select>
+                
                     <input id="contact_name" type="text" placeholder="Valor a consultar" value="" name="valor" />
                 </p>
-                <p class="contact-email">&nbsp;</p>
-                <p class="contact-message">&nbsp;</p>
                 <p class="contact-submit">
-                    <a id="contact-submit" class="submit" href="#">Buscar</a>
+                    <a id="contact-submit" class="submit" href="busquedas.php">Buscar</a>
                 </p>
                 
-                <div id="response">
-                
-                </div>
             </form>
          
         </div>
         
-        <div class="span3">
-            <div class="contact-details">
-                <h3>Contact Details</h3>
-                <ul>
-                    <li><a href="#">hello@brushed.com</a></li>
-                    <li>(916) 375-2525</li>
-                    <li>
-                        Brushed Studio
-                        <br>
-                        5240 Vanish Island. 105
-                        <br>
-                        Unknow
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+        
     <!-- End Contact Form -->
 </div>
 </div>
