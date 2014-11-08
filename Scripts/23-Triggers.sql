@@ -14,7 +14,7 @@ CREATE TRIGGER before_insert_mascota_en
    :new.FECHA_CREACION := SYSDATE;
    :new.fecha_ultima_mod := SYSDATE;
    :new.usuario_ultima_mod := USER;
-   BITACORA.set_datos(TABLAN => 'Mascota_Encontrada', NONCAMPO => , VALOR_ANT => , VALOR_NEW => )
+   BITACORA.set_datos(TABLAN => 'Mascota_Encontrada', NONCAMPO => 'Nuevo Registro', VALOR_ANT => '', VALOR_NEW => '' );
  END;
 
 CREATE TRIGGER before_update_mascota_per
