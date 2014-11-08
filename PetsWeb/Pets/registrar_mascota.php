@@ -41,29 +41,40 @@ if (!$conn) {
       
     }
 
+    if($var1 && $var2 && $var3 && $var4 && $var5 && $var6 && $var7 && $var8 && $var9
+        && $var9 && $var10 && $var11 && $var12 && $var13 && $var14 && $var15){
 
-
-    oci_bind_by_name($stid, ':p1', $var1);
-    oci_bind_by_name($stid, ':p2', $var2);
-    oci_bind_by_name($stid, ':p3', $var3);
-    oci_bind_by_name($stid, ':p4', $imagen);
-    oci_bind_by_name($stid, ':p5', $var5);
-    oci_bind_by_name($stid, ':p6', $var6);
-    oci_bind_by_name($stid, ':p7', $var7);
-    oci_bind_by_name($stid, ':p8', $var8);
-    oci_bind_by_name($stid, ':p9', $var9);
-    oci_bind_by_name($stid, ':p10', $var10);
-    oci_bind_by_name($stid, ':p11', $var11);
-    oci_bind_by_name($stid, ':p12', $var12);
-    oci_bind_by_name($stid, ':p13', $var13);
-    oci_bind_by_name($stid, ':p14', $var14);
-    oci_bind_by_name($stid, ':p15', $fecha);
-    oci_bind_by_name($stid, ':p16', $var16);
-    
-	oci_execute($stid);
-	oci_free_statement($stid);
-    oci_close($conn);
-
-
-
+        oci_bind_by_name($stid, ':p1', $var1);
+        oci_bind_by_name($stid, ':p2', $var2);
+        oci_bind_by_name($stid, ':p3', $var3);
+        oci_bind_by_name($stid, ':p4', $imagen);
+        oci_bind_by_name($stid, ':p5', $var5);
+        oci_bind_by_name($stid, ':p6', $var6);
+        oci_bind_by_name($stid, ':p7', $var7);
+        oci_bind_by_name($stid, ':p8', $var8);
+        oci_bind_by_name($stid, ':p9', $var9);
+        oci_bind_by_name($stid, ':p10', $var10);
+        oci_bind_by_name($stid, ':p11', $var11);
+        oci_bind_by_name($stid, ':p12', $var12);
+        oci_bind_by_name($stid, ':p13', $var13);
+        oci_bind_by_name($stid, ':p14', $var14);
+        oci_bind_by_name($stid, ':p15', $fecha);
+        oci_bind_by_name($stid, ':p16', $var16);
+        oci_execute($stid);
+        oci_free_statement($stid);
+        oci_close($conn);
+        ?>
+        <script>
+        alert("Su mascota fue registrada correctamente :)");
+        </script>
+        <?php
+        header('refresh:0; url=index activo.php');
+    }else{
+        ?>
+        <script>
+        alert("Error: Su mascota NO fue registrada debe de llenar todos los campos");
+        </script>
+        <?php
+        header('refresh:0; url=registrarMascota.php');
+    }
 ?> 
