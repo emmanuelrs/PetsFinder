@@ -163,6 +163,14 @@
 	left: 104px;
 	top: 55px;
 }
+#apDiv14 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 1287px;
+	top: 196px;
+}
 </style>
 
 <!-- Modernizr -->
@@ -413,6 +421,9 @@
     <p class="credits">&copy;2014  <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Pets Finder Costa Rica</a> by Emmanuel Rosales y Luis Serrano</a></p>
 </footer>
 </div>
+  <div id="apDiv14">
+  <img src="_include/img/work/monaso.png" width="200" height="100">
+  </div>
 </div>
 
 <!-- div contenedor -->

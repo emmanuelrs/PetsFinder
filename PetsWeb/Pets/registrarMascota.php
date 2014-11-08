@@ -152,6 +152,7 @@ $(document).ready(function() {
                 <select name="raza">
       	        <option selected value="0"> Seleccione la raza</option>
        		    <optgroup label="Perros">
+                <option value="Chiguagua">Chiguagua</option>
       		    <option value="Salchicha">Salchicha</option>
      	        <option value="Gran Danes">Gran Danés</option>
                 <option value="Raza Unica">Raza Única</option>

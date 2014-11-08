@@ -82,6 +82,22 @@
 	left: 134px;
 	top: 859px;
 }
+#apDiv4 {
+	position: absolute;
+	width: 405px;
+	height: 574px;
+	z-index: 1002;
+	left: 511px;
+	top: 743px;
+}
+#apDiv5 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 1150px;
+	top: 743px;
+}
 </style>
 
 <!-- Modernizr -->
@@ -133,8 +149,8 @@
     </div>
 </header>
 
- <div class="span1">
-          <form id="contact-form" class="contact-form" action="bus-provincia.php" method="POST">
+<div class="span1">
+   <form id="contact-form" class="contact-form" action="bus-provincia.php" method="POST">
 
           <br></br>
                 <select id= "pro" name="Provincia" onchange = "enviar();">
@@ -150,11 +166,15 @@
                 <!--<input type="button" onclick="enviar()" class = "external"value="Entrar">  -->
                 </form> 
         <button onclick="ajax_post()"  type="submit">Buscar</button>
+ 
 
- <div class="span2">
- <div id="resp"></div>
-
+   
+<div class="span2">
+  <div id="resp">
+  
   </div>
+
+</div>
 
  </div>
 
