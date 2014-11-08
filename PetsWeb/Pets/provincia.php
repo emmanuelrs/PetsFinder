@@ -111,9 +111,9 @@
                 var url = "bus-provincia.php";
 
                 var busqueda = document.getElementById("pro").value;
-                //var tipoBusqueda = document.getElementById("tipoBusqueda").value;
+                var tipoBusqueda = document.getElementById("tipo").value;
 
-                var vars = '&busqueda=' + busqueda;
+                var vars = '&busqueda=' + busqueda + '&tipoBusqueda=' + tipoBusqueda;
 
                 hr.open("POST", url, true);
                 // Set content type header information for sending url encoded variables in the request
@@ -163,7 +163,12 @@
                 <option value="Guanacaste">Guanacaste</option>
                 <option value="Limón">Limón</option>
                 </select>
-                <!--<input type="button" onclick="enviar()" class = "external"value="Entrar">  -->
+
+                <select id = "tipo" name = "tipoBusqueda"onchange = "enviar();">
+                <option selected value = "0">Estado</option>
+                <option value = "Encontrada">Encontrada</option>
+                <option value = "Perdida">Perdida</option>
+                </select>
                 </form> 
         <button onclick="ajax_post()"  type="submit">Buscar</button>
  
