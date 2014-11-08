@@ -124,11 +124,12 @@
 	
 	.work-nav #filters,
 	.work-nav #filters li {
-		display: inline-block;
+	display: inherit;
 	}
 	
 	.work-nav #filters li {
-		margin:0 10px 0 0;	
+	margin: 0 30px 0 0;
+	width: inherit;
 	}
 	
 	.work-nav #filters li a {
@@ -410,5 +411,3 @@
 			background-size: 16px 16px;
 		}
 	}
-
-

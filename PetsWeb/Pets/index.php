@@ -94,8 +94,8 @@
 <!-- Homepage Slider -->
 <div id="home-slider">	
     <div class="overlay"></div>
-    
-        <div class="slider-text">
+
+    <div class="slider-text">
     	<div id="slidecaption"></div>
     </div>   
 	
@@ -111,15 +111,15 @@
 
 <!-- Header -->
 <header>
- <div class="sticky-nav">
+    <div class="sticky-nav">
     <div class="span">
     <img src="_include/img/work/logo.png" width="180" height="90">
 </div>
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-        <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
-                <li><a href="registrarPersona.php" class = "external">Registrar persona</a></li>
+    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+    	<nav id="menu">
+        	<ul id="menu-nav">
+            	<li class="current"><a href="index.php" class = "external">Inicio</a></li>
+                <li><a href="registrarPersona.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
           </ul>
       </nav>
@@ -129,9 +129,10 @@
 <!-- End Header -->
 
 <!-- Our Work Section -->
-<div id="work" class="page">   
+<div id="work" class="page">
 	<div class="container">
     	<!-- Title Page -->
+        <div class="row">
             <div class="span12">
                 <div class="title-page">
                     <h2 class="title">PetsFinder</h2>
@@ -266,7 +267,7 @@
                         </ul>
                     </section>
                     
-            	</div>
+                </div>
             </div>
         </div>
         <!-- End Portfolio Projects -->
@@ -274,24 +275,15 @@
 </div>
 <!-- End Our Work Section -->
 
-<!-- About Section --><!-- End About Section -->
-
-
-<!-- Contact Section --><!-- End Contact Section -->
-
-<!-- Twitter Feed --><!-- End Twitter Feed -->
-
-<!-- Socialize --><!-- End Socialize -->
-
 <!-- Footer -->
 <footer>
-	<p class="credits">&copy;2014  <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Pets Finder Costa Rica</a> by Emmanuel Rosales y Luis Serrano</a></p>
+    <p class="credits">&copy;2014  <a href="http://themes.alessioatzeni.com/html/brushed/" title="Brushed | Responsive One Page Template">Pets Finder Costa Rica</a> by Emmanuel Rosales y Luis Serrano</a></p>
 </footer>
 <!-- End Footer -->
 
 <!-- Back To Top -->
 <a id="back-to-top" href="#">
-	<i class="font-icon-arrow-simple-up"></i>
+    <i class="font-icon-arrow-simple-up"></i>
 </a>
 <!-- End Back to Top -->
 
