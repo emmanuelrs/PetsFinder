@@ -60,56 +60,28 @@
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
+<head>
+<meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="Ajax.js"></script>
+        <script type="text/javascript">
+        function enviar() {
+            var usr = document.getElementByName("Provincia").value;
+            var cadena = "usr=" + usr;
+            var peticion = null;
+            peticion = ConstructorXMLHttpRequest();
+            if (peticion) {
+              peticion.open('POST', "bus-provincia.php", false);
+              peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              peticion.setRequestHeader("Content-length", cadena.length);
+              peticion.setRequestHeader("Connection", "close");
+              peticion.send(cadena);
+              document.getElementById('resp').innerHTML = peticion.responseText;
+              }}
+        </script>
+    </head>
 
 
-<!-- Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'Insert Your Code']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- End Analytics -->
-<div></div><div></div>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-<script type="text/javascript">
-jQuery(function($){
-$.datepicker.regional['es'] = {
-closeText: 'Cerrar',
-prevText: '&#x3c;Ant',
-nextText: 'Sig&#x3e;',
-currentText: 'Hoy',
-monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-'Jul','Ago','Sep','Oct','Nov','Dic'],
-dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
-dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
-dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''};
-$.datepicker.setDefaults($.datepicker.regional['es']);
-});    
- 
-$(document).ready(function() {
-   $("#datepicker").datepicker();
-});
-</script>
-</div>
-</head>
 <body>
 <header>
  <div class="sticky-nav">
@@ -130,7 +102,7 @@ $(document).ready(function() {
           <form id="contact-form" class="contact-form" action="bus-provincia.php" method="POST">
 
           <br></br>
-                <select name="Provincia">
+                <select id= "pro" name="Provincia" onchange = "enviar();">
                 <option selected value="0"> Provincia </option>
                 <option value="San José">San José</option>
                 <option value="Alajuela">Alajuela</option>
@@ -140,9 +112,10 @@ $(document).ready(function() {
                 <option value="Guanacaste">Guanacaste</option>
                 <option value="Limón">Limón</option>
                 </select>
-                <input type="submit" value="Enviar" class="boton">  
-             
-                </form>  
-  </div>         
+                <input type="button" onclick="enviar()" value="Entrar">  
+                </form> 
+      
+  </div> 
+<div id="resp"></div>        
 </body>
 </html>
