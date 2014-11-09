@@ -82,12 +82,13 @@ if (!$conn) {
 }
 	$chipAbuscar = $_POST['chip']; 
 	$tipo = $_POST['tipoBusqueda'];
+	$division = "";
 	
 if($tipo == "Encontrada"){
         
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_enc(:busq); END;");  
+    $query_procedimiento = oci_parse($conn, "BEGIN :cursor :=busquedas.busquedachip_enc(:busq); END;");  
 	$cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
+	oci_bind_by_name($query_procedimiento,':busq', $chipAbuscar);
 	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
 	oci_execute($query_procedimiento);
 	oci_execute($cursor, OCI_DEFAULT);
@@ -101,9 +102,9 @@ echo $division;
         
 }else if($tipo == "Perdida"){
         
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_per(:busq); END;");
+    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedachip_per(:busq); END;");
     $cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
+	oci_bind_by_name($query_procedimiento,':busq', $chipAbuscar);
 	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
 	oci_execute($query_procedimiento);
 	oci_execute($cursor, OCI_DEFAULT);
