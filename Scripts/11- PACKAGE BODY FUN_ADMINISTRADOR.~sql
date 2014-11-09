@@ -68,17 +68,22 @@ FUNCTION Black_list
     FROM lista_negra;
     RETURN lista;
  END Black_list;
- 
-PROCEDURE Adoptar(id_user in varchar2)AS
+
+PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2)AS
   id_usuario number;
+  id_adop number;
   BEGIN
     id_usuario := to_number(RIGHT => id_user);
-
+    id_adop := to_number(RIGHT => id_adopcion);
+    
     update mascota_adoptar ma
     set ma.estado = 'Adoptada'
-    where ma.id_mascota_adop = id_usuario;
+    where ma.id_mascota_adop = id_adop;
+    
+    insert into adopcion(id_adopcion, id_mascota, id_persona)
+    values(s_adopcion.nextval, id_adop, id_usuario);
     commit;
 
-end DENEGAR_CASA_CUNA;
+end Adoptar;
 
 END FUN_ADMINISTRADOR;

@@ -12,6 +12,6 @@ FUNCTION Casa_cuna_pen RETURN TYPES.ref_c;
 
 FUNCTION Black_list RETURN TYPES.ref_c;
 
-PROCEDURE Adoptar(id_user in varchar2);
+PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2);
 
 END FUN_ADMINISTRADOR;
