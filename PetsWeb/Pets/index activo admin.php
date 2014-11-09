@@ -238,9 +238,15 @@
                 <li><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li>
                 <li><a href="registrarMascotaAd.php" class = "external">Registrar mascota</a></li>
                 <li><a href="registrarPersonaAd.php" class = "external">Registrar Usuario</a></li>
-                <li><a href="index.php" class="external">Cerrar Sesión</a></li>
+                
           </ul>
+          <nav id="menu">
+          <ul id="menu-nav">
+            <li><a href="index.php" class="external">Cerrar Sesión</a></li>
+          <li><a href="asociaciones.php" class = "external">Registrar Asociaciones</a></li>
+      </ul>
       </nav>
+  </nav>
         
     </div>
 </header>
