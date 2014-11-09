@@ -27,6 +27,7 @@ oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC
 foreach ($array as $fila) {
 
 	$tipoUser = $fila['TIPO_USER'];
+	$idpersona= $fila['ID_USUARIO'];
 }
 if($tipoUser == 1){
 	$_SESSION['IDU'] = $idpersona;

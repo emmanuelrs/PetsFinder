@@ -73,7 +73,7 @@ session_start();
     <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     <nav id="menu">
     <ul id="menu-nav">
-    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li></ul>
     </nav>     
     </div>
 </header>
@@ -89,11 +89,12 @@ if (!$conn) {
 
 $iduser = $_SESSION['IDU'];
 $idmascota = $_SESSION['IDOP'];
-$stid = oci_parse($conn, "BEGIN fun_administrador.aceptar_casa_cuna(:busq); END;");
-oci_bind_by_name($stid,':busq', $id);
+$stid = oci_parse($conn, "BEGIN fun_administrador.adoptar(:p1,:p2); END;");
+oci_bind_by_name($stid,':p1', $iduser);
+oci_bind_by_name($stid,':p2', $idmascota);
 oci_execute($stid);
 oci_free_statement($stid);
 oci_close($conn);
-header('refresh:0; url=adopcionesAD.php');
+//header('refresh:0; url=adopcionesAD.php');
 
 ?>
