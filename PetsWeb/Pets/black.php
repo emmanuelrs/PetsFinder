@@ -58,6 +58,14 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+}
+</style>
 
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
@@ -105,5 +113,7 @@ function ver(num) {
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
 
 </form>
+<div id="apDiv1"><img src="_include/img/work/naaa.png" width="256" height="256"></div>
+
 </body>
 </html>
