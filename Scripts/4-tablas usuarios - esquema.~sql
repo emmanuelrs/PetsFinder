@@ -15,7 +15,8 @@ CREATE TABLE USUARIO(
               CONSTRAINT USERNAME_UK UNIQUE,
        CONTRASEÑA VARCHAR2(35)
               CONSTRAINT CONTRASEÑA_NN NOT NULL
-              CONSTRAINT CONTRASEÑA_UK UNIQUE,  
+              CONSTRAINT CONTRASEÑA_UK UNIQUE,
+       CALIFICACION NUMBER(8);  
        TIPO_USER NUMBER(5) default 1
               CONSTRAINT TIPO_USER_NN NOT NULL,
        
@@ -193,8 +194,9 @@ comment on column EMAIL.VALOR_EMAIL is 'email del usuario';
 
 --tabla de usuarios considerados cm no aptos
 create view LISTA_NEGRA as
-  select U.ID_USUARIO, U.NOMBRE, U.APELLIDO1, U.USER_NAME, U.CALIFICACION from USUARIO U
-  where U.CALIFICACION < 2.1;
+  select U.ID_USUARIO, U.NOMBRE, U.APELLIDO1, U.USER_NAME, u.calificacion from USUARIO U
+  where u.calificacion < 2.1;
+
 
 --tabla de casas cuna
 CREATE TABLE CASA_CUNA(

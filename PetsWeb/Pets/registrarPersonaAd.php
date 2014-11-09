@@ -93,7 +93,7 @@ function ver(num) {
         <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
         <nav id="menu">
             <ul id="menu-nav">
-                <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
+                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
           </ul>
       </nav>     
     </div>

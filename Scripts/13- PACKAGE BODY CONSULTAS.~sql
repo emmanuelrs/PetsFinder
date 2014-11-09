@@ -1,13 +1,22 @@
 CREATE OR REPLACE PACKAGE BODY CONSULTAS AS
-
 FUNCTION VALIDA_USUARIO(USUARIO1 IN VARCHAR2, CONTRASENA IN VARCHAR2)
   RETURN TYPES.ref_c
   AS valida TYPES.ref_c;
+     id_user number;
   BEGIN
     OPEN valida FOR
     select U.TIPO_USER, U.ID_USUARIO
     FROM USUARIO U
     WHERE U.USER_NAME = USUARIO1 AND U.CONTRASEÑA = contrasena;
+    
+    select u.id_usuario into id_user from usuario u
+    where u.user_name = USUARIO1;
+    
+    update usuario u
+    set u.calificacion = (select avg(c.calificacion_per) from calificacion c
+    where c.id_calificacion = id_user)
+    where u.id_usuario = id_user;
+    commit;
    return valida;
   exception
     when NO_DATA_FOUND then
@@ -22,7 +31,7 @@ FUNCTION INFO_PER_CASACUNA(username in varchar2)
   BEGIN
     select u.id_usuario into id_user from usuario u
     where u.user_name = username;
-    
+
     OPEN INFORMA FOR
     SELECT U.NOMBRE, U.APELLIDO1, U.APELLIDO2, (select avg(c.calificacion_per) from calificacion c
 where c.id_calificacion = id_user),

@@ -12,8 +12,9 @@ END INSERTAR_RAZA;
 PROCEDURE SOLICITUD_CASA_CUNA(username in varchar2, taman in varchar2, raza in varchar2, alimento in varchar2) as
   id_raz number;
   id_user number;
+  cali number;
   begin
-    select u.id_usuario into id_user
+    select u.id_usuario, u.calificacion into id_user, cali
     from usuario u
     where u.user_name = username;
 
@@ -22,8 +23,7 @@ PROCEDURE SOLICITUD_CASA_CUNA(username in varchar2, taman in varchar2, raza in v
     where r.descripcion_raza = raza;
 
     insert into casa_cuna(id_casa_cuna, id_persona, tamano, requiere_alimento, id_raza, estado, calificacion_user)
-    values(s_casa_cuna.nextval, id_user, taman, alimento, id_raz, 'Pendiente', (select avg(c.calificacion_per) from calificacion c
-where c.id_calificacion = id_user));
+    values(s_casa_cuna.nextval, id_user, taman, alimento, id_raz, 'Pendiente', cali );
     commit;
 end SOLICITUD_CASA_CUNA;
 
@@ -54,12 +54,12 @@ FUNCTION Casa_cuna_pen
   AS casa TYPES.ref_c;
   BEGIN
     OPEN casa FOR
-    SELECT cc.id_casa_cuna, u.nombre, u.apellido1, cc.calificacion_user, r.descripcion_raza, r.tipo_mascota, cc.tamano, cc.requiere_alimento
+    SELECT cc.id_casa_cuna, u.nombre, u.apellido1, u.calificacion , r.descripcion_raza, r.tipo_mascota, cc.tamano, cc.requiere_alimento
     FROM Casa_Cuna cc, usuario u, raza r
     WHERE cc.id_persona = u.id_usuario and cc.id_raza = r.id_raza and cc.estado = 'Pendiente';
     RETURN casa;
  END Casa_cuna_pen;
-/*
+
 FUNCTION Black_list
   RETURN TYPES.ref_c
   AS lista TYPES.ref_c;
@@ -69,7 +69,7 @@ FUNCTION Black_list
     FROM lista_negra;
     RETURN lista;
  END Black_list;
-*/
+
 PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2)AS
   id_usuario number;
   id_adop number;

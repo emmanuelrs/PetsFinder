@@ -23,7 +23,7 @@ Procedure SET_USUARIO
      values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1);
 
      commit;
-     --falta considerar excepciones
+
 end SET_USUARIO;
 
 
@@ -165,7 +165,7 @@ Procedure SET_ORGANIZACION
     insert into organizacion_casa_cuna(id_organizacion, tipo, nombre_org)
     values(s_org.currval,'Org', nombre_org);
     commit;
-    --falta considerar excepciones
+
 end SET_ORGANIZACION;
 
 END INSERTIONS;

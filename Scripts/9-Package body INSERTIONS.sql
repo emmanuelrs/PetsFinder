@@ -23,7 +23,7 @@ Procedure SET_USUARIO
      values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1);
 
      commit;
-     --falta considerar excepciones
+
 end SET_USUARIO;
 
 
@@ -154,18 +154,18 @@ Procedure SET_ORGANIZACION
   begin
 
     insert into telefono(id_tel, tipo_tel, telefono)
-    values(s_org.nextval,'Org',tel);
+    values(s_org.nextval,'3',tel);
 
     insert into email(id_email, valor_email, tipo_email)
-    values(s_org.currval, email, 'Org');
+    values(s_org.currval, email, '3');
 
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-    values(s_org.currval,'Org' ,pais1, provincia1, canton1, distrito1, direc_exact);
+    values(s_org.currval,'3' ,pais1, provincia1, canton1, distrito1, direc_exact);
 
     insert into organizacion_casa_cuna(id_organizacion, tipo, nombre_org)
-    values(s_org.currval,'Org', nombre_org);
+    values(s_org.currval,'3', nombre_org);
     commit;
-    --falta considerar excepciones
+
 end SET_ORGANIZACION;
 
 END INSERTIONS;

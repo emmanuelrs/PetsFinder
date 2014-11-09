@@ -56,7 +56,7 @@ if($var1 && $var2 && $var3 && $var4 && $var5){
     </script>
     <?php
 
-    header('refresh:0; url=index activo admin.php');
+    header('refresh:0; url=index.php');
 
     } else{
 
