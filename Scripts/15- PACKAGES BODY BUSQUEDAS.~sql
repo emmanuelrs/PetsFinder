@@ -1,56 +1,184 @@
-CREATE OR REPLACE PACKAGE BODY CONSULTAS AS
+CREATE OR REPLACE PACKAGE BODY BUSQUEDAS AS
 
-FUNCTION VALIDA_USUARIO(USUARIO1 IN VARCHAR2, CONTRASENA IN VARCHAR2)
-  RETURN TYPES.ref_c
-  AS valida TYPES.ref_c;
+FUNCTION busquedaProvincia_Enc(pProvincia IN varchar2)
+        return TYPES.ref_c
+        AS busqProvincia types.ref_c;
+        BEGIN
+         OPEN busqProvincia FOR
+         SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, I.NOMBRE_IMG
+         FROM MASCOTA_ENCONTRADA C, DIRECCION D, IMAGEN I
+         WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.PROVINCIA like CONCAT(pProvincia, '%') and c.id_mascota_enc = i.id_imagen
+         ORDER BY C.FECHA_INGRESO_enc DESC;
+         return busqProvincia;
+    END busquedaProvincia_Enc;
+
+FUNCTION busquedaProvincia_Per(pProvincia IN varchar2)
+        return TYPES.ref_c
+        AS busqProvincia types.ref_c;
+        BEGIN
+         OPEN busqProvincia FOR
+         SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, I.NOMBRE_IMG
+         FROM Mascota_Perdida C, DIRECCION D, IMAGEN I
+         WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.PROVINCIA like CONCAT(pProvincia, '%') and c.id_mascota_per = i.id_imagen
+         ORDER BY C.FECHA_INGRESO_per DESC;
+         return busqProvincia;
+    END busquedaProvincia_Per;
+
+FUNCTION busquedaCanton_Enc(pCanton IN varchar2)
+        return TYPES.ref_c
+        AS busqCanton types.ref_c;
+        BEGIN
+         OPEN busqCanton FOR
+         SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+         FROM Mascota_Encontrada C, DIRECCION D , imagen i
+         WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.CANTON like CONCAT(pCanton, '%') and c.id_mascota_enc = i.id_imagen
+         ORDER BY C.FECHA_INGRESO_enc DESC;
+         return busqCanton;
+    END busquedaCanton_Enc;
+
+FUNCTION busquedaCanton_Per(pCanton IN varchar2)
+        return TYPES.ref_c
+        AS busqCanton types.ref_c;
+        BEGIN
+         OPEN busqCanton FOR
+         SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+         FROM Mascota_Perdida C, DIRECCION D, imagen i
+         WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.CANTON like CONCAT(pCanton, '%') and c.id_mascota_per = i.id_imagen
+         ORDER BY C.FECHA_INGRESO_per DESC;
+         return busqCanton;
+    END busquedaCanton_Per;
+
+FUNCTION BusquedaDistrito_Enc(pDistrito IN VARCHAR2)
+  Return TYPES.ref_c
+  AS busqDistrito TYPES.ref_c;
   BEGIN
-    OPEN valida FOR
-    select U.TIPO_USER
-    FROM USUARIO U
-    WHERE U.USER_NAME = USUARIO1 AND U.CONTRASEÑA = contrasena;
-   return valida;
-  exception
-    when NO_DATA_FOUND then
-         DBMS_OUTPUT.PUT_LINE('NO EXISTE');
+    OPEN busqDistrito FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM Mascota_Encontrada C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and D.Distrito like CONCAT(pDistrito, '%') and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqDistrito;
+ END BusquedaDistrito_Enc;
 
-   END VALIDA_USUARIO;
-
-FUNCTION INFO_PER_CASACUNA
-  RETURN TYPES.ref_c
-  AS INFORMA TYPES.ref_c;
+ FUNCTION BusquedaDistrito_Per(pDistrito IN VARCHAR2)
+  Return TYPES.ref_c
+  AS busqDistrito TYPES.ref_c;
   BEGIN
-    OPEN INFORMA FOR
-    SELECT U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.CALIFICACION,
-           D.PROVINCIA,D.CANTON,D.DIRECCION_EXACTA,CC.TAMANO,
-           CC.REQUIERE_ALIMENTO, E.VALOR_EMAIL, T.TELEFONO
+    OPEN busqDistrito FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+    FROM Mascota_Perdida C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and D.Distrito like CONCAT(pDistrito, '%') and c.id_mascota_per = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqDistrito;
+ END BusquedaDistrito_Per;
 
-    FROM CASA_CUNA CC, USUARIO U, DIRECCION D, EMAIL E, TELEFONO T
-
-    WHERE U.ID_USUARIO = CC.ID_PERSONA
-    AND D.ID_DIRECCION = U.ID_USUARIO
-    AND D.TIPO_DIREC = U.TIPO
-    AND E.ID_EMAIL = CC.ID_PERSONA
-    AND E.TIPO_EMAIL = U.TIPO
-    AND T.ID_TEL = CC.ID_PERSONA
-    AND T.TIPO_TEL = U.TIPO;
-    RETURN INFORMA;
-
- END INFO_PER_CASACUNA;
-
-  FUNCTION MATCH2
+FUNCTION busquedaChip_Enc(pChip IN VARCHAR2)
   RETURN TYPES.ref_c
-  AS match1 TYPES.ref_c;
+  AS busqChip TYPES.ref_c;
   BEGIN
-    OPEN match1 FOR
-    SELECT *
-    FROM MASCOTA_PERDIDA P, MASCOTA_ENCONTRADA E, RAZA R, DIRECCION D
-    WHERE P.TAMANO_PER = E.TAMANO_ENC
-      AND P.TIPO_Y_RAZA_PER = E.TIPO_Y_RAZA_ENC
-      AND p.COLOR_PER = E.COLOR_ENC
-      AND P.TIPO_Y_RAZA_PER= R.ID_RAZA
-      AND P.ID_MASCOTA_PER = D.ID_DIRECCION;
-    RETURN match1;
- END MATCH2;
+    OPEN busqChip FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM Mascota_Encontrada C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and C.CHIP_IDENTIFICACION_enc like CONCAT(pChip, '%') and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqChip;
+ END busquedaChip_Enc;
+
+FUNCTION busquedaChip_Per(pChip IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqChip TYPES.ref_c;
+  BEGIN
+    OPEN busqChip FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+    FROM Mascota_Perdida C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and C.CHIP_IDENTIFICACION_per like CONCAT(pChip, '%') and c.id_mascota_per = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqChip;
+ END busquedaChip_Per;
+
+FUNCTION busquedaEstado_Enc(pEstado IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqEstado TYPES.ref_c;
+  BEGIN
+    OPEN busqEstado FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM MASCOTA_ENCONTRADA C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and C.ESTADO_enc like CONCAT(pEstado, '%') and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqEstado;
+ END busquedaEstado_Enc;
+
+ FUNCTION busquedaEstado_Per(pEstado IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqEstado TYPES.ref_c;
+  BEGIN
+    OPEN busqEstado FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+    FROM Mascota_Perdida C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_per = D.ID_DIRECCION and C.ESTADO_per like CONCAT(pEstado, '%') and c.id_mascota_per = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqEstado;
+ END busquedaEstado_Per;
 
 
-END CONSULTAS;
+FUNCTION busquedaTipo_Enc(pTipo IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqTipo TYPES.ref_c;
+  BEGIN
+    OPEN busqTipo FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc, R.DESCRIPCION_RAZA, R.TIPO_MASCOTA, D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM Mascota_Encontrada C, DIRECCION D, RAZA R, imagen i
+    WHERE R.TIPO_MASCOTA  like CONCAT(pTipo, '%') and c.tipo_y_raza_enc = r.id_raza and c.id_mascota_enc = d.id_direccion and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqTipo;
+ END busquedaTipo_Enc;
+
+FUNCTION busquedaTipo_Per(pTipo IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqTipo TYPES.ref_c;
+  BEGIN
+    OPEN busqTipo FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per, R.DESCRIPCION_RAZA, R.TIPO_MASCOTA, D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+    FROM Mascota_Perdida C, DIRECCION D, RAZA R, imagen i
+    WHERE R.TIPO_MASCOTA  like CONCAT(pTipo, '%') and c.tipo_y_raza_per = r.id_raza and c.id_mascota_per = d.id_direccion and c.id_mascota_per = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqTipo;
+ END busquedaTipo_Per;
+
+FUNCTION busquedaRaza_Enc(pRaza IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqRaza TYPES.ref_c;
+  BEGIN
+    OPEN busqRaza FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc, R.DESCRIPCION_RAZA, R.TIPO_MASCOTA, D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM Mascota_Encontrada C, DIRECCION D, RAZA R, imagen i
+    WHERE R.DESCRIPCION_RAZA like CONCAT(pRaza, '%') and c.tipo_y_raza_enc = r.id_raza and c.id_mascota_enc = d.id_direccion and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqRaza;
+ END busquedaRaza_Enc;
+
+FUNCTION busquedaRaza_Per(pRaza IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqRaza TYPES.ref_c;
+  BEGIN
+    OPEN busqRaza FOR
+    SELECT C.NOMBRE_per,C.ESTADO_per, R.DESCRIPCION_RAZA, R.TIPO_MASCOTA, D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_per, i.nombre_img
+    FROM Mascota_Perdida C, DIRECCION D, RAZA R, imagen i
+    WHERE R.DESCRIPCION_RAZA like CONCAT(pRaza, '%') and c.tipo_y_raza_per = r.id_raza and c.id_mascota_per = d.id_direccion and c.id_mascota_per = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_per DESC;
+    RETURN busqRaza;
+ END busquedaRaza_Per;
+ 
+FUNCTION busqueda_adopciones()
+  RETURN TYPES.ref_c
+  AS busqEstado TYPES.ref_c;
+  BEGIN
+    OPEN busqEstado FOR
+    SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
+    FROM MASCOTA_ENCONTRADA C, DIRECCION D, imagen i
+    WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and C.ESTADO_enc = 'Adoptar' and c.id_mascota_enc = i.id_imagen
+    ORDER BY C.FECHA_INGRESO_enc DESC;
+    RETURN busqEstado;
+ END busqueda_adopciones;
+ 
+END BUSQUEDAS;

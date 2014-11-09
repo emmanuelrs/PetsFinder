@@ -14,4 +14,5 @@ FUNCTION busquedaTipo_Enc(pTipo IN VARCHAR2) RETURN TYPES.ref_c;
 FUNCTION busquedaTipo_Per(pTipo IN VARCHAR2) RETURN TYPES.ref_c;
 FUNCTION busquedaRaza_Enc(pRaza IN VARCHAR2) RETURN TYPES.ref_c;
 FUNCTION busquedaRaza_Per(pRaza IN VARCHAR2) RETURN TYPES.ref_c;
+FUNCTION busqueda_adopciones RETURN TYPES.ref_c;
 END BUSQUEDAS;

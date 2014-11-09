@@ -96,6 +96,58 @@ comment on column MASCOTA_PERDIDA.RECOMPENSA_per is 'indicador de una posible re
 comment on column MASCOTA_PERDIDA.DESCRIPCION_per is 'comentarios sobre la mascota perdida o encontrada';
 comment on column MASCOTA_PERDIDA.USUARIO_REGISTRA_per is 'llave de la persona que perdió o encontró la mascota';
 
+-- Mascota adoptar
+
+CREATE TABLE MASCOTA_ADOPTAR(
+       ID_MASCOTA_ADOP NUMBER(8)
+              CONSTRAINT ID_MASCOTA_ADOP_NN NOT NULL,
+       TIPO_ADOP number(8)
+              CONSTRAINT MASCOTA_TIPO_ADOP_NN NOT NULL,
+       NOMBRE_ADOP VARCHAR2(35)
+              CONSTRAINT NOMBREMASCOTA_ADOP_NN NOT NULL,
+       TIPO_Y_RAZA_ADOP NUMBER(8)
+              CONSTRAINT RAZA_ADOP_NN NOT NULL,
+       TAMANO_ADOP VARCHAR2(30)
+             CONSTRAINT TAMANO_ADOP_NN NOT NULL,
+       CHIP_IDENTIFICACION_ADOP VARCHAR2(35),
+       COLOR_ADOP VARCHAR2(25),
+       ESTADO_ADOP VARCHAR2(30) --EJM PERDIDO, ENCONTRADO, ADOPTADO, EN CASA CUNA
+              CONSTRAINT ESTADO_ADOP_NN NOT NULL,
+       RECOMPENSA_ADOP varchar2(25),
+       DESCRIPCION_ADOP VARCHAR2(250),
+       FECHA_INGRESO_ADOP DATE DEFAULT SYSDATE,
+       USUARIO_REGISTRA_ADOP NUMBER(8),
+       CREADO_POR VARCHAR2(20),
+       FECHA_CREACION DATE,
+       FECHA_ULTIMA_MOD DATE,
+       USUARIO_ULTIMA_MOD VARCHAR2(50),
+       
+       CONSTRAINT PK_MASCOTA_ADOP
+       primary key (ID_MASCOTA_ADOP)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
+)
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+); 
+-- comentarios mascota ADOPTADA
+COMMENT ON TABLE MASCOTA_ADOPTAR IS 'Tabla para el almacenamiento de mascotas que pueden ser adoptadas ';
+comment on column MASCOTA_ADOPTAR.ID_MASCOTA_ADOP is 'llave primaria de la tabla mascota';
+comment on column MASCOTA_ADOPTAR.NOMBRE_ADOP is 'Nombre de la mascota';
+comment on column MASCOTA_ADOPTAR.TIPO_Y_RAZA_ADOP is 'raza de la mascota';
+comment on column MASCOTA_ADOPTAR.CHIP_IDENTIFICACION_ADOP is 'posible identificación de la mascota';
+comment on column MASCOTA_ADOPTAR.COLOR_ADOP is 'color de la mascota o posible mescla de colores de la misma';
+comment on column MASCOTA_ADOPTAR.ESTADO_ADOP is 'campo que contendrá la llave al valor del estado de la mascota por ejemplo perdida';
+comment on column MASCOTA_ADOPTAR.RECOMPENSA_ADOP is 'indicador de una posible recompensa por encontrar la mascota';
+comment on column MASCOTA_ADOPTAR.DESCRIPCION_ADOP is 'comentarios sobre la mascota perdida o encontrada';
+comment on column MASCOTA_ADOPTAR.USUARIO_REGISTRA_ADOP is 'llave de la persona que mandar adoptar la mascota';
+
+
+
 --tabla para las imagenes de mascotas
 create table IMAGEN(
        ID_IMAGEN number(8),
@@ -162,7 +214,14 @@ create sequence s_mascota_enc
        nocache
        nocycle;
        
-       
+create sequence s_mascota_adop
+       start with 0
+       increment by 1
+       minvalue 0
+       maxvalue 10000000
+       nocache
+       nocycle;
+             
 create sequence s_raza
        start with 0
        increment by 1
@@ -200,5 +259,20 @@ alter table MASCOTA_PERDIDA
 alter table MASCOTA_PERDIDA
   add constraint DIRECCION_MASCOTA_FK
   foreign key (ID_MASCOTA_per,TIPO_per)
+  references DIRECCION(ID_DIRECCION, TIPO_DIREC);
+
+alter table MASCOTA_ADOPTAR
+  add constraint IMAGEN_ADOPTAR_FK
+  foreign key (ID_MASCOTA_ADOP)
+  references IMAGEN(ID_IMAGEN);
+  
+alter table MASCOTA_ADOPTAR
+  add constraint RAZA_ADOP_FK
+  foreign key (TIPO_Y_RAZA_ADOP)
+  references RAZA(ID_RAZA);
+  
+alter table MASCOTA_ADOPTAR
+  add constraint DIRECCION_MASCOTA_ADOP_FK
+  foreign key (ID_MASCOTA_ADOP,TIPO_ADOP)
   references DIRECCION(ID_DIRECCION, TIPO_DIREC);
 

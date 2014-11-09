@@ -57,6 +57,12 @@ if (!$conn) {
       
     }
 
+    else if($var7 == "Adoptar"){
+        
+        $stid = ociparse($conn, "BEGIN insertions.set_mascota_adoptar(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14,:p15,:p16); END;");
+      
+    }
+
     if($var1 && $var2 && $var3 && $var5 && $var6 && $var7 && $var8 && $var9
         && $var9 && $var10 && $var11 && $var12 && $var13 && $var14 && $var15 && $var16){
 

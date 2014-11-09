@@ -166,7 +166,7 @@ $(document).ready(function() {
    				<option selected value="0"> Estado de su mascota</option>
       			<option value="Perdida">Perdida</option>
      			<option value="Encontrada">Encontrada</option>
-                <option value="Adoptada">Adoptada</option>
+                <option value="Adoptar">Adoptar</option>
 
 				</select>
                 <select name="tamaño">
