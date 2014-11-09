@@ -37,7 +37,7 @@ procedure SET_MASCOTA_ENCONTRADA
     select u.id_usuario into usuario
     from ad.usuario u
     where u.user_name = username;
-    
+
     select rz.id_raza into tipo_y_raza1 from raza rz
     where rz.descripcion_raza = raza_m;
 
@@ -76,7 +76,7 @@ procedure SET_MASCOTA_PERDIDA
     select u.id_usuario into usuario
     from ad.usuario u
     where u.user_name = username;
-    
+
     select rz.id_raza into tipo_y_raza1 from raza rz
     where rz.descripcion_raza = raza_m;
 
@@ -118,12 +118,12 @@ procedure SET_MASCOTA_ADOPTAR
     select u.id_usuario into usuario
     from ad.usuario u
     where u.user_name = username;
-    
+
     select rz.id_raza into tipo_y_raza1 from raza rz
     where rz.descripcion_raza = raza_m;
 
     insert into imagen(id_imagen, nombre_img)
-           values(s_mascota_adop.nextval, imagen_m) returning IMAGEN_MASCOTA  into v_blob;
+           values(s_mascota_enc.nextval, imagen_m) returning IMAGEN_MASCOTA  into v_blob;
            v_bfile := BFILENAME('DIRECTORIO', imagen_m);
             DBMS_LOB.OPEN(v_bfile, DBMS_LOB.lob_readonly);
             DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
@@ -131,11 +131,11 @@ procedure SET_MASCOTA_ADOPTAR
     commit;
 
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
-    values(s_mascota_adop.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
+    values(s_mascota_enc.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
 
     insert into MASCOTA_ADOPTAR(ID_MASCOTA_ADOP, TIPO_ADOP, NOMBRE_ADOP, TIPO_Y_RAZA_ADOP, TAMANO_ADOP, CHIP_IDENTIFICACION_ADOP, COLOR_ADOP, ESTADO_ADOP, RECOMPENSA_ADOP, DESCRIPCION_ADOP,
     FECHA_INGRESO_ADOP, USUARIO_REGISTRA_ADOP)
-    values(s_mascota_adop.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
+    values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
     commit;
 
     exception
