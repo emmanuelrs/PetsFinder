@@ -418,7 +418,7 @@
     <br></br>
      <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
      <br></br>
-     <a class="button button-small" href="adopciones.php">Adopciones</a>
+     <a class="button button-small" href="adopcionesAd.php">Adopciones</a>
     </div>
   </div><!-- divPA -->
   <div id="apDiv12">
