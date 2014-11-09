@@ -14,7 +14,7 @@ grant create any job to AD;
 grant create any directory to AD;
 create or replace directory DIRECTORIO as 'C:\xampp\htdocs\PetsFinder\PetsWeb\Pets\img'; -- cambiar directorio para las imagenes ;
 GRANT READ ON DIRECTORY Directorio to AD;
-
+GRANT CREATE ANY INDEX TO AD;
 
 
 

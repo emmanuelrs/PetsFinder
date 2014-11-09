@@ -15,8 +15,7 @@ CREATE TABLE USUARIO(
               CONSTRAINT USERNAME_UK UNIQUE,
        CONTRASEÑA VARCHAR2(35)
               CONSTRAINT CONTRASEÑA_NN NOT NULL
-              CONSTRAINT CONTRASEÑA_UK UNIQUE,
-       CALIFICACION NUMBER(5,2) DEFAULT 5.0,
+              CONSTRAINT CONTRASEÑA_UK UNIQUE,  
        TIPO_USER NUMBER(5) default 1
               CONSTRAINT TIPO_USER_NN NOT NULL,
        
@@ -45,6 +44,33 @@ comment on column USUARIO.USER_NAME is 'Nombre de usuario para utilizar en la pá
 comment on column USUARIO.CONTRASEÑA is 'Contraseña para el ingreso del usuario al sistema';
 comment on column USUARIO.CALIFICACION is 'calificación  del usuario "reputación"';
 comment on column USUARIO.TIPO_USER is 'indicador para saber si el usuario es administrador o solo un usuario regular';
+
+-- Tabla calificación
+
+CREATE TABLE CALIFICACION(
+       ID_CALIFICACION NUMBER(8) CONSTRAINT ID_CALIFICACION_NN NOT NULL,
+       CALIFICACION_PER NUMBER(8) CONSTRAINT CALIFICACION_NN NOT NULL 
+)
+
+TABLESPACE ad_data
+STORAGE (INITIAL 6144
+        NEXT 6144
+        MINEXTENTS 1
+        MAXEXTENTS 5
+);
+COMMENT ON TABLE CALIFICACION IS 'Tabla donde se guardan las calificaciones de los usuarios';
+COMMENT ON COLUMN CALIFICACION.ID_CALIFICACION IS 'Sección donde se guarda la referencia del id con el usuario';
+COMMENT ON COLUMN CALIFICACION.CALIFICACION_PER IS 'Sección donde se guarda cada calificación del usuario'
+
+
+-- INDEX Calificacion
+
+CREATE INDEX calif_personas ON calificacion(id_calificacion)
+      TABLESPACE AD_IND
+      STORAGE (INITIAL 10K
+      NEXT 10k
+      PCTINCREASE 0);
+
 
 -- Tabla direcciones.
 
