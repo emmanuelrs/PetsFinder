@@ -60,13 +60,7 @@ FUNCTION Casa_cuna_pen
  END Casa_cuna_pen;
 
 FUNCTION Black_list
-  RETURN TYPES.ref_c
-  AS lista TYPES.ref_c;
-  BEGIN
-    OPEN lista FOR
-    SELECT *
-    FROM lista_negra;
-    RETURN lista;
+
  END Black_list;
 
 PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2)AS

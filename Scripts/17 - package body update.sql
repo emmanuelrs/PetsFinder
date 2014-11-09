@@ -34,7 +34,7 @@ PROCEDURE UPDATE_USUARIO(nom in varchar2, ape1 in varchar2, ape2 in varchar2, us
     select u.id_usuario into id_user
     from usuario u
     where u.user_name = username;
-    
+
     update usuario u
     set u.nombre = nom, u.apellido1 = ape1, u.apellido2 = ape2, u.user_name = username, u.contraseña = contra
     where u.id_usuario = id_user;
@@ -60,13 +60,5 @@ PROCEDURE UPDATE_DIRECCION(id_direc in number, tipo in number, prov in varchar2,
     set d.provincia = prov , d.canton = cant, d.distrito = distrit, d.direccion_exacta = exacta
     where d.id_direccion = id_direc and d.tipo_direc = tipo;
 end UPDATE_DIRECCION;
-
-PROCEDURE CALIFICACION(id_user in number, calif in number) as
-  begin 
-    update usuario u
-    set u.calificacion = calif
-    where u.id_usuario = id_user;
-end CALIFICACION;
-  
 
 END ACTUALIZACIONES;

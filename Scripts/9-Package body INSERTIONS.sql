@@ -15,6 +15,9 @@ Procedure SET_USUARIO
 
      insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
      values(s_usuario.currval, 1, pais1, provincia1, canton1, distrito1, direc_exact);
+     
+     insert into calificacion(id_calificacion, calificacion_per)
+     values(s_usuario.currval, 5);
 
      insert into usuario(id_usuario, tipo, nombre, apellido1, apellido2, user_name, contraseña, tipo_user)
      values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1);

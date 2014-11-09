@@ -5,7 +5,7 @@ FUNCTION VALIDA_USUARIO(USUARIO1 IN VARCHAR2, CONTRASENA IN VARCHAR2)
   AS valida TYPES.ref_c;
   BEGIN
     OPEN valida FOR
-    select U.TIPO_USER
+    select U.TIPO_USER, U.ID_USUARIO
     FROM USUARIO U
     WHERE U.USER_NAME = USUARIO1 AND U.CONTRASEÑA = contrasena;
    return valida;
@@ -15,12 +15,17 @@ FUNCTION VALIDA_USUARIO(USUARIO1 IN VARCHAR2, CONTRASENA IN VARCHAR2)
 
    END VALIDA_USUARIO;
 
-FUNCTION INFO_PER_CASACUNA
+FUNCTION INFO_PER_CASACUNA(username in varchar2)
   RETURN TYPES.ref_c
   AS INFORMA TYPES.ref_c;
+     id_user number;
   BEGIN
+    select u.id_usuario into id_user from usuario u
+    where u.user_name = username;
+    
     OPEN INFORMA FOR
-    SELECT U.NOMBRE, U.APELLIDO1, U.APELLIDO2, U.CALIFICACION,
+    SELECT U.NOMBRE, U.APELLIDO1, U.APELLIDO2, (select avg(c.calificacion_per) from calificacion c
+where c.id_calificacion = id_user),
            D.PROVINCIA,D.CANTON,D.DIRECCION_EXACTA,CC.TAMANO,
            CC.REQUIERE_ALIMENTO, E.VALOR_EMAIL, T.TELEFONO
 

@@ -190,11 +190,13 @@ COMMENT ON TABLE EMAIL IS 'Tabla para el almacenamiento de los emails del usuari
 comment on column EMAIL.ID_EMAIL is 'llave primaria de la tabla email';
 comment on column EMAIL.VALOR_EMAIL is 'email del usuario';
 
-
+/*
 --tabla de usuarios considerados cm no aptos
 create view LISTA_NEGRA as
-  select U.ID_USUARIO, U.NOMBRE, U.APELLIDO1, U.USER_NAME, U.CALIFICACION from USUARIO U
-  where U.CALIFICACION < 2.1;
+  select U.ID_USUARIO, U.NOMBRE, U.APELLIDO1, U.USER_NAME, (promedio(select avg(c.calificacion_per) from calificacion c
+where c.id_calificacion = 6)) from USUARIO U
+  where promedio < 2.1;
+ */ 
 
 --tabla de casas cuna
 CREATE TABLE CASA_CUNA(

@@ -14,7 +14,5 @@ PROCEDURE UPDATE_EMAIL(id_emailN in number, tipo in number, nuevo_email in varch
 PROCEDURE UPDATE_TELEFONO(id_telefono in number, tipo in number, nuevo_tel in varchar2);
 
 PROCEDURE UPDATE_DIRECCION(id_direc in number, tipo in number, prov in varchar2, cant in varchar2, distrit in varchar2, exacta in varchar2);
-   
-PROCEDURE CALIFICACION(id_user in number, calif in number);
 
 END ACTUALIZACIONES;

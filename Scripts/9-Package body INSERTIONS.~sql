@@ -15,6 +15,9 @@ Procedure SET_USUARIO
 
      insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
      values(s_usuario.currval, 1, pais1, provincia1, canton1, distrito1, direc_exact);
+     
+     insert into calificacion(id_calificacion, calificacion_per)
+     values(s_usuario.currval, 5);
 
      insert into usuario(id_usuario, tipo, nombre, apellido1, apellido2, user_name, contraseña, tipo_user)
      values(s_usuario.currval, 1,nom, pApellido, sApellido, nomusr, contra, 1);
@@ -134,7 +137,7 @@ procedure SET_MASCOTA_ADOPTAR
     values(s_mascota_enc.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
 
     insert into MASCOTA_ADOPTAR(ID_MASCOTA_ADOP, TIPO_ADOP, NOMBRE_ADOP, TIPO_Y_RAZA_ADOP, TAMANO_ADOP, CHIP_IDENTIFICACION_ADOP, COLOR_ADOP, ESTADO_ADOP, RECOMPENSA_ADOP,
-     DESCRIPCION_ADOP, FECHA_INGRESO_ADOP, USUARIO_REGISTRA_ADOP, CREADO_POR, FECHA_CREACION, FECHA_ULTIMA_MOD, USUARIO_ULTIMA_MOD, ESTADO)
+     DESCRIPCION_ADOP, FECHA_INGRESO_ADOP, USUARIO_REGISTRA_ADOP, ESTADO)
     values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario, 'Pendiente');
     commit;
 
