@@ -169,16 +169,16 @@ FUNCTION busquedaRaza_Per(pRaza IN VARCHAR2)
     RETURN busqRaza;
  END busquedaRaza_Per;
  
-FUNCTION busqueda_adopciones()
+FUNCTION busqueda_adopciones
   RETURN TYPES.ref_c
-  AS busqEstado TYPES.ref_c;
+  AS busqEstadoPER TYPES.ref_c;
   BEGIN
-    OPEN busqEstado FOR
-    SELECT C.NOMBRE_enc,C.ESTADO_enc,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.FECHA_INGRESO_enc, i.nombre_img
-    FROM MASCOTA_ENCONTRADA C, DIRECCION D, imagen i
-    WHERE C.ID_MASCOTA_enc = D.ID_DIRECCION and C.ESTADO_enc = 'Adoptar' and c.id_mascota_enc = i.id_imagen
-    ORDER BY C.FECHA_INGRESO_enc DESC;
-    RETURN busqEstado;
+    OPEN busqEstadoPER FOR
+    SELECT C.NOMBRE_ADOP,C.ESTADO_ADOP,D.PAIS,D.PROVINCIA,D.CANTON,D.DISTRITO,D.DIRECCION_EXACTA, C.Fecha_Ingreso_Adop, i.nombre_img
+    FROM MASCOTA_ADOPTAR C, DIRECCION D, IMAGEN I
+    WHERE C.ID_MASCOTA_ADOP = D.ID_DIRECCION and C.ESTADO_ADOP = 'Adoptar' and C.ID_MASCOTA_ADOP = i.id_imagen
+    ORDER BY C.Fecha_Ingreso_Adop DESC;
+    RETURN busqEstadoPER;
  END busqueda_adopciones;
  
 END BUSQUEDAS;
