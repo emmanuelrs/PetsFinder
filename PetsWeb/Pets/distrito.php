@@ -59,36 +59,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="#">
 
 <!-- Modernizr -->
-<script src="_include/js/modernizr.js"></script>
-</div>
 
- <script>
-            function ajax_post(){
-                // Create our XMLHttpRequest object
-                var hr = new XMLHttpRequest();
-                // Create some variables we need to send to our PHP file
-                var url = "bus-distrito.php";
-
-                var busqueda = document.getElementById("distri").value;
-                //var tipoBusqueda = document.getElementById("tipoBusqueda").value;
-
-                var vars = '&busqueda=' + busqueda;
-
-                hr.open("POST", url, true);
-                // Set content type header information for sending url encoded variables in the request
-                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                // Access the onreadystatechange event for the XMLHttpRequest object
-                hr.onreadystatechange = function() {
-                    if(hr.readyState == 4 && hr.status == 200) {
-                        var return_data = hr.responseText;
-                        document.getElementById("resp").innerHTML = return_data;
-                    }
-                }
-                // Send the data to PHP now... and wait for response to update the status div
-                hr.send(vars); // Actually execute the request
-                document.getElementById("resp").innerHTML = "Procesando...";
-            }
-</script>
 </head>
 <body>
 <header>
@@ -106,9 +77,16 @@
           <form id="contact-form" class="contact-form" action="bus-distrito.php" method="POST">
           <br></br>
           <p class="contact-email">
-          <input id="distri" type="text" placeholder="Distrito            " value="" name="distrito" /></p>
-          </form>  
-          <button onclick="ajax_post()"  type="submit">Buscar</button>
+          <input id="distri" type="text" placeholder="Distrito" value="" name="distrito" /></p>
+          
+          <select id = "tipo" name = "tipoBusqueda">
+          <option selected value = "0">Estado</option>
+          <option value = "Encontrada">Encontrada</option>
+          <option value = "Perdida">Perdida</option>
+          </select>
+          <br></br>
+          <br><input type="submit" value="Buscar" class="boton"></div> </br> 
+          </form> 
 <div id="resp"></div>
 
 </body>
