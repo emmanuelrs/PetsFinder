@@ -89,8 +89,9 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-	$division = $division .' <div id="general"> <div id="foticas"> <br></br><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px>'.'<br></br><a href="index.php"> <span>Adoptar</span></a></li></div>
+	$division = $division .' <div id="general"> <div id="foticas"> <br></br><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px>'.'<br></br><a href="adoptarAD.php"> <span>Adoptar</span></a></li></div>
 	<br></br>Nombre de la mascota: '.$fila['NOMBRE_ADOP'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
 	.$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_ADOP'];}
+$_SESSION['IDOP'] = $fila['ID_MASCOTA_ADOP'];
 
 echo $division;
