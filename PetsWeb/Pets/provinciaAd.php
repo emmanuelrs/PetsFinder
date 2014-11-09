@@ -26,7 +26,6 @@
 <!-- Main Style -->
 <link href="_include/css/main.css" rel="stylesheet">
 <link href="_include/css/estImpresion.css" rel="stylesheet">
-<link href="_include/css/estImpresion.css" rel="stylesheet">
 
 <!-- Supersized -->
 <link href="_include/css/supersized.css" rel="stylesheet">
@@ -69,52 +68,35 @@
     <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     <nav id="menu">
     <ul id="menu-nav">
-    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li></ul>
     </nav>     
     </div>
 </header>
-<?php
-$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
-if (!$conn) {
-    $e = oci_error();
-    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-}
-$provincia = $_POST['Provincia'];
-$tipo = $_POST['tipoBusqueda'];	
-$division = '';
+
+<div class="span1">
+   <form id="contact-form" class="contact-form" action="bus-provinciaAd.php" method="POST">
+
+          <br></br>
+                <select id= "pro" name="Provincia">
+                <option selected value="0"> Provincia </option>
+                <option value="San José">San José</option>
+                <option value="Alajuela">Alajuela</option>
+                <option value="Heredia">Heredia</option>
+                <option value="Cartago">Cartago</option>
+                <option value="Puntarenas">Puntarenas</option>
+                <option value="Guanacaste">Guanacaste</option>
+                <option value="Limón">Limón</option>
+                </select>
+
+                <select id = "tipo" name = "tipoBusqueda">
+                <option selected value = "0">Estado</option>
+                <option value = "Encontrada">Encontrada</option>
+                <option value = "Perdida">Perdida</option>
+                </select>
+                <br><input type="submit" value="Buscar" class="boton"></div> </br> 
+                </form> 
 
 
- if($tipo == "Encontrada"){
-        
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_enc(:busq); END;");  
-	$cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
-	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
-	oci_execute($query_procedimiento);
-	oci_execute($cursor, OCI_DEFAULT);
-	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
-	foreach ($array as $fila) {
-		$division = $division .' <div id="general"> <div id="foticas"> <br></br><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-		<br></br>Nombre de la mascota: '.$fila['NOMBRE_ENC'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
-		.$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_ENC'];}
-
-echo $division;
-        
-}else if($tipo == "Perdida"){
-        
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_per(:busq); END;");
-    $cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
-	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
-	oci_execute($query_procedimiento);
-	oci_execute($cursor, OCI_DEFAULT);
-	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
-	foreach ($array as $fila) {
-		$division = $division .' <div id="general"> <div id="foticas"><br></br><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-		<br></br>Nombre de la mascota: '.$fila['NOMBRE_PER'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
-		.$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_PER'];}
-echo $division;
-
-             
-}
-?>
+       
+</body>
+</html>

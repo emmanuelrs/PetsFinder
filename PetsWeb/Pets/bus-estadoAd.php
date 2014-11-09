@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -69,26 +70,27 @@
     <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     <nav id="menu">
     <ul id="menu-nav">
-    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li></ul>
     </nav>     
     </div>
 </header>
+
 <?php
 $conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-$provincia = $_POST['Provincia'];
-$tipo = $_POST['tipoBusqueda'];	
+		
+$estado = $_POST['estado'];
 $division = '';
 
 
- if($tipo == "Encontrada"){
+ if($estado == "Encontrada"){
         
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_enc(:busq); END;");  
+    $query_procedimiento = oci_parse($conn, "BEGIN :cursor :=  busquedas.busquedaestado_enc(:busq); END;");  
 	$cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
+	oci_bind_by_name($query_procedimiento,':busq', $estado);
 	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
 	oci_execute($query_procedimiento);
 	oci_execute($cursor, OCI_DEFAULT);
@@ -100,11 +102,11 @@ $division = '';
 
 echo $division;
         
-}else if($tipo == "Perdida"){
+}else if($estado == "Perdida"){
         
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_per(:busq); END;");
+    $query_procedimiento = oci_parse($conn, "BEGIN :cursor :=  busquedas.busquedaestado_per(:busq); END;");
     $cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $provincia);
+	oci_bind_by_name($query_procedimiento,':busq', $estado);
 	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
 	oci_execute($query_procedimiento);
 	oci_execute($cursor, OCI_DEFAULT);
@@ -116,5 +118,6 @@ echo $division;
 echo $division;
 
              
-}
+} 	
+
 ?>

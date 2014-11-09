@@ -232,8 +232,9 @@
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     	<nav id="menu">
         	<ul id="menu-nav">
-            	<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
+            	<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
                 <li><a href="admin casa cuna.php" class = "external">Solicitudes de Casa Cuna</a></li>
+                <li><a href="black.php" class = "external">Ver Lista Negra</a></li>
                 <li><a href="registrarMascotaAd.php" class = "external">Registrar mascota</a></li>
                 <li><a href="registrarPersonaAd.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="index.php" class="external">Cerrar Sesión</a></li>
@@ -402,18 +403,18 @@
                 <h3 class="title-description">Busque aqui sus mascotas perdidas</h3>
     </div> <!-- titulo -->
     <div id="apDiv9">
-<a class="button button-small" href="provincia.php">Busqueda por Provincia</a>
+<a class="button button-small" href="provinciaAd.php">Busqueda por Provincia</a>
     <br></br>
-    <a class="button button-small" href="distrito.php">Busqueda por Distrito</a>
+    <a class="button button-small" href="distritoAd.php">Busqueda por Distrito</a>
     <br></br>
     <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>
   <div id="apDiv10">
-  <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
+  <a class="button button-small" href="chipAd.php">Busqueda por Chip de identificacion</a>
   <br></br>
   <a class="button button-small" href="estado.php">Busqueda por Estado</a> </div>
 </div>
 <div id="apDiv11">
-<a class="button button-small" href="canton.php">Busqueda por Cantón</a>
+<a class="button button-small" href="cantonAd.php">Busqueda por Cantón</a>
     <br></br>
      <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
     </div>
