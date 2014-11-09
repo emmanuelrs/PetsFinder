@@ -61,6 +61,17 @@ STORAGE (INITIAL 6144
 COMMENT ON TABLE CALIFICACION IS 'Tabla donde se guardan las calificaciones de los usuarios';
 COMMENT ON COLUMN CALIFICACION.ID_CALIFICACION IS 'Sección donde se guarda la referencia del id con el usuario';
 COMMENT ON COLUMN CALIFICACION.CALIFICACION_PER IS 'Sección donde se guarda cada calificación del usuario'
+
+
+-- INDEX Calificacion
+
+CREATE INDEX calif_personas ON calificacion(id_calificacion)
+      TABLESPACE AD_IND
+      STORAGE (INITIAL 10K
+      NEXT 10k
+      PCTINCREASE 0);
+
+
 -- Tabla direcciones.
 
 CREATE TABLE DIRECCION(
