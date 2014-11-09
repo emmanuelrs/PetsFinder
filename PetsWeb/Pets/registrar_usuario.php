@@ -33,19 +33,19 @@ if (!$conn) {
 	
 if($var1 && $var2 && $var3 && $var4 && $var5){
 	if($var5 == $var6){
-	$stid = oci_parse($conn, 'begin insertions.set_usuario(:p1, :p2, :p3, :p5, :p6, :p7, :p8, :p9, :p10,:p11,:p12,:p13); end;');
+	$stid = oci_parse($conn, 'begin insertions.set_usuario(:p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8, :p9,:p10,:p11,:p12); end;');
 	oci_bind_by_name($stid, ':p1',  $var1);
 	oci_bind_by_name($stid, ':p2',  $var2, 40);
 	oci_bind_by_name($stid, ':p3',  $var3);
-	oci_bind_by_name($stid, ':p5',  $var4);
-	oci_bind_by_name($stid, ':p6',  $var6);
-	oci_bind_by_name($stid, ':p7',  $var7);
-	oci_bind_by_name($stid, ':p8',  $var8);
-	oci_bind_by_name($stid, ':p9',  $var9);
-	oci_bind_by_name($stid, ':p10', $var10);
-	oci_bind_by_name($stid, ':p11', $var11);
-	oci_bind_by_name($stid, ':p12', $var12);
-	oci_bind_by_name($stid, ':p13', $var13);
+	oci_bind_by_name($stid, ':p4',  $var4);
+	oci_bind_by_name($stid, ':p5',  $var5);
+	oci_bind_by_name($stid, ':p6',  $var7);
+	oci_bind_by_name($stid, ':p7',  $var8);
+	oci_bind_by_name($stid, ':p8',  $var9);
+	oci_bind_by_name($stid, ':p9', $var10);
+	oci_bind_by_name($stid, ':p10', $var11);
+	oci_bind_by_name($stid, ':p11', $var12);
+	oci_bind_by_name($stid, ':p12', $var13);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
