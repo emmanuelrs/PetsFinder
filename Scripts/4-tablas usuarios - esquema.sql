@@ -210,6 +210,7 @@ CREATE TABLE CASA_CUNA(
        ID_RAZA NUMBER(8),
        ESTADO VARCHAR2(20)
        CONSTRAINT CK_ESTADO_CASA_CUNA CHECK (ESTADO IN ('Autorizado', 'Pendiente')),
+       CALIFICACION NUMBER(8),
        
        CONSTRAINT PK_CASA_CUNA
        primary key (ID_CASA_CUNA)
