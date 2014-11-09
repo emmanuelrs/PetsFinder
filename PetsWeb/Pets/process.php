@@ -26,11 +26,15 @@ oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC
 
 foreach ($array as $fila) {
 
-	$idpersona = $fila['ID_USUARIO'];
+	$tipoUser = $fila['TIPO_USER'];
 }
-if($idpersona){
+if($tipoUser == 1){
 	$_SESSION['IDU'] = $idpersona;
 	header('Location: index activo.php');
+}
+else if($tipoUser == 2){
+	$_SESSION['IDU'] = $idpersona;
+	header('Location: index activo admin.php');
 }
 else{
 	echo 'No esta registrado';

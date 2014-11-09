@@ -93,8 +93,7 @@ function ver(num) {
         <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
         <nav id="menu">
             <ul id="menu-nav">
-                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
-                <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
+                <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
           </ul>
       </nav>     
     </div>
@@ -102,7 +101,7 @@ function ver(num) {
 
 <br></br>
     	<div class="span">       
-        	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
+        	<form id="contact-form" class="contact-form" action="registrar_usuarioAd.php" method = 'POST'>
 
             	<p class="contact-name">
             		<input id="contact_name" type="text" placeholder="Nombre" value="" name="nombre" />

@@ -3,8 +3,7 @@
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
-<head>
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]--><head>
 
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -62,6 +61,7 @@
 <!-- Modernizr -->
 <script src="_include/js/modernizr.js"></script>
 
+
 <!-- Analytics -->
 <script type="text/javascript">
 
@@ -76,15 +76,41 @@
   })();
 
 </script>
-<script type="text/javascript">
-function ver(num) {
-  document.getElementById('uno').style.display = (num==0) ? 'block' : 'none'; 
-  document.getElementById('dos').style.display = (num==1) ? 'block' : 'none'; 
-}
-</script>
 <!-- End Analytics -->
-
+<div></div><div></div>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+prevText: '&#x3c;Ant',
+nextText: 'Sig&#x3e;',
+currentText: 'Hoy',
+monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+'Jul','Ago','Sep','Oct','Nov','Dic'],
+dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+ 
+$(document).ready(function() {
+   $("#datepicker").datepicker();
+});
+</script>
+</div>
 </head>
+<body>
 <header>
  <div class="sticky-nav">
     <div class="span">
@@ -93,44 +119,64 @@ function ver(num) {
         <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
         <nav id="menu">
             <ul id="menu-nav">
-                <li class="current"><a href="index.php" class = "external">Inicio</a></li>
-                <li><a href="sesion.php" class="external">Iniciar Sesión</a></li>
-          </ul>
-      </nav>     
+                <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li
+          ></ul>
+      </nav>
+        
     </div>
 </header>
 
-<br></br>
-    	<div class="span">       
-        	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
+        <div class="row">
+    	<div class="span9">
+        <form enctype="multipart/form-data" action="registrar_mascotaAd.php" method="POST" class="contact-form" id="contact-form">
+        Fotografía de la mascota: <input name="uploadedfile" type="file"/><br></br>
+        	<form id="contact-form" class="contact-form" action="registrar_mascota.php" method="POST">
 
             	<p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Nombre" value="" name="nombre" />
-                </p>
-                <p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Primer apellido" value="" name="apellido1" />
-                </p>
-                <p class="contact-name">
-            		<input id="contact_name" type="text" placeholder="Segundo apellido" value="" name="apellido2" />
+            		<input id="contact_name" type="text" placeholder="Nombre de la mascota" value="" name="nombre" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Nombre de usuario" value="" name="nombre_usuario" />
+                	<input id="contact_email" type="text" placeholder="Chip identificación" value="" name="chip" />
                 </p>
                  <p class="contact-email">
-                	<input id="contact_email" type="password" placeholder="Contraseña" value="" name="contrasena" />
+                	<input id="contact_email" type="text" placeholder="Color" value="" name="color" />
+                </p>
+              
+                <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Recompenza" value="" name="recompenza" />
                 </p>
                 <p class="contact-email">
-                	<input id="contact_email" type="password" placeholder="Confirmar contraseña" value="" name="confirm_contrasena" />
+                	<input id="contact_email" type="text" placeholder="Descripción de la mascota" value="" name="descripcion" />
                 </p>
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Telefono" value="" name="telefono" />
-                </p>
-                
-                <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Email" value="" name="email" />
-                </p>
-                <p class="contact-email">
-                 <select name="Provincia">
+
+                <select name="raza">
+      	        <option selected value="0"> Seleccione la raza</option>
+       		    <optgroup label="Perros">
+                <option value="Chiguagua">Chiguagua</option>
+      		    <option value="Salchicha">Salchicha</option>
+     	        <option value="Gran Danes">Gran Danés</option>
+                <option value="Raza Unica">Raza Única</option>
+                <optgroup label="Gatos">
+      		    <option value="Angora">Angora</option>
+     		    <option value="Raza Unica">Raza Única</option>
+   				</optgroup>
+				</select>
+
+                <select name="estado">
+   				<option selected value="0"> Estado de su mascota</option>
+      			<option value="Perdida">Perdida</option>
+     			<option value="Encontrada">Encontrada</option>
+                <option value="Adoptada">Adoptada</option>
+
+				</select>
+                <select name="tamaño">
+                <option selected value="0"> Tamaño</option>
+                <option value="grande">Grande</option>
+                <option value="mediano">Mediana</option>
+                <option value="pequeña">Pequeña</option>
+                </select>
+
+                <select name="Provincia">
                 <option selected value="0"> Provincia </option>
                 <option value="San José">San José</option>
                 <option value="Alajuela">Alajuela</option>
@@ -140,6 +186,7 @@ function ver(num) {
                 <option value="Guanacaste">Guanacaste</option>
                 <option value="Limón">Limón</option>
                 </select>
+
                 <select name="Canton">
                 <option selected value="0">Cantón</option>
                 <optgroup label="San José">
@@ -239,20 +286,24 @@ function ver(num) {
                 <option value="Talamanca">Talamanca</option>
 
                 </optgroup>
+                </select>
+                  <p class="contact-email">
+                	<input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
                 </p>
-
                 <p class="contact-email">
-                    <input id="contact_email" type="text" placeholder="Distrito" value="" name="distrito" />
+                	<input id="contact_email" type="text" placeholder="Detalles de la Dirrecion" value="" name="detalle_direccion" />
                 </p>
-                
-                 <p class="contact-email">
-                    <input id="contact_email" type="text" placeholder="Direccion Exacta" value="" name="direc" />
-                </p>
-                <p class="contact-submit">
-                	<a href = "registrarPersona.php"><input type="submit" value="Enviar" class="boton"><a/>
-                </p>    
 
-                </div>
-</form>
+                <p class="contact-submit">
+                <label> Seleccionar Fecha:</label>
+                <input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+                <input type="submit" value="Enviar" class="boton">
+                </p>   
+        	   
+
+                </form>
+            
+            
 </body>
 </html>
+
