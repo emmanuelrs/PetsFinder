@@ -188,7 +188,7 @@
                 <br><input type="submit" value="Buscar" class="boton"></div> </br> 
                 </form> 
 
-                <input type="submit" value="Enviar" class="boton">  
+                 
              
                 </form>  
 </div>            
