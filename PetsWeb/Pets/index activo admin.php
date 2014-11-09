@@ -235,6 +235,7 @@
             	<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
                 <li><a href="admin casa cuna.php" class = "external">Solicitudes de Casa Cuna</a></li>
                 <li><a href="black.php" class = "external">Ver Lista Negra</a></li>
+                <li><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li>
                 <li><a href="registrarMascotaAd.php" class = "external">Registrar mascota</a></li>
                 <li><a href="registrarPersonaAd.php" class = "external">Registrar Usuario</a></li>
                 <li><a href="index.php" class="external">Cerrar Sesión</a></li>
