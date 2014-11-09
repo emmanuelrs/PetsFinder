@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -143,8 +148,13 @@ oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC
 foreach ($array as $fila) {
     $division = $division .' <div></div><div id="general"><br></br> Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '
     .$fila['CALIFICACION']."<br></br> Tamaño de las mascota que acepta: ".$fila['TAMANO']."<br></br> Requiere Alimento: ".$fila['REQUIERE_ALIMENTO'].
-    "<br></br> Descripción de la raza: ".$fila['DESCRIPCION_RAZA']."<br></br> Tipo de Mascota: ".$fila['TIPO_MASCOTA'].'<br></br><a href="index.php"> <span>Aceptar</span></a></li>   '.
-    '<a href="index.php"> <span>Rechazar</span></a></li><br></br><br></br>' ;}
+    "<br></br> Descripción de la raza: ".$fila['DESCRIPCION_RAZA']."<br></br> Tipo de Mascota: ".$fila['TIPO_MASCOTA'].
+    '<br></br><a href="aceptarCasaCuna.php"> <span>Aceptar</span></a></li> '.
+    '<a href="rechazarCasaCuna.php"> <span>Rechazar</span></a></li><br></br><br></br>';}
+if($fila['ID_CASA_CUNA']){
+    $_SESSION['IDCASA'] = $fila['ID_CASA_CUNA'];
+}else{
+  $_SESSION['IDCASA'] = '';}
 
 echo $division;
 
