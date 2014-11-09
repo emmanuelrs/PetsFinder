@@ -59,7 +59,7 @@ STORAGE (INITIAL 6144
 );
 COMMENT ON TABLE CALIFICACION IS 'Tabla donde se guardan las calificaciones de los usuarios';
 COMMENT ON COLUMN CALIFICACION.ID_CALIFICACION IS 'Sección donde se guarda la referencia del id con el usuario';
-COMMENT ON COLUMN CALIFICACION.CALIFICACION_PER IS 'Sección donde se guarda cada calificación del usuario'
+COMMENT ON COLUMN CALIFICACION.CALIFICACION_PER IS 'Sección donde se guarda cada calificación del usuario';
 
 
 -- INDEX Calificacion

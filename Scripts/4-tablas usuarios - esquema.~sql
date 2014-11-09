@@ -42,7 +42,6 @@ comment on column USUARIO.APELLIDO1 is 'primer apellido del usuario';
 comment on column USUARIO.APELLIDO2 is 'segundo apellido del usuario';
 comment on column USUARIO.USER_NAME is 'Nombre de usuario para utilizar en la página';
 comment on column USUARIO.CONTRASEÑA is 'Contraseña para el ingreso del usuario al sistema';
-comment on column USUARIO.CALIFICACION is 'calificación  del usuario "reputación"';
 comment on column USUARIO.TIPO_USER is 'indicador para saber si el usuario es administrador o solo un usuario regular';
 
 -- Tabla calificación
