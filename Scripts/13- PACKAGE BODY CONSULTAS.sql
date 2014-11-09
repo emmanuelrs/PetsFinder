@@ -5,7 +5,7 @@ FUNCTION VALIDA_USUARIO(USUARIO1 IN VARCHAR2, CONTRASENA IN VARCHAR2)
   AS valida TYPES.ref_c;
   BEGIN
     OPEN valida FOR
-    select U.id_usuario
+    select U.TIPO_USER
     FROM USUARIO U
     WHERE U.USER_NAME = USUARIO1 AND U.CONTRASEÑA = contrasena;
    return valida;
