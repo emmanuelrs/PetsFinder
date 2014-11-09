@@ -173,12 +173,22 @@ create view LISTA_NEGRA as
 
 --tabla de casas cuna
 CREATE TABLE CASA_CUNA(
+       ID_CASA_CUNA NUMBER(8),
        ID_PERSONA NUMBER(8)
               CONSTRAINT ID_PERSONA_CASACUNA_NN NOT NULL,
        TAMANO VARCHAR2(30)
        		  CONSTRAINT TAMAÑO_NN NOT NULL,
        REQUIERE_ALIMENTO VARCHAR2(2) DEFAULT 'NO'
-              CONSTRAINT CK_REQUIERE_ALIMENTO CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO'))
+              CONSTRAINT CK_REQUIERE_ALIMENTO CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO')),
+       ID_RAZA NUMBER(8),
+       ESTADO VARCHAR2(20)
+       CONSTRAINT CK_ESTADO_CASA_CUNA CHECK (ESTADO IN ('Autorizado', 'Pendiente')),
+       
+       CONSTRAINT PK_CASA_CUNA
+       primary key (ID_CASA_CUNA)
+       using index
+       tablespace ad_ind pctfree 20
+       storage (initial 10k next 10k pctincrease 0)
 )
 TABLESPACE ad_data
 STORAGE (INITIAL 6144
@@ -190,44 +200,6 @@ COMMENT ON TABLE CASA_CUNA IS 'Tabla para el almacenamiento de los usuarios que 
 comment on column CASA_CUNA.ID_PERSONA is 'llave que indica cual usuario desea ser casa cuna';
 comment on column CASA_CUNA.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
---tabla de casas cuna PENDIENTES
-CREATE TABLE CASA_CUNA_PENDIENTE(
-       ID_CASA_CUNA NUMBER(8),
-       ID_PERSONA NUMBER(8)
-              CONSTRAINT ID_PERSONA_CASACUNA_PEN_NN NOT NULL,
-       TAMANO VARCHAR2(30)
-       		  CONSTRAINT TAMAÑO_PENDIENTE_NN NOT NULL,
-       REQUIERE_ALIMENTO VARCHAR2(2) DEFAULT 'NO'
-              CONSTRAINT CK_REQUIERE_ALIMENTO_PEN CHECK (REQUIERE_ALIMENTO IN ('SI', 'NO')),
-       CONSTRAINT PK_CASACUNA_PEN
-       primary key (ID_CASA_CUNA)
-       using index
-       tablespace ad_ind pctfree 20
-       storage (initial 10k next 10k pctincrease 0)
-)
-TABLESPACE ad_data
-STORAGE (INITIAL 6144
-        NEXT 6144
-        MINEXTENTS 1
-        MAXEXTENTS 5
-);
-
-CREATE TABLE RAZA_ADMITIDA(
-       RAZA_TIPO NUMBER(8)
-              CONSTRAINT RAZA_TIPO_NN NOT NULL,
-       RAZA NUMBER(8)
-       		  CONSTRAINT RAZA_AD_NN NOT NULL
-)
-TABLESPACE ad_data
-STORAGE (INITIAL 6144
-        NEXT 6144
-        MINEXTENTS 1
-        MAXEXTENTS 5
-);
-
-COMMENT ON TABLE CASA_CUNA_PENDIENTE IS 'Tabla para el almacenamiento temporal de los usuarios que desean ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.ID_PERSONA is 'llave que indica cual usuario es quien desea ser casa cuna';
-comment on column CASA_CUNA_PENDIENTE.REQUIERE_ALIMENTO is 'indicador de tan solo 2 valores "si" , "no" para saber si el usuario que desea ser casa cuna requiere de alimento para la mascota o si el lo dona, por default la casa cuna donara el alimento';
 
 --tabla bitacora
 CREATE TABLE ad_bitacora

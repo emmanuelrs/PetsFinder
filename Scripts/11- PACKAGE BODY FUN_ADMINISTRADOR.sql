@@ -10,43 +10,31 @@ PROCEDURE INSERTAR_RAZA
 END INSERTAR_RAZA;
 
 PROCEDURE SOLICITUD_CASA_CUNA(username in varchar2, taman in varchar2, raza in varchar2, alimento in varchar2) as
-  id_raza number;
+  id_raz number;
   id_user number;
   begin
     select u.id_usuario into id_user
     from usuario u
     where u.user_name = username;
 
-    select r.id_raza into id_raza
+    select r.id_raza into id_raz
     from raza r
     where r.descripcion_raza = raza;
-
-    insert into casa_cuna_pendiente(id_casa_cuna, id_persona, tamano, requiere_alimento)
-    values(s_casa_cuna.nextval, id_user, taman, alimento);
-
-    insert into raza_admitida(raza_tipo, raza)
-    values(id_user, id_raza);
+    
+    insert into casa_cuna(id_casa_cuna, id_persona, tamano, requiere_alimento, id_raza, estado)
+    values(s_casa_cuna.nextval, id_user, taman, alimento, id_raz, 'Pendiente');
     commit;
 end SOLICITUD_CASA_CUNA;
 
 PROCEDURE ACEPTAR_CASA_CUNA(id_casa in varchar2)AS
-  tama varchar2(30);
-  requiere varchar2(20);
-  id_user number;
   id_casa_c number;
   BEGIN
     id_casa_c := to_number(RIGHT => id_casa);
-    select cp.id_persona, cp.tamano, cp.requiere_alimento into id_user, tama, requiere
-    from casa_cuna_pendiente cp
-    where cp.id_casa_cuna = id_casa_c;
 
-    insert into casa_cuna(id_persona, tamano, requiere_alimento)
-    values(id_user, tama, requiere);
+    update casa_cuna cc
+    set cc.estado = 'Autorizado'
+    where cc.id_casa_cuna = id_casa_c;
     commit;
-    delete from casa_cuna_pendiente cp
-    where cp.id_casa_cuna = id_casa_c;
-    commit;
-
 end ACEPTAR_CASA_CUNA;
 
 PROCEDURE DENEGAR_CASA_CUNA(id_casa in varchar2)AS
@@ -54,8 +42,8 @@ PROCEDURE DENEGAR_CASA_CUNA(id_casa in varchar2)AS
   BEGIN
     id_casa_c := to_number(RIGHT => id_casa);
 
-    delete from casa_cuna_pendiente cp
-    where cp.id_casa_cuna = id_casa_c;
+    delete from casa_cuna cc
+    where cc.id_casa_cuna = id_casa_c;
     commit;
 
 end DENEGAR_CASA_CUNA;
@@ -65,9 +53,9 @@ FUNCTION Casa_cuna_pen
   AS casa TYPES.ref_c;
   BEGIN
     OPEN casa FOR
-    SELECT cp.id_casa_cuna, cp.id_persona, u.user_name, u.nombre, u.apellido1, u.calificacion,  cp.tamano, cp.requiere_alimento, r.descripcion_raza, r.tipo_mascota
-    FROM Casa_Cuna_Pendiente cp, usuario u, raza r
-    WHERE cp.id_persona = u.id_usuario and cp.id_persona = r.id_raza;
+    SELECT cc.id_casa_cuna, u.nombre, u.apellido1, u.calificacion, r.descripcion_raza, r.tipo_mascota, cc.tamano, cc.requiere_alimento 
+    FROM Casa_Cuna cc, usuario u, raza r
+    WHERE cc.id_persona = u.id_usuario and cc.id_raza = r.id_raza and cc.estado = 'Pendiente';
     RETURN casa;
  END Casa_cuna_pen;
 
