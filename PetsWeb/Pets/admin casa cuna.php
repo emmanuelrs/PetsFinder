@@ -93,6 +93,7 @@ function ver(num) {
 <!-- End Analytics -->
 
 </head>
+
 <header>
  <div class="sticky-nav">
     <div class="span">
@@ -106,7 +107,7 @@ function ver(num) {
       </nav>     
     </div>
 </header>
-
+<h1>Solicitudes</h1>
 <br></br>
     	<div class="span">       
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
@@ -129,7 +130,7 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-    $division = $division .' <div></div><div></div><br></br><div id="general">Nombre de usuario: '.$fila['USER_NAME'].'<br></br> Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '
+    $division = $division .' <div></div><div id="general"><br></br> Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '
     .$fila['CALIFICACION']."<br></br> Tamaño de las mascota que acepta: ".$fila['TAMANO']."<br></br> Requiere Alimento: ".$fila['REQUIERE_ALIMENTO'].
     "<br></br> Descripción de la raza: ".$fila['DESCRIPCION_RAZA']."<br></br> Tipo de Mascota: ".$fila['TIPO_MASCOTA'].'<br></br><a href="index.php"> <span>Aceptar</span></a></li>   '.
     '<a href="index.php"> <span>Rechazar</span></a></li><br></br><br></br>' ;}
