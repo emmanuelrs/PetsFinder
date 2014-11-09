@@ -167,12 +167,12 @@
 							<!-- Item Project and Filter Name -->
                         	<li class="item-thumbs span3 perro">
                             	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/1-full.jpg">
+                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Boster" href="_include/img/work/full/1-full.jpg">
                                 	<span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/1.jpg" alt="nk">
                             </li>
                         	<!-- End Item Project -->
                             <!-- Item Project and Filter Name -->

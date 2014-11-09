@@ -65,6 +65,14 @@
 	height: 115px;
 	z-index: 1002;
 }
+#apDiv2 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 1156px;
+	top: 62px;
+}
 </style>
 
 <!-- Modernizr -->
@@ -113,6 +121,9 @@ function ver(num) {
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
 
             </form>
+<div id="apDiv2">
+<img src="_include/img/work/pensando.png" width="350" height="350"> </div>
+
 </body>
 </html>
 <?php

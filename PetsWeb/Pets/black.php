@@ -59,11 +59,13 @@
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
 <style type="text/css">
-#apDiv1 {
+#apDiv2 {
 	position: absolute;
 	width: 200px;
 	height: 115px;
 	z-index: 1002;
+	left: 1156px;
+	top: 77px;
 }
 </style>
 
@@ -107,13 +109,36 @@ function ver(num) {
       </nav>     
     </div>
 </header>
-
+<h1>Lista Negra</h1>
 <br></br>
-    	<div class="span">       
-        	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
+      <div class="span">       
+          <form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
 
-</form>
-<div id="apDiv1"><img src="_include/img/work/naaa.png" width="256" height="256"></div>
+            </form>
+<div id="apDiv2">
+<img src="_include/img/work/naaa.png" width="320" height="320"> 
+</div>
 
 </body>
 </html>
+<?php
+$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}
+
+$division = "";
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor := fun_administrador.Black_list; END;");  
+$cursor = oci_new_cursor($conn);
+oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
+oci_execute($query_procedimiento);
+oci_execute($cursor, OCI_DEFAULT);
+oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+foreach ($array as $fila) {
+    $division = $division .'<div id="general"> <br></br>' . 'Id Usuario: '.$fila['ID_USUARIO'].'<br></br>'.' Nombre: '.$fila['NOMBRE'].'<br></br>'.' Apellido: '
+    .$fila['APELLIDO1'].'<br></br>'." Nombre de Usuario: ".$fila['USER_NAME'].'<br></br>'." Calificacion: ".$fila['CALIFICACION'].'<br></br>';}
+
+echo $division;
+
+?>
