@@ -133,9 +133,9 @@ procedure SET_MASCOTA_ADOPTAR
     insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
     values(s_mascota_enc.currval, 2, pais1, provincia1, canton1, distrito1, detalle_direc);
 
-    insert into MASCOTA_ADOPTAR(ID_MASCOTA_ADOP, TIPO_ADOP, NOMBRE_ADOP, TIPO_Y_RAZA_ADOP, TAMANO_ADOP, CHIP_IDENTIFICACION_ADOP, COLOR_ADOP, ESTADO_ADOP, RECOMPENSA_ADOP, DESCRIPCION_ADOP,
-    FECHA_INGRESO_ADOP, USUARIO_REGISTRA_ADOP)
-    values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario);
+    insert into MASCOTA_ADOPTAR(ID_MASCOTA_ADOP, TIPO_ADOP, NOMBRE_ADOP, TIPO_Y_RAZA_ADOP, TAMANO_ADOP, CHIP_IDENTIFICACION_ADOP, COLOR_ADOP, ESTADO_ADOP, RECOMPENSA_ADOP,
+     DESCRIPCION_ADOP, FECHA_INGRESO_ADOP, USUARIO_REGISTRA_ADOP, ESTADO)
+    values(s_mascota_enc.currval, 2, nombre_m, tipo_y_raza1, tamano1 ,chip_ident, color_m, estado_m, recompensa1, descripcion, to_date(fecha, 'dd/mm/yyyy'), usuario, 'Pendiente');
     commit;
 
     exception

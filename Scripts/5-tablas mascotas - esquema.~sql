@@ -144,7 +144,7 @@ comment on column MASCOTA_ADOPTAR.COLOR_ADOP is 'color de la mascota o posible m
 comment on column MASCOTA_ADOPTAR.ESTADO_ADOP is 'campo que contendrá la llave al valor del estado de la mascota por ejemplo perdida';
 comment on column MASCOTA_ADOPTAR.RECOMPENSA_ADOP is 'indicador de una posible recompensa por encontrar la mascota';
 comment on column MASCOTA_ADOPTAR.DESCRIPCION_ADOP is 'comentarios sobre la mascota perdida o encontrada';
-comment on column MASCOTA_ADOPTAR.USUARIO_REGISTRA_ADOPc is 'llave de la persona que perdió o encontró la mascota';
+comment on column MASCOTA_ADOPTAR.USUARIO_REGISTRA_ADOP is 'llave de la persona que mandar adoptar la mascota';
 
 
 
@@ -262,7 +262,7 @@ alter table MASCOTA_PERDIDA
   references DIRECCION(ID_DIRECCION, TIPO_DIREC);
 
 alter table MASCOTA_ADOPTAR
-  add constraint IMAGEN_ADOP_FK
+  add constraint IMAGEN_ADOPTAR_FK
   foreign key (ID_MASCOTA_ADOP)
   references IMAGEN(ID_IMAGEN);
   
