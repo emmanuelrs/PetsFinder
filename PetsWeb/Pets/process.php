@@ -20,26 +20,31 @@ $cursor = oci_new_cursor($conn);
 oci_bind_by_name($query_procedimiento,':nombre', $nombre);
 oci_bind_by_name($query_procedimiento,':contrasena', $pass);
 oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
-oci_execute($query_procedimiento);
-oci_execute($cursor, OCI_DEFAULT);
-oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+$r = oci_execute($query_procedimiento);
+$s = oci_execute($cursor, OCI_DEFAULT);
+if(!$r){
 
-foreach ($array as $fila) {
+	?> 
+    <script language="javascript"> 
+        alert("Error: El usuario o contraseña no existen!"); 
+    </script> 
+    <?php 
+    header("refresh:0; url=sesion.php");
 
-	$tipoUser = $fila['TIPO_USER'];
-	$idpersona= $fila['ID_USUARIO'];
-}
-if($tipoUser == 1){
-	$_SESSION['IDU'] = $idpersona;
-	header('Location: index activo.php');
-}
-else if($tipoUser == 2){
-	$_SESSION['IDU'] = $idpersona;
-	header('Location: index activo admin.php');
-}
-else{
-	echo 'No esta registrado';
-}
+}else{
+	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+	foreach ($array as $fila) {
+		$tipoUser = $fila['TIPO_USER'];
+		$idpersona= $fila['ID_USUARIO'];}
 
+	if($tipoUser == 1){
+		$_SESSION['IDU'] = $idpersona;
+		header('Location: index activo.php');}
+
+	else if($tipoUser == 2){
+		$_SESSION['IDU'] = $idpersona;
+		header('Location: index activo admin.php');}
+
+}
 
 ?>
