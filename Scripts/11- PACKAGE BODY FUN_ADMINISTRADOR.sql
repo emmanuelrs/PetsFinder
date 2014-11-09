@@ -39,7 +39,7 @@ PROCEDURE ACEPTAR_CASA_CUNA(id_casa in varchar2)AS
     select cp.id_persona, cp.tamano, cp.requiere_alimento into id_user, tama, requiere
     from casa_cuna_pendiente cp
     where cp.id_casa_cuna = id_casa_c;
-    
+
     insert into casa_cuna(id_persona, tamano, requiere_alimento)
     values(id_user, tama, requiere);
     commit;
@@ -53,11 +53,22 @@ PROCEDURE DENEGAR_CASA_CUNA(id_casa in varchar2)AS
   id_casa_c number;
   BEGIN
     id_casa_c := to_number(RIGHT => id_casa);
-    
+
     delete from casa_cuna_pendiente cp
     where cp.id_casa_cuna = id_casa_c;
     commit;
 
 end DENEGAR_CASA_CUNA;
+
+FUNCTION Casa_cuna_pen
+  RETURN TYPES.ref_c
+  AS casa TYPES.ref_c;
+  BEGIN
+    OPEN casa FOR
+    SELECT cp.id_casa_cuna, cp.id_persona, u.user_name, u.nombre, u.apellido1, u.calificacion,  cp.tamano, cp.requiere_alimento, r.descripcion_raza, r.tipo_mascota
+    FROM Casa_Cuna_Pendiente cp, usuario u, raza r
+    WHERE cp.id_persona = u.id_usuario and cp.id_persona = r.id_raza;
+    RETURN casa;
+ END Casa_cuna_pen;
 
 END FUN_ADMINISTRADOR;

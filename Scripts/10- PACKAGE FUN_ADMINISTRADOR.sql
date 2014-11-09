@@ -8,4 +8,6 @@ PROCEDURE ACEPTAR_CASA_CUNA(id_casa in varchar2);
 
 PROCEDURE DENEGAR_CASA_CUNA(id_casa in varchar2);
 
+FUNCTION Casa_cuna_pen RETURN TYPES.ref_c;
+
 END FUN_ADMINISTRADOR;
