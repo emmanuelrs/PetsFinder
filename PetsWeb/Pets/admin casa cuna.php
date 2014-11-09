@@ -112,7 +112,30 @@ function ver(num) {
         	<form id="contact-form" class="contact-form" action="registrar_usuario.php" method = 'POST'>
 
             </form>
-<div id="apDiv1"><img src="_include/img/work/pensando.png" width="256" height="256"></div>
-
 </body>
 </html>
+<?php
+$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}
+
+$division = "";
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor := fun_administrador.casa_cuna_pen; END;");  
+$cursor = oci_new_cursor($conn);
+oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
+oci_execute($query_procedimiento);
+oci_execute($cursor, OCI_DEFAULT);
+oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+foreach ($array as $fila) {
+    $division = $division .' <div></div><div></div><br></br><div id="general">Nombre de usuario: '.$fila['USER_NAME'].'<br></br> Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '
+    .$fila['CALIFICACION']."<br></br> Tamaño de las mascota que acepta: ".$fila['TAMANO']."<br></br> Requiere Alimento: ".$fila['REQUIERE_ALIMENTO'].
+    "<br></br> Descripción de la raza: ".$fila['DESCRIPCION_RAZA']."<br></br> Tipo de Mascota: ".$fila['TIPO_MASCOTA'].'<br></br><a href="index.php"> <span>Aceptar</span></a></li>   '.
+    '<a href="index.php"> <span>Rechazar</span></a></li><br></br><br></br>' ;}
+
+echo $division;
+
+?>
+
+
