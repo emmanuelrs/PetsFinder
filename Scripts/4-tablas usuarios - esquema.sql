@@ -168,7 +168,7 @@ comment on column EMAIL.VALOR_EMAIL is 'email del usuario';
 
 --tabla de usuarios considerados cm no aptos
 create view LISTA_NEGRA as
-  select U.ID_USUARIO, U.NOMBRE, U.USER_NAME from USUARIO U
+  select U.ID_USUARIO, U.NOMBRE, U.APELLIDO1, U.USER_NAME, U.CALIFICACION from USUARIO U
   where U.CALIFICACION < 2.1;
 
 --tabla de casas cuna

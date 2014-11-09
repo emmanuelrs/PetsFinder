@@ -58,5 +58,15 @@ FUNCTION Casa_cuna_pen
     WHERE cc.id_persona = u.id_usuario and cc.id_raza = r.id_raza and cc.estado = 'Pendiente';
     RETURN casa;
  END Casa_cuna_pen;
+ 
+FUNCTION Black_list
+  RETURN TYPES.ref_c
+  AS lista TYPES.ref_c;
+  BEGIN
+    OPEN lista FOR
+    SELECT *
+    FROM lista_negra;
+    RETURN lista;
+ END Black_list;
 
 END FUN_ADMINISTRADOR;

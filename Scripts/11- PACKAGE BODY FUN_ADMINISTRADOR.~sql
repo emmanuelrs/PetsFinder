@@ -20,7 +20,7 @@ PROCEDURE SOLICITUD_CASA_CUNA(username in varchar2, taman in varchar2, raza in v
     select r.id_raza into id_raz
     from raza r
     where r.descripcion_raza = raza;
-    
+
     insert into casa_cuna(id_casa_cuna, id_persona, tamano, requiere_alimento, id_raza, estado)
     values(s_casa_cuna.nextval, id_user, taman, alimento, id_raz, 'Pendiente');
     commit;
@@ -53,9 +53,19 @@ FUNCTION Casa_cuna_pen
   AS casa TYPES.ref_c;
   BEGIN
     OPEN casa FOR
-    SELECT cc.id_casa_cuna, u.nombre, u.apellido1, u.calificacion, r.descripcion_raza, r.tipo_mascota, cc.tamano, cc.requiere_alimento 
+    SELECT cc.id_casa_cuna, u.nombre, u.apellido1, u.calificacion, r.descripcion_raza, r.tipo_mascota, cc.tamano, cc.requiere_alimento
     FROM Casa_Cuna cc, usuario u, raza r
     WHERE cc.id_persona = u.id_usuario and cc.id_raza = r.id_raza and cc.estado = 'Pendiente';
+    RETURN casa;
+ END Casa_cuna_pen;
+ 
+FUNCTION Black_list
+  RETURN TYPES.ref_c
+  AS lista TYPES.ref_c;
+  BEGIN
+    OPEN lista FOR
+    SELECT *
+    FROM lista_negra
     RETURN casa;
  END Casa_cuna_pen;
 
