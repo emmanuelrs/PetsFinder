@@ -58,7 +58,7 @@ FUNCTION Casa_cuna_pen
     WHERE cc.id_persona = u.id_usuario and cc.id_raza = r.id_raza and cc.estado = 'Pendiente';
     RETURN casa;
  END Casa_cuna_pen;
- 
+
 FUNCTION Black_list
   RETURN TYPES.ref_c
   AS lista TYPES.ref_c;
@@ -68,5 +68,17 @@ FUNCTION Black_list
     FROM lista_negra;
     RETURN lista;
  END Black_list;
+ 
+PROCEDURE Adoptar(id_user in varchar2)AS
+  id_usuario number;
+  BEGIN
+    id_usuario := to_number(RIGHT => id_user);
+
+    update mascota_adoptar ma
+    set ma.estado = 'Adoptada'
+    where ma.id_mascota_adop = id_usuario;
+    commit;
+
+end Adoptar;
 
 END FUN_ADMINISTRADOR;
