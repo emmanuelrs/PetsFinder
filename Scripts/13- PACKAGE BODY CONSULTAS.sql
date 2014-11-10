@@ -91,6 +91,15 @@ FUNCTION IMGAdop(id_usuario in varchar2)
   RETURN imgAdop;
 END IMGAdop;
 
-
+FUNCTION Distinto(username in varchar2)
+  RETURN TYPES.ref_c
+  AS distinto TYPES.ref_c;
+  BEGIN
+    OPEN distinto FOR
+     select u.id_usuario, u.nombre, u.apellido1, u.calificacion
+     from usuario u
+     where u.user_name <> username;
+  RETURN distinto;
+END Distinto;
 
 END CONSULTAS;

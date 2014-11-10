@@ -232,8 +232,8 @@
     	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     	<nav id="menu">
         	<ul id="menu-nav">
-            	<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
                 <li><a href="#contact">Consultas</a></li>
+                <li><a href="calificar.php" class = "external">Calificar Usuario</a></li>
                 <li><a href="mis adopciones.php" class = "external">Mis Adopciones</a></li>
                 <li><a href="casa_cuna.php" class = "external">Solicitar Casa Cuna</a></li>
                 <li><a href="contactar_casaCuna.php"class = "external">Contactar Casas Cuna</a></li>

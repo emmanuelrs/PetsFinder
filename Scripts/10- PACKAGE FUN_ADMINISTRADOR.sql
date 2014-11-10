@@ -14,4 +14,6 @@ FUNCTION Black_list RETURN TYPES.ref_c;
 
 PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2);
 
+PROCEDURE Calificar(id_user in varchar2, cali in varchar2);
+
 END FUN_ADMINISTRADOR;

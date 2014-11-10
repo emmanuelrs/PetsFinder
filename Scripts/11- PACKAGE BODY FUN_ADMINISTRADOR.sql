@@ -87,4 +87,23 @@ PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2)AS
 
 end Adoptar;
 
+PROCEDURE Calificar(id_user in varchar2, cali in varchar2)AS
+  id_usuario number;
+  califi number;
+  BEGIN
+    id_usuario := to_number(RIGHT => id_user);
+    califi := to_number(RIGHT => cali);
+    
+    insert into calificacion(id_calificacion, calificacion_per)
+    values(id_usuario, califi);
+    commit;
+    
+    update usuario u
+    set u.calificacion = (select avg(c.calificacion_per) from calificacion c
+    where c.id_calificacion = id_usuario)
+    where u.id_usuario = id_usuario;
+    commit;
+
+end Calificar;
+
 END FUN_ADMINISTRADOR;

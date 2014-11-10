@@ -233,6 +233,7 @@
     	<nav id="menu">
         	<ul id="menu-nav">
             	<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
+                <li><a href="calificarAd.php" class = "external">Calificar Usuario</a></li>
                 <li><a href="admin casa cuna.php" class = "external">Solicitudes de Casa Cuna</a></li>
                 <li><a href="black.php" class = "external">Ver Lista Negra</a></li>
                 <li><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li>
@@ -242,10 +243,10 @@
           </ul>
           <nav id="menu">
           <ul id="menu-nav">
-            <li><a href="index.php" class="external">Cerrar Sesión</a></li>
           <li><a href="asociaciones.php" class = "external">Registrar Asociaciones</a></li>
           <li><a href="#contact">Consultas</a></li>
           <li><a href="contactar_casaCunaAd.php"class = "external">Contactar Casas Cuna</a></li>
+          <li><a href="index.php" class="external">Cerrar Sesión</a></li>
       </ul>
       </nav>
   </nav>

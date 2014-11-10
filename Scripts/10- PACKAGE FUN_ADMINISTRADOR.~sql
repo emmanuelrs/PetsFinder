@@ -9,9 +9,11 @@ PROCEDURE ACEPTAR_CASA_CUNA(id_casa in varchar2);
 PROCEDURE DENEGAR_CASA_CUNA(id_casa in varchar2);
 
 FUNCTION Casa_cuna_pen RETURN TYPES.ref_c;
-/*
+
 FUNCTION Black_list RETURN TYPES.ref_c;
-*/
+
 PROCEDURE Adoptar(id_user in varchar2, id_adopcion in varchar2);
+
+PROCEDURE Calificar(id_user in varchar2, cali in varchar2);
 
 END FUN_ADMINISTRADOR;
