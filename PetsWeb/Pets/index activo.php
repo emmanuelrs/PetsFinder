@@ -235,6 +235,7 @@
                 <li><a href="#contact">Consultas</a></li>
                 <li><a href="calificar.php" class = "external">Calificar Usuario</a></li>
                 <li><a href="mis adopciones.php" class = "external">Mis Adopciones</a></li>
+                <li><a href="mismascoperdidas.php"class = "external">Mis Mascotas Perdida</a></li>
                 <li><a href="match.php"class = "external">Match</a></li>
                 <li><a href="casa_cuna.php" class = "external">Solicitar Casa Cuna</a></li>
                 <li><a href="contactar_casaCuna.php"class = "external">Contactar Casas Cuna</a></li>
