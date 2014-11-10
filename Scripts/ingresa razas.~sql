@@ -209,7 +209,7 @@ insert into ad.raza(id_raza, descripcion_raza, tipo_mascota)
 values(s_raza.nextval, 'COTORRA DE KRAMER', 'Ave');
 
 insert into ad.raza(id_raza, descripcion_raza, tipo_mascota)
-values(s_raza.nextval, 'COTORRA DEL SOL', 'Ave');
+values(s_raza.nextval, 'COTORRA DEL SOL', 'COTORRA DEL SOLAve');
 
 insert into ad.raza(id_raza, descripcion_raza, tipo_mascota)
 values(s_raza.nextval, 'PYRRHURA MOLINAE', 'Ave');

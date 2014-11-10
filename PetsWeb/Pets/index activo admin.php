@@ -417,7 +417,7 @@
     <br></br>
     <a class="button button-small" href="distritoAd.php">Busqueda por Distrito</a>
     <br></br>
-    <a class="button button-small" href="raza.php">Busqueda por Raza de Mascota</a>
+    <a class="button button-small" href="razaAd.php">Busqueda por Raza de Mascota</a>
   <div id="apDiv10">
   <a class="button button-small" href="chipAd.php">Busqueda por Chip de identificacion</a>
   <br></br>
