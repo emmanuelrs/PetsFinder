@@ -83,15 +83,6 @@ session_start();
 <form enctype="multipart/form-data" action="verMatch.php" method="POST">
 <p class="contact-email">
 <div id = "general" > 
-<input id="id_user" type="text" placeholder="ID Coincidencia" value="" name="id_user" />
-</p>
-
-<select name="estado">
-<option selected value="0">Resultado</option>
-<option value="SI">Si es mi mascota</option>
-<option value="NO">No es mi mascota</option>
-</select>
-<button  type="submit">Enviar</button>
 
 </form>
 
