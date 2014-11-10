@@ -128,8 +128,8 @@
 	width: 200px;
 	height: 115px;
 	z-index: 1002;
-	left: -59px;
-	top: 164px;
+	left: -55px;
+	top: 168px;
 }
 #apDiv10 {
 	position: absolute;
@@ -144,16 +144,16 @@
 	width: 200px;
 	height: 115px;
 	z-index: 1003;
-	left: 439px;
-	top: 165px;
+	left: 827px;
+	top: 29px;
 }
 #apDiv12 {
 	position: absolute;
 	width: 1623px;
 	height: 67px;
 	z-index: 1002;
-	left: 59px;
-	top: 377px;
+	left: 1px;
+	top: 2497px;
 }
 #apDiv13 {
 	position: absolute;
@@ -168,8 +168,8 @@
 	width: 200px;
 	height: 115px;
 	z-index: 1003;
-	left: 1287px;
-	top: 196px;
+	left: 1291px;
+	top: 2380px;
 }
 </style>
 
@@ -413,8 +413,10 @@
   <div id="apDiv10">
   <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
   <br></br>
-  <a class="button button-small" href="estado.php">Busqueda por Estado</a> </div>
-  <a class="button button-small" href="checkDonaciones.php">Donaciones</a> </div>
+  <a class="button button-small" href="estado.php">Busqueda por Estado</a> 
+  <br></br>
+  <a class="button button-small" href="checkDonaciones.php">Donaciones</a></div>
+   </div>
 </div>
 <div id="apDiv11">
 <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
