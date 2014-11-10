@@ -81,7 +81,7 @@ session_start();
 <br></br>
 <div id = "general"><h1>Mis Mascotas Perdidas</h1>
 
-<form enctype="multipart/form-data" action="verMatch.php" method="POST">
+<form enctype="multipart/form-data" action="verMatchAd.php" method="POST">
 <p class="contact-email">
 <div id = "general" > 
 <input id="id_user" type="text" placeholder="ID Mascota para Match" value="" name="id_user" />
