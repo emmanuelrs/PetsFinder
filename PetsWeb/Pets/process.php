@@ -8,7 +8,7 @@ session_start();
 	$nombre = $_POST['NombreUsuario'];
 	$pass = $_POST['Contraseña'];
 	$_SESSION["NU"] = $nombre;
-    
+ 
 
 $conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
 if (!$conn) {
