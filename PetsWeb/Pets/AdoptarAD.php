@@ -89,12 +89,18 @@ if (!$conn) {
 
 $iduser = $_SESSION['IDU'];
 $idmascota = $_SESSION['IDOP'];
+
+/*
+echo $iduser;
+echo $idmascota;
+*/
+
 $stid = oci_parse($conn, "BEGIN fun_administrador.adoptar(:p1,:p2); END;");
 oci_bind_by_name($stid,':p1', $iduser);
 oci_bind_by_name($stid,':p2', $idmascota);
 oci_execute($stid);
 oci_free_statement($stid);
 oci_close($conn);
-//header('refresh:0; url=adopcionesAD.php');
+header('refresh:0; url=adopcionesAD.php');
 
 ?>
