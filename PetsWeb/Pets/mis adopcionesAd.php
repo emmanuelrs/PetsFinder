@@ -75,6 +75,7 @@ session_start();
 <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
 <nav id="menu">
 <ul id="menu-nav">
+<li class="current"><a href="mostrar vidaAd.php" class = "external">Mostrar Vida</a></li>
 <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
 </ul>
 </nav>     

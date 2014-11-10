@@ -1,15 +1,9 @@
-<?php
-// Start the session
-session_start();
-?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
-<head>
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]--><head>
 
 <!-- Meta Tags -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,6 +25,8 @@ session_start();
 
 <!-- Main Style -->
 <link href="_include/css/main.css" rel="stylesheet">
+<link href="_include/css/estImpresion.css" rel="stylesheet">
+<link href="_include/css/estImpresion.css" rel="stylesheet">
 
 <!-- Supersized -->
 <link href="_include/css/supersized.css" rel="stylesheet">
@@ -63,29 +59,39 @@ session_start();
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
-<link href="_include/css/estImpresion.css" rel="stylesheet">
-
-
 </head>
+<body>
 <header>
 <div class="sticky-nav">
-<div class="span">
-<img src="_include/img/work/logo.png" width="180" height="90">
-</div>
-<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-<nav id="menu">
-<ul id="menu-nav">
-<li class="current"><a href="mis adopcionesAd.php" class = "external">Volver</a></li>
-<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
-</ul>
-</nav>     
-</div>
-<form enctype="multipart/form-data" action="vidaAd.php" method="POST">'
-<br></br>
-<input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
-<input type="submit" value="Subir archivo" /><br></br>
-
-</form>
+    <div class="span">
+    <img src="_include/img/work/logo.png" width="180" height="90">
+    </div>
+    <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+    <nav id="menu">
+    <ul id="menu-nav">
+    <li class="current"><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li></ul>
+    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    </nav>     
+    </div>
 </header>
-</body>
-</html>
+<?php
+
+$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}
+
+$id_tup = $_POST['id_tupla'];
+$division = '';
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor :=consultas.imgadop(:busq); END;");  
+$cursor = oci_new_cursor($conn);
+oci_bind_by_name($query_procedimiento,':busq', $id_tup);
+oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
+oci_execute($query_procedimiento);
+oci_execute($cursor, OCI_DEFAULT);
+oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+foreach ($array as $fila) {
+  $division = $division .' <div id="general">'.'<div id="foticas"><br></br> <img src = "img/'. $fila['NOMBRE_IMG_ADOP'].'"'.'width=300px height = 350px></div>'.'<br></br><br></br>'."<br></br><br></br> ";}
+echo $division;
+?>
