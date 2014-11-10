@@ -1,9 +1,11 @@
 CREATE OR REPLACE PACKAGE BODY DONACION AS
 
-PROCEDURE DONAR_RECOMPENSA(username in varchar, nom_org in varchar2, cant in number) as 
+PROCEDURE DONAR_RECOMPENSA(username in varchar, nom_org in varchar2, cant in varchar2) as 
   id_org number;
   id_user number;
+  canti number;
   begin
+    canti := to_number(RIGHT => cant);
     select u.id_usuario into id_user
     from usuario u
     where u.user_name = username;
@@ -12,14 +14,16 @@ PROCEDURE DONAR_RECOMPENSA(username in varchar, nom_org in varchar2, cant in num
     where o.id_organizacion = nom_org;
     
     insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
-    values(id_org, id_user, cant, 'Recompensa');
+    values(id_org, id_user, canti, 'Recompensa');
     commit;
 end DONAR_RECOMPENSA;
 
-PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in number) as 
+PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in varchar2) as 
   id_org number;
   id_user number;
+  canti number;
   begin
+    canti := to_number(RIGHT => cant);
     select u.id_usuario into id_user
     from usuario u
     where u.user_name = username;
@@ -28,7 +32,7 @@ PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in nu
     where o.id_organizacion = nom_org;
     
     insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
-    values(id_org, id_user, cant, 'Voluntaria');
+    values(id_org, id_user, canti, 'Voluntaria');
     commit;
 end DONAR_VOLUNTARIA;
 
