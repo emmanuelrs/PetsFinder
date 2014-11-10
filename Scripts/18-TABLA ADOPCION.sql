@@ -28,7 +28,7 @@ comment on column ADOPCION.ID_PERSONA is 'Es el campo donde se va a referencias 
 
 create table IMAGEN_ADOPCION(
        ID_IMAGEN_ADOPCION number(8),
-       NOMBRE_IMG_ADOP varchar2(30),
+       NOMBRE_IMG_ADOP varchar2(50),
        IMAGEN_ADOPCION blob default EMPTY_BLOB())
        
        lob(IMAGEN_ADOPCION) store as (Tablespace ad_media);
