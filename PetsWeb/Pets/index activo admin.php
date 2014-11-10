@@ -421,7 +421,9 @@
   <div id="apDiv10">
   <a class="button button-small" href="chipAd.php">Busqueda por Chip de identificacion</a>
   <br></br>
-  <a class="button button-small" href="estado.php">Busqueda por Estado</a> </div>
+  <a class="button button-small" href="estado.php">Busqueda por Estado</a>
+  <br></br>
+     <a class="button button-small" href="adopcionesAd.php">Donaciones</a> </div>
 </div>
 <div id="apDiv11">
 <a class="button button-small" href="cantonAd.php">Busqueda por Cantón</a>
@@ -429,6 +431,7 @@
      <a class="button button-small" href="tipo.php">Busqueda por Tipo de Mascota</a>
      <br></br>
      <a class="button button-small" href="adopcionesAd.php">Adopciones</a>
+     
     </div>
   </div><!-- divPA -->
   <div id="apDiv12">
