@@ -79,7 +79,7 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="imageAd.php" method="POST">'
+<form enctype="multipart/form-data" action="imagenAd.php" method="POST">'
 <br></br>
 <input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
 <input name="uploadedfile" type="file" /><br></br>
