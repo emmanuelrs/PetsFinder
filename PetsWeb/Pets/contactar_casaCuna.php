@@ -63,6 +63,7 @@ session_start();
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<link href="_include/css/estImpresion.css" rel="stylesheet">
 </head>
 <header>
 <div class="sticky-nav">
@@ -77,21 +78,33 @@ session_start();
 </nav>     
 </div>
 </header>
-<script>
-         function ajax_post(){
+
+ <script>
+            function ajax_post(){
+                // Create our XMLHttpRequest object
                 var hr = new XMLHttpRequest();
+                // Create some variables we need to send to our PHP file
                 var url = "conCCuna.php";
-                var raza = document.getElementByName("Raza").value;
-                var vars = '&raza=' + raza;
+
+                var busqueda = document.getElementById("razaM").value;
+                //var tipoBusqueda = document.getElementById("tipoBusqueda").value;
+
+                var vars = '&busqueda=' + busqueda;
+
                 hr.open("POST", url, true);
+                // Set content type header information for sending url encoded variables in the request
                 hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                // Access the onreadystatechange event for the XMLHttpRequest object
                 hr.onreadystatechange = function() {
                     if(hr.readyState == 4 && hr.status == 200) {
                         var return_data = hr.responseText;
-                        document.getElementById("mostrar").innerHTML = return_data;
-                    }}
-                hr.send(vars); 
-                document.getElementById("mostrar").innerHTML = "Procesando...";}
+                        document.getElementById("foticas").innerHTML = return_data;
+                    }
+                }
+                // Send the data to PHP now... and wait for response to update the status div
+                hr.send(vars); // Actually execute the request
+                document.getElementById("foticas").innerHTML = "Procesando...";
+            }
 </script>
 <div class="span1">
 <form id="contact-form" class="contact-form" action="conCCuna.php" method="POST"onchange="ajax_post();">
@@ -108,8 +121,8 @@ session_start();
 <option value="Raza Unica">Raza Única</option>
 </optgroup>
 </select>
-<button onclick="ajax_post()"  type="submit">Buscar</button>
+
 </form>
-<div id="mostar"></div>
+<div id="general"><div id="foticas"></div></div>
 </body>
 </html>

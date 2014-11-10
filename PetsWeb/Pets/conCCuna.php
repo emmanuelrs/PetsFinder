@@ -1,5 +1,6 @@
 <?php
-$raza = $_POST['raza'];
+$raza = $_POST['busqueda'];
+
 echo $raza;
 
 ?>
