@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -58,58 +63,49 @@
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
-<style type="text/css">
-#apDiv2 {
-	position: absolute;
-	width: 200px;
-	height: 115px;
-	z-index: 1002;
-	left: 1156px;
-	top: 77px;
-}
-</style>
+<link href="_include/css/estImpresion.css" rel="stylesheet">
 
-<!-- Modernizr -->
-<script src="_include/js/modernizr.js"></script>
-
-<!-- Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'Insert Your Code']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script type="text/javascript">
-function ver(num) {
-  document.getElementById('uno').style.display = (num==0) ? 'block' : 'none'; 
-  document.getElementById('dos').style.display = (num==1) ? 'block' : 'none'; 
-}
-</script>
-<!-- End Analytics -->
 
 </head>
 <header>
- <div class="sticky-nav">
-    <div class="span">
-    <img src="_include/img/work/logo.png" width="180" height="90">
+<div class="sticky-nav">
+<div class="span">
+<img src="_include/img/work/logo.png" width="180" height="90">
 </div>
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-        <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
-
-          </ul>
-      </nav>     
-    </div>
+<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+<nav id="menu">
+<ul id="menu-nav">
+<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
+</ul>
+</nav>     
+</div>
 </header>
-
-
 </body>
 </html>
+
+<?php
+
+$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}
+
+$idPer = $_SESSION['IDU'];
+$division = '';
+
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor :=consultas.misadop(:busq); END;");  
+$cursor = oci_new_cursor($conn);
+oci_bind_by_name($query_procedimiento,':busq', $idPer);
+oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
+oci_execute($query_procedimiento);
+oci_execute($cursor, OCI_DEFAULT);
+oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+foreach ($array as $fila) {
+  $division = $division .' <div id="general"><div id="foticas"><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
+  <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Identificación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'];}
+
+echo $division;
+
+
+?>
