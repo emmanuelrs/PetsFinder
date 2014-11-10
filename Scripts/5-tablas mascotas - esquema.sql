@@ -282,7 +282,7 @@ alter table MASCOTA_ADOPTAR
 create view MATCH3 as
   select mp.id_mascota_per, me.id_mascota_enc, mp.estado_per 
   from mascota_encontrada me, mascota_perdida mp
-  where mp.tipo_y_raza_per = me.tipo_y_raza_enc and mp.tamano_per = me.tamano_enc and mp.color_per = me.color_enc and me.estado_enc = 'Encontrada';
+  where mp.tipo_y_raza_per = me.tipo_y_raza_enc and mp.tamano_per = me.tamano_enc and mp.color_per = me.color_enc;
 
 CREATE TABLE MATCH_PENDIENTES(
        ID_MASC NUMBER(8),
