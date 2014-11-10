@@ -11,7 +11,7 @@ PROCEDURE DONAR_RECOMPENSA(username in varchar, nom_org in varchar2, cant in var
     where u.user_name = username;
     
     select o.id_organizacion into id_org  from organizacion_casa_cuna o
-    where o.id_organizacion = nom_org;
+    where o.nombre_org = nom_org;
     
     insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
     values(id_org, id_user, canti, 'Recompensa');
@@ -29,7 +29,7 @@ PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in va
     where u.user_name = username;
     
     select o.id_organizacion into id_org  from organizacion_casa_cuna o
-    where o.id_organizacion = nom_org;
+    where o.nombre_org = nom_org;
     
     insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
     values(id_org, id_user, canti, 'Voluntaria');

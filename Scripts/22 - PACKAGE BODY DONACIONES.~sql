@@ -32,7 +32,7 @@ PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in va
     where o.id_organizacion = nom_org;
     
     insert into donaciones(id_donacion, donador, cantidad, tipo_donacion)
-    values(id_org, id_user, cant, 'Voluntaria');
+    values(id_org, id_user, canti, 'Voluntaria');
     commit;
 end DONAR_VOLUNTARIA;
 
