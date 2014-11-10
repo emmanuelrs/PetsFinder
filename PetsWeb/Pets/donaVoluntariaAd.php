@@ -77,3 +77,18 @@ session_start();
     </nav>     
     </div>
 </header>
+
+  <form enctype="multipart/form-data" action="donaVolumAd.php" method="POST" class="contact-form" id="contact-form">
+  <div class="span3">
+  <br></br>
+  <p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Cantidad" value="" name="canti" />
+                </p>
+
+   <p class="contact-name">
+            		<input id="contact_name" type="text" placeholder="Nombre de la Organizacion" value="" name="nom" />
+                </p>
+
+   <input type="submit" value="Donar" class="boton">
+  </div>
+  </form>
