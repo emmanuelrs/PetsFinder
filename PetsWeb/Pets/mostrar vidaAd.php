@@ -52,6 +52,8 @@ session_start();
 <!-- Supersized -->
 <link href="_include/css/supersized.css" rel="stylesheet">
 <link href="_include/css/supersized.shutter.css" rel="stylesheet">
+<link href="_include/css/estImpresion.css" rel="stylesheet">
+
 
 <!-- Google Font -->
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
@@ -80,11 +82,12 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="vidaAd.php" method="POST">'
+<div id = "general">
+<form enctype="multipart/form-data" action="vidaAd.php" method="POST">
 <br></br>
 <input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
-<input type="submit" value="Subir archivo" /><br></br>
-
+<input type="submit" value="Ver fotos!" /><br></br>
+</div>
 </form>
 </header>
 </body>

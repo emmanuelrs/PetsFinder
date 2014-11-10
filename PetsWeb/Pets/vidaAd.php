@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -69,8 +73,9 @@
     <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     <nav id="menu">
     <ul id="menu-nav">
-    <li class="current"><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li></ul>
-    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+        <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    <li class="current"><a href="mis adopcionesAd.php" class = "external">Mis Adopciones</a></li></ul></ul>
+    
     </nav>     
     </div>
 </header>
@@ -92,6 +97,6 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-  $division = $division .' <div id="general">'.'<div id="foticas"><br></br> <img src = "img/'. $fila['NOMBRE_IMG_ADOP'].'"'.'width=300px height = 350px></div>'.'<br></br><br></br>'."<br></br><br></br> ";}
+  $division = $division .' <br></br><div id="general">'.'<img src = "img/'. $fila['NOMBRE_IMG_ADOP'].'"'.'width=300px height = 350px>'."<br></br><br></br> ";}
 echo $division;
 ?>

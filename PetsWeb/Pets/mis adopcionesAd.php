@@ -80,12 +80,13 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="imagenAd.php" method="POST">'
+<div id = "general">
+<form enctype="multipart/form-data" action="imagenAd.php" method="POST">
 <br></br>
 <input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
 <input name="uploadedfile" type="file" /><br></br>
 <input type="submit" value="Subir archivo" /><br></br>
-
+</div>
 </form>
 </header>
 </body>
@@ -110,7 +111,7 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-  $division = $division .' <div id="general">'.$fila['ID_MASCOTA_ADOP'].'<div id="foticas"><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
+  $division = $division .' <div id="general">'.$fila['ID_MASCOTA_ADOP'].'<div id="foticas"><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
   <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Indenticación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'<br></br><br></br>'
   ."<br></br><br></br> ";}
 echo $division;
