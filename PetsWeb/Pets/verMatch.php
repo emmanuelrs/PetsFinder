@@ -78,15 +78,25 @@ session_start();
 </div>
 </header>
 <br></br>
-<div id = "general"><h1>Mis Mascotas Perdidas</h1>
+<div id = "general"><h1>Similitudes</h1>
 
 <form enctype="multipart/form-data" action="verMatch.php" method="POST">
 <p class="contact-email">
 <div id = "general" > 
-<input id="id_user" type="text" placeholder="ID Mascota para Match" value="" name="id_user" />
+<input id="id_user" type="text" placeholder="ID Coincidencia" value="" name="id_user" />
 </p>
-<button  type="submit">Ver Match</button>
+
+<select name="estado">
+<option selected value="0">Resultado</option>
+<option value="SI">Si es mi mascota</option>
+<option value="NO">No es mi mascota</option>
+</select>
+<button  type="submit">Enviar</button>
+
 </form>
+
+
+                
 <div id = "resp"></div>
 </html>
 
@@ -109,7 +119,7 @@ oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC
 
 foreach ($array as $fila) {
     $division = $division .' <div id="general"> <div id="foticas"><br></br><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-    <br></br>ID de la mascota: '.$fila['ID_MASCOTA_ENC'].'<br></br>Nombre de la mascota: '.$fila['NOMBRE_ENC'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'<br></br> Chip Identificación:'.$fila['CHIP_IDENTIFICACION_ENC'].'<br></br> Color: '.$fila['COLOR_ENC']."<br></br> Descripción: ".$fila['DESCRIPCION_ENC']."<br></br> Recompenza: ".$fila['RECOMPENSA_ENC'];}
+    <br></br>ID Coincidencia: '.$fila['ID_MASCOTA_ENC'].'<br></br>Nombre de la mascota: '.$fila['NOMBRE_ENC'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'<br></br> Chip Identificación:'.$fila['CHIP_IDENTIFICACION_ENC'].'<br></br> Color: '.$fila['COLOR_ENC']."<br></br> Descripción: ".$fila['DESCRIPCION_ENC']."<br></br> Recompenza: ".$fila['RECOMPENSA_ENC'];}
 echo $division;
 
 ?>
