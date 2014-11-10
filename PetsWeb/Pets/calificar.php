@@ -79,10 +79,11 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="calificarPer.php" method="POST">'
+<form enctype="multipart/form-data" action="calificarPer.php" method="POST">
 <p class="contact-email">
+<div id = "general" > 
 <input id="contact_email" type="text" placeholder="Id usuario" value="" name="id_user" />
-  </p>
+</p>
   <select name="calificacion">
    				<option selected value="0"> Selecione su Calificacion/option>
       			<option value="1">1</option>
@@ -94,6 +95,7 @@ session_start();
      </select>
 <input type="submit" value="Calificar" />
 </form>
+</div>
 </header>
 </body>
 </html>
@@ -115,7 +117,7 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-   $division = $division .' <div id="general"> ID del usuario: '.$fila['ID_USUARIO'].'
+   $division = $division .' <div id="general"> <div id="foticas"><img src ="img/califica.png"'.'width=300px height = 350px></div> ID del usuario: '.$fila['ID_USUARIO'].'
   <br></br>Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '.$fila['CALIFICACION'].'<br></br><br></br>'
   ."<br></br><br></br> ";}
 echo $division;
