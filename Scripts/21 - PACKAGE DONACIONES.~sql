@@ -6,4 +6,6 @@ PROCEDURE DONAR_VOLUNTARIA(username in varchar2, nom_org in varchar2, cant in va
   
 FUNCTION CONSULTA_DONACION(username in varchar2)return TYPES.ref_c;
 
+FUNCTION CONSULTA_org return TYPES.ref_c
+
 END DONACION;
