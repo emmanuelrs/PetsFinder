@@ -98,12 +98,12 @@ session_start();
                 hr.onreadystatechange = function() {
                     if(hr.readyState == 4 && hr.status == 200) {
                         var return_data = hr.responseText;
-                        document.getElementById("foticas").innerHTML = return_data;
+                        document.getElementById("resp").innerHTML = return_data;
                     }
                 }
                 // Send the data to PHP now... and wait for response to update the status div
                 hr.send(vars); // Actually execute the request
-                document.getElementById("foticas").innerHTML = "Procesando...";
+                document.getElementById("resp").innerHTML = "Procesando...";
             }
 </script>
 <div class="span1">
@@ -116,6 +116,7 @@ session_start();
 <option value="Salchicha">Salchicha</option>
 <option value="Gran Danes">Gran Danés</option>
 <option value="Raza Unica">Raza Única</option>
+<option value="Chiguagua">Chiguagua</option>
 <optgroup label="Gatos">
 <option value="Angora">Angora</option>
 <option value="Raza Unica">Raza Única</option>
@@ -123,6 +124,6 @@ session_start();
 </select>
 
 </form>
-<div id="general"><div id="foticas"></div></div>
+<div id="resp"></div>
 </body>
 </html>
