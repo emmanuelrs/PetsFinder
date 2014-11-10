@@ -102,4 +102,17 @@ FUNCTION Distinto(username in varchar2)
   RETURN distinto;
 END Distinto;
 
+FUNCTION Mis_mascotas_per(id_usuario in varchar2)
+  RETURN TYPES.ref_c     
+  AS misMascotas TYPES.ref_c;
+     id_user number;
+  BEGIN
+    id_user := to_number(RIGHT => id_usuario);
+    OPEN misMascotas FOR
+     select m.id_mascota_per, m.nombre_per, r.descripcion_raza , m.chip_identificacion_per, m.color_per, m.descripcion_per, m.recompensa_per, i.nombre_img
+     from mascota_perdida m, raza r, imagen i
+     where m.usuario_registra_per = id_user and m.tipo_y_raza_per = r.id_raza and m.id_mascota_per = i.id_imagen;
+  RETURN misMascotas;
+END Mis_mascotas_per;
+
 END CONSULTAS;
