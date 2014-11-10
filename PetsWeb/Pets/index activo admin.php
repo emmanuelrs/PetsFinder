@@ -429,7 +429,7 @@ session_start();
   <br></br>
   <a class="button button-small" href="estado.php">Busqueda por Estado</a>
   <br></br>
-     <a class="button button-small" href="checkDonaciones.php">Donaciones</a> </div>
+     <a class="button button-small" href="checkDonacionesAd.php">Donaciones</a> </div>
 </div>
 <div id="apDiv11">
 <a class="button button-small" href="cantonAd.php">Busqueda por Cantón</a>
