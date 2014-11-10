@@ -277,4 +277,9 @@ alter table MASCOTA_ADOPTAR
   add constraint DIRECCION_MASCOTA_ADOP_FK
   foreign key (ID_MASCOTA_ADOP,TIPO_ADOP)
   references DIRECCION(ID_DIRECCION, TIPO_DIREC);
+  
+  
+create view MATCH3 as
+  select mp.id_mascota_per, me.id_mascota_enc from mascota_encontrada me, mascota_perdida mp
+  where mp.tipo_y_raza_per = me.tipo_y_raza_enc and mp.tamano_per = me.tamano_enc and mp.color_per = me.color_enc;
 

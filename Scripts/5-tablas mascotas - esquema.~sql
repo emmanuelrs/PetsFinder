@@ -153,7 +153,7 @@ comment on column MASCOTA_ADOPTAR.USUARIO_REGISTRA_ADOP is 'llave de la persona 
 --tabla para las imagenes de mascotas
 create table IMAGEN(
        ID_IMAGEN number(8),
-       NOMBRE_IMG varchar2(30),
+       NOMBRE_IMG varchar2(50),
        IMAGEN_MASCOTA blob default EMPTY_BLOB())
        
        lob(IMAGEN_MASCOTA) store as (Tablespace ad_media);
