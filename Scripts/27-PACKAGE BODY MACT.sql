@@ -8,7 +8,6 @@ FUNCTION MATCH2
     select mp.id_mascota_per, u.nombre, u.apellido1, e.valor_email
     from match3 m3, mascota_perdida mp, usuario u, email e
     where m3.id_mascota_per = mp.id_mascota_per and u.id_usuario = mp.usuario_registra_per and u.id_usuario = e.id_email and u.tipo = e.tipo_email;
-    delete from match_pendientes;
     commit;
     RETURN match1;
 
