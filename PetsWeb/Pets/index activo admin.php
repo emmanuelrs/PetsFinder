@@ -244,6 +244,8 @@
           <ul id="menu-nav">
             <li><a href="index.php" class="external">Cerrar Sesión</a></li>
           <li><a href="asociaciones.php" class = "external">Registrar Asociaciones</a></li>
+          <li><a href="#contact">Consultas</a></li>
+          <li><a href="contactar_casaCuna.php"class = "external">Contactar Casas Cuna</a></li>
       </ul>
       </nav>
   </nav>
