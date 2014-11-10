@@ -9,9 +9,9 @@ begin
   DBMS_SCHEDULER.create_job (
   job_name => 'MATCH',
   job_type => 'PLSQL_BLOCK',
-  job_action => 'BEGIN matc.match2; END;',
+  job_action => 'BEGIN consultas.match2; END;',
   start_date => SYSTIMESTAMP,
-  repeat_interval => 'freq=hourly; interval=1',
+  repeat_interval => 'freq=daily; byhour=1,5,9,13,17,21; byminute=0; bysecond=0',
   end_date => NULL,
   enabled => TRUE,
   comments => 'Job del match');
