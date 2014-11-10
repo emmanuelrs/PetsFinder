@@ -250,6 +250,7 @@ session_start();
           <li><a href="asociaciones.php" class = "external">Registrar Asociaciones</a></li>
           <li><a href="#contact">Consultas</a></li>
           <li><a href="contactar_casaCunaAd.php"class = "external">Contactar Casas Cuna</a></li>
+          <li><a href="match.php"class = "external">Match</a></li>
           <li><a href="mismascoperdidas.php"class = "external">Mis Mascotas Perdida</a></li>
           <li><a href="index.php" class="external">Cerrar Sesión</a></li>
       </ul>
