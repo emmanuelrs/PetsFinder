@@ -115,4 +115,17 @@ FUNCTION Mis_mascotas_per(id_usuario in varchar2)
   RETURN misMascotas;
 END Mis_mascotas_per;
 
+FUNCTION Coincidencias(id_perdida in varchar2)
+  RETURN TYPES.ref_c     
+  AS misMascotas TYPES.ref_c;
+     id_per number;
+  BEGIN
+    id_per := to_number(RIGHT => id_perdida);
+    OPEN misMascotas FOR
+     select  m.id_mascota_enc, m.nombre_enc, r.descripcion_raza , m.chip_identificacion_enc, m.color_enc, m.descripcion_enc, m.recompensa_enc, i.nombre_img
+from mascota_encontrada m, imagen i, match3 m3, raza r
+where m3.id_mascota_per = id_per and m3.id_mascota_enc = m.id_mascota_enc and i.id_imagen = m.id_mascota_enc and m.tipo_y_raza_enc = r.id_raza;
+  RETURN misMascotas;
+END Coincidencias;
+
 END CONSULTAS;
