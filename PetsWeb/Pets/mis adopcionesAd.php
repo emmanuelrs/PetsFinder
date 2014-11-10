@@ -79,9 +79,13 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="uploader.php" method="POST">'
-<input name="uploadedfile" type="file" />
-<input type="submit" value="Subir archivo" /></form>
+<form enctype="multipart/form-data" action="imageAd.php" method="POST">'
+<br></br>
+<input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
+<input name="uploadedfile" type="file" /><br></br>
+<input type="submit" value="Subir archivo" /><br></br>
+
+</form>
 </header>
 </body>
 </html>

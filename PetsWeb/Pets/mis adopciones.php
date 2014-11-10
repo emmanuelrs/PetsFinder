@@ -63,59 +63,30 @@ session_start();
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
-<style type="text/css">
-#apDiv2 {
-	position: absolute;
-	width: 200px;
-	height: 115px;
-	z-index: 1002;
-	left: 1156px;
-	top: 77px;
-}
-</style>
+<link href="_include/css/estImpresion.css" rel="stylesheet">
 
-<!-- Modernizr -->
-<script src="_include/js/modernizr.js"></script>
-
-<!-- Analytics -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'Insert Your Code']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script type="text/javascript">
-function ver(num) {
-  document.getElementById('uno').style.display = (num==0) ? 'block' : 'none'; 
-  document.getElementById('dos').style.display = (num==1) ? 'block' : 'none'; 
-}
-</script>
-<!-- End Analytics -->
 
 </head>
 <header>
- <div class="sticky-nav">
-    <div class="span">
-    <img src="_include/img/work/logo.png" width="180" height="90">
+<div class="sticky-nav">
+<div class="span">
+<img src="_include/img/work/logo.png" width="180" height="90">
 </div>
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-        <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
+<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+<nav id="menu">
+<ul id="menu-nav">
+<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
+</ul>
+</nav>     
+</div>
+<form enctype="multipart/form-data" action="image.php" method="POST">'
+<br></br>
+<input id="contact_name" type="text" placeholder="" value="" name="id_tupla" /><br></br>
+<input name="uploadedfile" type="file" /><br></br>
+<input type="submit" value="Subir archivo" /><br></br>
 
-          </ul>
-      </nav>     
-    </div>
+</form>
 </header>
-
-
 </body>
 </html>
 
@@ -138,9 +109,9 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-  $division = $division .' <div id="general"><div id="foticas"><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-  <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Identificación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'];}
-
+  $division = $division .' <div id="general">'.$fila['ID_MASCOTA_ADOP'].'<div id="foticas"><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
+  <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Indenticación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'<br></br><br></br>'
+  ."<br></br><br></br> ";}
 echo $division;
 
 
