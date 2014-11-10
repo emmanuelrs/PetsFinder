@@ -176,7 +176,7 @@ FUNCTION busquedaRaza_Adop(pRaza IN VARCHAR2)
     OPEN busqRaza FOR
     SELECT u.nombre, u.apellido1, u.calificacion, e.valor_email, t.telefono , d.provincia, d.canton, d.direccion_exacta, c.requiere_alimento
     FROM usuario u, email e, telefono t, casa_cuna c, raza r, direccion d
-    WHERE r.descripcion_raza = 'Chiguagua' and c.id_raza = r.id_raza and c.estado = 'Autorizado' and c.id_persona = u.id_usuario and e.id_email = u.id_usuario and e.tipo_email = u.tipo 
+    WHERE r.descripcion_raza = pRaza and c.id_raza = r.id_raza and c.estado = 'Autorizado' and c.id_persona = u.id_usuario and e.id_email = u.id_usuario and e.tipo_email = u.tipo 
           and t.id_tel = u.id_usuario and t.tipo_tel = u.tipo and u.id_usuario = d.id_direccion and u.tipo = d.tipo_direc;
     RETURN busqRaza;
  END busquedaRaza_Adop;
