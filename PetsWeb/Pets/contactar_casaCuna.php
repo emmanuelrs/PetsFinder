@@ -78,7 +78,8 @@ session_start();
 </nav>     
 </div>
 </header>
-
+<br></br>
+<div id = "general"><h1>Contacto de Casas Cuna</h1>
  <script>
             function ajax_post(){
                 // Create our XMLHttpRequest object
@@ -122,8 +123,12 @@ session_start();
 <option value="Raza Unica">Raza Única</option>
 </optgroup>
 </select>
+</div>
+<br></br>
+
 
 </form>
 <div id="resp"></div>
+<br></br>
 </body>
 </html>
