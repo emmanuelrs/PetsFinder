@@ -15,7 +15,7 @@ Procedure SET_USUARIO
 
      insert into direccion(id_direccion, tipo_direc, pais, provincia, canton, distrito, direccion_exacta)
      values(s_usuario.currval, 1, pais1, provincia1, canton1, distrito1, direc_exact);
-     
+
      insert into calificacion(id_calificacion, calificacion_per)
      values(s_usuario.currval, 5);
 
@@ -167,5 +167,20 @@ Procedure SET_ORGANIZACION
     commit;
 
 end SET_ORGANIZACION;
+
+procedure SET_IMAGEN_ADOP(id_mascotaAdop in varchar2, nom_imagen in varchar2) as
+           id_mascota number;
+           v_blob blob;
+           v_bfile bfile;
+ BEGIN
+    id_mascota := to_number(RIGHT => id_mascotaAdop);
+    insert into imagen_adopcion(id_imagen_adopcion, nombre_img_adop)
+           values(id_mascota, nom_imagen) returning imagen_adopcion  into v_blob;
+           v_bfile := BFILENAME('DIRECTORIO', nom_imagen);
+            DBMS_LOB.OPEN(v_bfile, DBMS_LOB.lob_readonly);
+            DBMS_LOB.LOADFROMFILE(v_blob, v_bfile, DBMS_LOB.getlength(v_bfile));
+            DBMS_LOB.CLOSE(v_bfile);
+    commit;
+end SET_IMAGEN_ADOP;
 
 END INSERTIONS;

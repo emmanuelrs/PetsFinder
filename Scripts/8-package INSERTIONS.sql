@@ -20,6 +20,7 @@ procedure SET_MASCOTA_ADOPTAR
 
 Procedure SET_ORGANIZACION (nombre_org in varchar2, tel in number, email in varchar2, pais1 in varchar2, provincia1 in varchar2,
    canton1 in varchar2, distrito1 in varchar2, direc_exact in varchar2);
-   
+  
+procedure SET_IMAGEN_ADOP(id_mascotaAdop in varchar2, nom_imagen in varchar2); 
 
 END INSERTIONS;
