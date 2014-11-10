@@ -79,4 +79,18 @@ FUNCTION MisAdop(id_usuario in varchar2)
   RETURN misAdop;
 END MisAdop;
 
+FUNCTION IMGAdop(id_usuario in varchar2)
+  RETURN TYPES.ref_c
+  AS imgAdop TYPES.ref_c;
+     id_user number;
+  BEGIN
+    id_user := to_number(RIGHT => id_usuario);
+    OPEN imgAdop FOR
+     select i.nombre_img_adop from imagen_adopcion i
+     where i.id_imagen_adopcion = id_user;
+  RETURN imgAdop;
+END IMGAdop;
+
+
+
 END CONSULTAS;
