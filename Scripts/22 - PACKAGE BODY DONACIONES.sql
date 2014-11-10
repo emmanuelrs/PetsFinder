@@ -51,5 +51,16 @@ FUNCTION CONSULTA_DONACION(username in varchar2)
          WHERE d.id_donacion = o.id_organizacion and d.donador = id_user;      
          return donaciones;
     END CONSULTA_DONACION;
+    
+FUNCTION CONSULTA_org
+        return TYPES.ref_c
+        AS org types.ref_c;
+        begin       
+         OPEN org FOR
+         SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
+         FROM organizacion_casa_cuna o, usuario u, donaciones d
+         WHERE d.id_donacion = o.id_organizacion and d.donador = id_user;      
+         return org;
+    END CONSULTA_org;
 
 END DONACION;
