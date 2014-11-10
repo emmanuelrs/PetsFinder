@@ -55,17 +55,12 @@ FUNCTION CONSULTA_DONACION(username in varchar2)
 FUNCTION CONSULTA_org
         return TYPES.ref_c
         AS org types.ref_c;
-        id_user number;
-        begin
-         select u.id_usuario into id_user
-          from usuario u
-          where u.user_name = username;
-          
-         OPEN donaciones FOR
+        begin       
+         OPEN org FOR
          SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
          FROM organizacion_casa_cuna o, usuario u, donaciones d
          WHERE d.id_donacion = o.id_organizacion and d.donador = id_user;      
-         return donaciones;
-    END CONSULTA_DONACION;
+         return org;
+    END CONSULTA_org;
 
 END DONACION;
