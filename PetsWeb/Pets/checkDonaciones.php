@@ -63,6 +63,123 @@ session_start();
 <link rel="apple-touch-icon" sizes="114x114" href="#">
 <link rel="apple-touch-icon" sizes="72x72" href="#">
 <link rel="apple-touch-icon" sizes="144x144" href="#">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 122px;
+	top: 254px;
+}
+#apDiv2 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 283px;
+	top: -2px;
+}
+#apDiv3 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 306px;
+	top: -3px;
+}
+#apDiv4 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 319px;
+	top: -3px;
+}
+#apDiv5 {
+	position: absolute;
+	width: 742px;
+	height: 97px;
+	z-index: 1002;
+	left: 84px;
+	top: 2824px;
+}
+#apDiv6 {
+	position: absolute;
+	width: 545px;
+	height: 115px;
+	z-index: 1003;
+	left: 105px;
+	top: 52px;
+}
+#apDiv7 {
+	position: absolute;
+	width: 577px;
+	height: 152px;
+	z-index: 1002;
+	left: 395px;
+	top: -140px;
+}
+#apDiv8 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: 228px;
+	top: 2709px;
+}
+#apDiv9 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1002;
+	left: -59px;
+	top: 164px;
+}
+#apDiv10 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1;
+	left: 245px;
+	top: -1px;
+}
+#apDiv11 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 439px;
+	top: 165px;
+}
+#apDiv12 {
+	position: absolute;
+	width: 1623px;
+	height: 67px;
+	z-index: 1002;
+	left: 59px;
+	top: 377px;
+}
+#apDiv13 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 104px;
+	top: 55px;
+}
+#apDiv14 {
+	position: absolute;
+	width: 200px;
+	height: 115px;
+	z-index: 1003;
+	left: 1287px;
+	top: 196px;
+}
+</style>
+
+<!-- Modernizr -->
+<script src="_include/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -73,54 +190,19 @@ session_start();
     <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
     <nav id="menu">
     <ul id="menu-nav">
-    <li class="current"><a href="index activo.php" class = "external">Inicio</a></li></ul>
+    <li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li></ul>
     </nav>     
     </div>
 </header>
-
-<?php
-$conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
-if (!$conn) {
-    $e = oci_error();
-    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-}
-
-$Distrito = $_POST['distrito'];
-$tipo = $_POST['tipoBusqueda'];	
-$division = '';
-
-
- if($tipo == "Encontrada"){
-        
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedadistrito_enc(:busq); END;");  
-	$cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $Distrito);
-	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
-	oci_execute($query_procedimiento);
-	oci_execute($cursor, OCI_DEFAULT);
-	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
-	foreach ($array as $fila) {
-		$division = $division .' <div id="general"> <div id="foticas"> <br></br><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-		<br></br>Nombre de la mascota: '.$fila['NOMBRE_ENC'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
-		.$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_ENC'];}
-
-echo $division;
-        
-}else if($tipo == "Perdida"){
-        
-    $query_procedimiento = oci_parse($conn, "BEGIN :cursor :=  busquedas.busquedadistrito_per(:busq); END;");
-    $cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':busq', $Distrito);
-	oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
-	oci_execute($query_procedimiento);
-	oci_execute($cursor, OCI_DEFAULT);
-	oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
-	foreach ($array as $fila) {
-		$division = $division .' <div id="general"> <div id="foticas"><br></br><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-		<br></br>Nombre de la mascota: '.$fila['NOMBRE_PER'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
-		.$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_PER'];}
-echo $division;
-
-             
-} 	
-?>
+<h1>Donaciones</h1>
+<div id="contact" class="page">
+<div id="apDiv7"> <!-- titulo -->
+<div id="apDiv9">
+<a class="button button-small" href="donaRecompenza.php"class = "external">Recompenzas</a><br></br>
+<a class="button button-small" href="donaVoluntaria.php"class = "external">Donaciones Voluntarias</a>
+<br></br>
+<a class="button button-small" href="consultaDona.php"class = "external">Consulta de Donaciones</a>
+<div id="apDiv10">
+  
+    </div>
+  </div>

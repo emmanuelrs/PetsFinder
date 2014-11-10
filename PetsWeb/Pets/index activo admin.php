@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -423,7 +427,7 @@
   <br></br>
   <a class="button button-small" href="estado.php">Busqueda por Estado</a>
   <br></br>
-     <a class="button button-small" href="adopcionesAd.php">Donaciones</a> </div>
+     <a class="button button-small" href="checkDonaciones.php">Donaciones</a> </div>
 </div>
 <div id="apDiv11">
 <a class="button button-small" href="cantonAd.php">Busqueda por Cantón</a>
