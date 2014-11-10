@@ -79,6 +79,9 @@ session_start();
 </ul>
 </nav>     
 </div>
+<form enctype="multipart/form-data" action="uploader.php" method="POST">'
+<input name="uploadedfile" type="file" />
+<input type="submit" value="Subir archivo" /></form>
 </header>
 </body>
 </html>
@@ -102,9 +105,8 @@ oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
 oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
 foreach ($array as $fila) {
-  $division = $division .' <div id="general"><div id="foticas"><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px'.'<form enctype="multipart/form-data" action="uploader.php" method="POST">'
-  .'<input name="uploadedfile" type="file" />'.'<input type="submit" value="Subir archivo" /></form>'.'</div>
-  <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Identificación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'];}
+  $division = $division .' <br></br><div id="general">'.$fila['ID_MASCOTA_ADOP'].'<div id="foticas"><br></br><img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px'.'</div>
+  <br></br>Nombre: '.$fila['NOMBRE_ADOP'].'<br></br> Chip de Identificación: '.$fila['CHIP_IDENTIFICACION_ADOP'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'</div>';}
 
 echo $division;
 
