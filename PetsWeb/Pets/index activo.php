@@ -235,6 +235,7 @@
                 <li><a href="#contact">Consultas</a></li>
                 <li><a href="calificar.php" class = "external">Calificar Usuario</a></li>
                 <li><a href="mis adopciones.php" class = "external">Mis Adopciones</a></li>
+                <li><a href="match.php"class = "external">Match</a></li>
                 <li><a href="casa_cuna.php" class = "external">Solicitar Casa Cuna</a></li>
                 <li><a href="contactar_casaCuna.php"class = "external">Contactar Casas Cuna</a></li>
                 <li><a href="registrarMascota.php" class = "external">Registrar mascota</a></li>
@@ -413,6 +414,7 @@
   <a class="button button-small" href="chip.php">Busqueda por Chip de identificacion</a>
   <br></br>
   <a class="button button-small" href="estado.php">Busqueda por Estado</a> </div>
+  <a class="button button-small" href="checkDonaciones.php">Donaciones</a> </div>
 </div>
 <div id="apDiv11">
 <a class="button button-small" href="canton.php">Busqueda por Cantón</a>
