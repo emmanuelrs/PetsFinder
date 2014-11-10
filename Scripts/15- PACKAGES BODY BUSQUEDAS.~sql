@@ -168,6 +168,18 @@ FUNCTION busquedaRaza_Per(pRaza IN VARCHAR2)
     ORDER BY C.FECHA_INGRESO_per DESC;
     RETURN busqRaza;
  END busquedaRaza_Per;
+ 
+FUNCTION busquedaRaza_Adop(pRaza IN VARCHAR2)
+  RETURN TYPES.ref_c
+  AS busqRaza TYPES.ref_c;
+  BEGIN
+    OPEN busqRaza FOR
+    SELECT u.nombre, u.apellido1, u.calificacion, e.valor_email, t.telefono
+    FROM usuario u, email e, telefono t, casa_cuna c, raza r
+    WHERE r.descripcion_raza = pRaza and c.id_raza = r.id_raza and c.estado = 'Autorizado' and c.id_persona = u.id_usuario and e.id_email = u.id_usuario and e.tipo_email = u.tipo 
+          and t.id_tel = u.id_usuario and t.tipo_tel = u.tipo;
+    RETURN busqRaza;
+ END busquedaRaza_Adop;
 
 FUNCTION busqueda_adopciones
   RETURN TYPES.ref_c
