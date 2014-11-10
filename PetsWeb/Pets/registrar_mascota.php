@@ -12,7 +12,7 @@ if (!$conn) {
     $target_path = basename($_FILES['uploadedfile']['name']); 
     $imagen = (string)$target_path;
 	$var1 = $_POST['nombre'];  
-	$var2 = $_POST['raza'];
+	$var2 = $_POST['Raza'];
 	$var3 = $_POST['tamaño'];
 	$var5 = $_POST['chip'];
 	$var6 = $_POST['color'];

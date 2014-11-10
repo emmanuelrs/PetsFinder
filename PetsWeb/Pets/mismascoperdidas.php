@@ -73,7 +73,7 @@ session_start();
 <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
 <nav id="menu">
 <ul id="menu-nav">
-<li class="current"><a href="index activo.php" class = "external">Inicio</a></li>
+<li class="current"><a href="index activo admin.php" class = "external">Inicio</a></li>
 </ul>
 </nav>     
 </div>
@@ -92,7 +92,6 @@ session_start();
 </html>
 
 <?php
-<?php
 $conn = oci_connect('AD', 'ad', 'PETS','AL32UTF8');
 if (!$conn) {
     $e = oci_error();
@@ -101,9 +100,9 @@ if (!$conn) {
 $idUsuario = $_SESSION['IDU'];
 $division = '';    
 
-$query_procedimiento = oci_parse($conn, "BEGIN :cursor := busquedas.busquedaprovincia_per(:busq); END;");
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor := consultas.mis_mascotas_per(:busq); END;");
 $cursor = oci_new_cursor($conn);
-oci_bind_by_name($query_procedimiento,':busq', $provincia);
+oci_bind_by_name($query_procedimiento,':busq', $idUsuario);
 oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
 oci_execute($query_procedimiento);
 oci_execute($cursor, OCI_DEFAULT);
@@ -111,8 +110,7 @@ oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC
 
 foreach ($array as $fila) {
     $division = $division .' <div id="general"> <div id="foticas"><br></br><br></br> <img src = "img/'. $fila['NOMBRE_IMG'].'"'.'width=300px height = 350px></div>
-    <br></br>Nombre de la mascota: '.$fila['NOMBRE_PER'].'<br></br> País: '.$fila['PAIS'].'<br></br> Canton: '.$fila['CANTON'].'<br></br> Distrito: '
-    .$fila['DISTRITO']."<br></br> Dirección: ".$fila['DIRECCION_EXACTA']."<br></br> Fecha de perdida: ".$fila['FECHA_INGRESO_PER'];}
+    <br></br>ID de la mascota: '.$fila['ID_MASCOTA_PER'].'<br></br>Nombre de la mascota: '.$fila['NOMBRE_PER'].'<br></br> Raza: '.$fila['DESCRIPCION_RAZA'].'<br></br> Chip Identificación:'.$fila['CHIP_IDENTIFICACION_PER'].'<br></br> Color: '.$fila['COLOR_PER']."<br></br> Descripción: ".$fila['DESCRIPCION_PER']."<br></br> Recompenza: ".$fila['RECOMPENSA_PER'];}
 echo $division;
 
 ?>
