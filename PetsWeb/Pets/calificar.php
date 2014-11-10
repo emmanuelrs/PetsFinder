@@ -79,10 +79,10 @@ session_start();
 </ul>
 </nav>     
 </div>
-<form enctype="multipart/form-data" action="calificar.php" method="POST">'
- <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Id usuario" value="" name="id_user" />
-                </p>
+<form enctype="multipart/form-data" action="calificarPer.php" method="POST">'
+<p class="contact-email">
+<input id="contact_email" type="text" placeholder="Id usuario" value="" name="id_user" />
+  </p>
   <select name="calificacion">
    				<option selected value="0"> Selecione su Calificacion/option>
       			<option value="1">1</option>
@@ -105,19 +105,19 @@ if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-
-$idPer = $_POST["id_user"];
-$Cali = $_POST["calificacion"];
+$idusuario = $_SESSION['NU'];
 $division = '';
-
-
-if($Cali <= 5){
-        
-    $query_procedimiento = oci_parse($conn, "BEGIN fun_administrador.calificar(:p1, :p2); END;");  
-	$cursor = oci_new_cursor($conn);
-	oci_bind_by_name($query_procedimiento,':p1', $idPer);
-	oci_bind_by_name($query_procedimiento,':p2', $Cali);
-	oci_execute($query_procedimiento);
-       
-}
+$query_procedimiento = oci_parse($conn, "BEGIN :cursor := consultas.distinto(:busq); END;");  
+$cursor = oci_new_cursor($conn);
+oci_bind_by_name($query_procedimiento,':busq', $idusuario);
+oci_bind_by_name($query_procedimiento,':cursor', $cursor , -1, OCI_B_CURSOR);
+oci_execute($query_procedimiento);
+oci_execute($cursor, OCI_DEFAULT);
+oci_fetch_all($cursor, $array, null, null, OCI_FETCHSTATEMENT_BY_ROW + OCI_ASSOC);
+foreach ($array as $fila) {
+   $division = $division .' <div id="general"> ID del usuario: '.$fila['ID_USUARIO'].'
+  <br></br>Nombre: '.$fila['NOMBRE'].'<br></br> Apellido: '.$fila['APELLIDO1'].'<br></br> Calificación: '.$fila['CALIFICACION'].'<br></br><br></br>'
+  ."<br></br><br></br> ";}
+echo $division;
 ?>
+
