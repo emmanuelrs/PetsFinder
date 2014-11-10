@@ -19,6 +19,12 @@ if($Cali <= 5){
 	oci_bind_by_name($query_procedimiento,':p1', $idPer);
 	oci_bind_by_name($query_procedimiento,':p2', $Cali);
 	oci_execute($query_procedimiento);
+	?> 
+    <script language="javascript"> 
+        alert("Su calificación fue realizada éxitosamente!"); 
+    </script> 
+    <?php 
+    header("refresh:0; url=calificar.php");
        
 }
 ?>

@@ -22,7 +22,7 @@ PROCEDURE SOLICITUD_CASA_CUNA(username in varchar2, taman in varchar2, raza in v
     from raza r
     where r.descripcion_raza = raza;
 
-    insert into casa_cuna(id_casa_cuna, id_persona, tamano, requiere_alimento, id_raza, estado, calificacion_user)
+    insert into casa_cuna(id_casa_cuna, id_persona, tamano, requiere_alimento, id_raza, estado, calificacion)
     values(s_casa_cuna.nextval, id_user, taman, alimento, id_raz, 'Pendiente', cali );
     commit;
 end SOLICITUD_CASA_CUNA;
