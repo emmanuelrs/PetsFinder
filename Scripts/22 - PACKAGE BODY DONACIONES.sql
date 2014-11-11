@@ -46,9 +46,9 @@ FUNCTION CONSULTA_DONACION(username in varchar2)
           where u.user_name = username;
           
          OPEN donaciones FOR
-         SELECT o.nombre_org, u.nombre, u.apellido1, d.cantidad
-         FROM organizacion_casa_cuna o, usuario u, donaciones d
-         WHERE d.id_donacion = o.id_organizacion and d.donador = id_user;      
+         SELECT o.nombre_org, d.cantidad, u.nombre
+         FROM organizacion_casa_cuna o, donaciones d, usuario u
+         WHERE d.id_donacion = o.id_organizacion and d.donador = u.id_usuario and d.donador = id_user;      
          return donaciones;
     END CONSULTA_DONACION;
     
