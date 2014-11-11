@@ -77,3 +77,7 @@ session_start();
     </nav>     
     </div>
 </header>
+<?php
+$idUSER = $_SESSION['IDU'];
+
+?>
