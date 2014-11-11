@@ -292,111 +292,112 @@ session_start();
                 <!-- End Filter -->
             </div>
             
+            
             <div class="span9">
-            	<div class="row">
-                	<section id="projects">
-                    	<ul id="thumbs">
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs">
                         
-							<!-- Item Project and Filter Name -->
-                        	<li class="item-thumbs span3 perro">
-                            	<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                            	<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/1-full.jpg">
-                                	<span class="overlay-img"></span>
+                            <!-- Item Project and Filter Name -->
+                            <li class="item-thumbs span3 perro">
+                                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/1-full.jpg">
+                                    <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/1.jpg" alt="nk">
                             </li>
-                        	<!-- End Item Project -->
+                            <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 gato">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/4-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/4-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/4.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/4.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 otro">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/7-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/7-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/7.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/7.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 otro">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/8-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/8-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/8.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/8.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 perro">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/2-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/2-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/2.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/2.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 gato">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/5-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/5-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/5.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/5.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 gato">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/6-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/6-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/6.jpg" alt=" ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 perro">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/3-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/3-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/3.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/3.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
                             <!-- Item Project and Filter Name -->
                             <li class="item-thumbs span3 otro">
                                 <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="_include/img/work/full/9-full.jpg">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="  " href="_include/img/work/full/9-full.jpg">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                 </a>
                                 <!-- Thumb Image and Description -->
-                                <img src="_include/img/work/thumbs/9.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img src="_include/img/work/thumbs/9.jpg" alt="  ">
                             </li>
                             <!-- End Item Project -->
-							
+                            
                         </ul>
                     </section>
                     
