@@ -198,7 +198,7 @@ session_start();
 <div id="contact" class="page">
 <div id="apDiv7"> <!-- titulo -->
 <div id="apDiv9">
-<a class="button button-small" href="donaRecompenzaAd.php"class = "external">Recompenzas</a><br></br>
+<a class="button button-small" href="donaVoluntariaAd.php"class = "external">Recompenzas</a><br></br>
 <a class="button button-small" href="donaVoluntariaAd.php"class = "external">Donaciones Voluntarias</a>
 <br></br>
 <a class="button button-small" href="consultaDonaAd.php"class = "external">Consulta de Donaciones</a>
