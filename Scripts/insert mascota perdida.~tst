@@ -20,7 +20,7 @@ begin
                                  username => 'emmanuelrs');
                                  
   insertions.set_mascota_perdida(nombre_m => 'Pinto',
-                                 raza_m => 'Raza Unica',
+                                 raza_m => 'Raza única Perro',
                                  tamano1 =>  'Grande',
                                  imagen_m => 'sagua.jpg',
                                  chip_ident => '0',
@@ -38,11 +38,11 @@ begin
                                  
                                   
   insertions.set_mascota_perdida(nombre_m => 'Chester',
-                                 raza_m => 'Dalmata',
+                                 raza_m => 'Dálmata',
                                  tamano1 =>  'Grande',
                                  imagen_m => 'dalmi.jpg',
                                  chip_ident => '7854sjo',
-                                 color_m => 'Blanco con Negro',
+                                 color_m => 'Blanco con negro',
                                  estado_m => 'Perdida',
                                  pais1 =>  'Costa Rica',
                                  provincia1 => 'Alajuela',

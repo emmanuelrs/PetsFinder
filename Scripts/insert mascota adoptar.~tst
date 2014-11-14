@@ -36,22 +36,22 @@ begin
                                  fecha => '1/11/2014',
                                  username => 'Dani');
                                  
-    insertions.set_mascota_adoptar(nombre_m => 'Dino',
-                                 raza_m => 'Schnauzer',
-                                 tamano1 => 'Mediana',
-                                 imagen_m => 'schna.jpg',
+    insertions.set_mascota_adoptar(nombre_m => 'Sparky',
+                                 raza_m => 'Husky Siberiano',
+                                 tamano1 => 'Grande',
+                                 imagen_m => 'husk.jpg',
                                  chip_ident => 'HS4875',
-                                 color_m => 'Gris',
+                                 color_m => 'Blanco',
                                  estado_m => 'Adoptar',
                                  pais1 => 'Costa Rica',
-                                 provincia1 => 'Heredia',
-                                 canton1 => 'Belén',
-                                 distrito1 => 'Asunción',
-                                 detalle_direc => '200 metros este del parque',
-                                 recompensa1 => '0',
-                                 descripcion => 'muy jugueton',
-                                 fecha => '28/09/2014',
-                                 username => 'Dani');
+                                 provincia1 => 'Cartago',
+                                 canton1 => 'La Unión',
+                                 distrito1 => 'Tres Rios',
+                                 detalle_direc => '500 metros norte del parque',
+                                 recompensa1 => '10000',
+                                 descripcion => 'Muy bueno para cuidar propiedades',
+                                 fecha => '13/11/2014',
+                                 username => 'emmanuelrs');
 end;
 16
 nombre_m
