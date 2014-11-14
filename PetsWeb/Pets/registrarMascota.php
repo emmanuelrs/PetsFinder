@@ -138,9 +138,19 @@ $(document).ready(function() {
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Chip identificación" value="" name="chip" />
                 </p>
-                 <p class="contact-email">
-                	<input id="contact_email" type="text" placeholder="Color" value="" name="color" />
-                </p>
+
+                <select name="color">
+                <option selected value="0"> Color</option>
+                <option value="Blanco">Blanco</option>
+                <option value="Negro">Negro</option>
+                <option value="Cafe">Cafe</option>
+                <option value="Blanco con cafe">Blanco con cafe</option>
+                <option value="Blanco con negro">Blanco con negro</option>
+                <option value="Negro con cafe">Negro con cafe</option>
+                <option value="Gris">Gris</option>
+                <option value="Azul">Azul</option>
+                <option value="Verde">Verde</option>
+                </select>
               
                 <p class="contact-email">
                 	<input id="contact_email" type="text" placeholder="Recompenza" value="" name="recompenza" />
