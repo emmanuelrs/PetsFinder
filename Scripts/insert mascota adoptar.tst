@@ -40,7 +40,7 @@ begin
                                  raza_m => 'Schnauzer',
                                  tamano1 => 'Mediana',
                                  imagen_m => 'schna.jpg',
-                                 chip_ident => 'HS4875',
+                                 chip_ident => 'SH4875',
                                  color_m => 'Gris',
                                  estado_m => 'Adoptar',
                                  pais1 => 'Costa Rica',
