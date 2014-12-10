@@ -77,37 +77,17 @@
 
 </script>
 <!-- End Analytics -->
-<div></div><div></div>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.2.custom.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-<script type="text/javascript">
-jQuery(function($){
-$.datepicker.regional['es'] = {
-closeText: 'Cerrar',
-prevText: '&#x3c;Ant',
-nextText: 'Sig&#x3e;',
-currentText: 'Hoy',
-monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
-'Jul','Ago','Sep','Oct','Nov','Dic'],
-dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
-dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
-dayNamesMin: [' D ',' L ',' K ',' M ',' J ',' V ',' S '],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''};
-$.datepicker.setDefaults($.datepicker.regional['es']);
-});    
- 
-$(document).ready(function() {
-   $("#datepicker").datepicker();
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+$( "#datepicker" ).datepicker();
 });
 </script>
+
 </div>
 </head>
 <body>
@@ -379,7 +359,8 @@ $(document).ready(function() {
 
                 <p class="contact-submit">
                 <label> Seleccionar Fecha:</label>
-                <input type="text" name="datepicker" id="datepicker" readonly="readonly" size="12" /> 
+                <p><input type="text" id="datepicker" name="datepicker"></p>
+
                 <input type="submit" value="Enviar" class="boton">
                 </p>   
         	   

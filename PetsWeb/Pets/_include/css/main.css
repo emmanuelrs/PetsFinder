@@ -924,7 +924,8 @@ nav#menu #menu-nav li a:hover {
 }
 
 #contact-form {
-	margin-bottom: 0;	
+	margin-bottom: 0;
+	border-left-width: thin;
 }
 
 #contact-form p {
